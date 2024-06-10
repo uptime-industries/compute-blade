@@ -1,16 +1,18 @@
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # General-Purpose Input/Output
 The GPIO allows for low speed modules and other device control
 
 
 ## Expansion Module Port
-<img src="/img/hardware/expansion-module-port.svg" alt="Expansion Module Port"/>
+<img src={useBaseUrl("/img/hardware/expansion-module-port.svg")} alt="Expansion Module Port"/>
 
 ## UART
 
 <div className="center-i">
-    <img src="/img/hardware/uart-front.svg" alt="UART Front"/>
-    <img src="/img/hardware/uart-back.svg" alt="UART Back"/>
+    <img src={useBaseUrl("/img/hardware/uart-front.svg")} alt="UART Front"/>
+    <img src={useBaseUrl("/img/hardware/uart-back.svg")} alt="UART Back"/>
 </div>
 This is the same `UART0` port, but with the big one, you can use 5V in/out (in “in” mode ONLY if the Blade has no other power source)
 
