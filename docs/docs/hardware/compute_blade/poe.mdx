@@ -1,0 +1,90 @@
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Power over Ethernet
+
+The Compute Blade features a Gigabit Ethernet port that supports IEEE 802.3af (PoE), 802.3at (PoE+), and 802.3bt (PoE++).
+
+## Power Consumption
+
+Power consumption will vary based on load, accessories connected, the power requirements of any devices installed in the M.2 slot.
+Durring Testing a Compute Blade with a CM4 overlocked to 2GHz and a consumer NVMe SSD under load consumes ~7W. Normal operation may range from 3W to 17W.
+
+## PoE+ Indicator
+The PoE+ Indicator can be used to monitor power supply failures or limit RaspberryPi overclocking, when power is provided via 802.3af only. There is an LED on the Blade with a `+` label indicating the PoE+ power state. Alongside, `GPIO23` can be used to identify the power state.
+
+| LED Color          | Description                                | GPIO 23  | Power          |
+|--------------------|--------------------------------------------|----------|----------------|
+| Red                | 5 Volt present (PoE or USB-C or 5v direct) | **HIGH** | 12W            |
+| Orange (Red+Green) | PoE+ (802.3at or 802.3bt) present          | **LOW**  | 25W (RC2: 22W) |
+
+### Accessing the PoE+ Status in Software
+The `GPIO23` indicates the PoE+ state, these script can e.g. used to detect the status.
+<Tabs groupId='code-lang'>
+    <TabItem value="python" label="Python" default>
+
+    ```py
+    import RPi.GPIO as GPIO
+    import time
+
+    POE_INDICATOR_GPIO = 23
+
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(POE_INDICATOR_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP) # PoE indicator
+
+    try:
+        button_state = GPIO.input(POE_INDICATOR_GPIO)
+        if button_state == False:
+            print("Powersource: 802.3at or 802.3bt")
+        else:
+            print("Powersource: 802.3af or USB-C")
+    except:
+        GPIO.cleanup()
+    ```
+    </TabItem>
+    <TabItem value="c" label="C" >
+    ```c
+    #include <stdio.h>
+#include <wiringPi.h>
+
+// Define the GPIO pin number for the PoE indicator
+#define POE_INDICATOR_GPIO 23
+
+int main(void) {
+    // Initialize the wiringPi library
+    if (wiringPiSetupGpio() == -1) {
+        printf("wiringPi setup failed\n");
+        return 1;
+    }
+
+    // Set the GPIO pin mode to input
+    pinMode(POE_INDICATOR_GPIO, INPUT);
+
+    // Read the state of the GPIO pin
+    int poeIndicatorState = digitalRead(POE_INDICATOR_GPIO);
+
+    // Check if the pin is active (assuming active-high logic)
+    if (poeIndicatorState == HIGH) {
+        printf("Powersource: 802.3af or USB-C\n");
+    } else {
+        printf("Powersource: 802.3at\n");
+    }
+
+    return 0;
+}
+    ```
+    </TabItem>
+</Tabs>
+
+## PoE Modules
+Different Compute Blade revisions use different PoE modules. See the table below
+
+| Version           | PoE Module                                        | Volts | Watts (Peak) | PoE Support                    | Classification               |
+|:------------------|:--------------------------------------------------|:------|:-------------|:-------------------------------|:-----------------------------|
+| v1.0              | [Silvertel Ag5405](https://silvertel.com/ag5400/) | 5V    | 25.5W (30W)  | IEEE 802.3af, 802.3at, 802.3bt | Type 2, Class 4              |
+| RC2               | [Silvertel Ag5305](https://silvertel.com/ag5300/) | 5V    | 20W (22W)    | IEEE 802.3af, 802.3at          | Type 2, Class 4              |
+
+
+## Switch Recommendation
+A switch that can Supply IEEE 802.3at (PoE+) is recommended as IEEE 802.3af (PoE) may not provide sufficient power for all work loads.

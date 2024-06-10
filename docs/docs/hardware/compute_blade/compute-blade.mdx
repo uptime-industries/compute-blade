@@ -1,0 +1,68 @@
+---
+sidebar_position: 1
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Compute Blade
+
+![Infographic](/img/hardware/v1-infographic.png)
+
+---
+## Compute Blade Models
+The Compute Blade comes in three haredware teirs.
+
+| Feature                   |  Basic     |   TPM  |  Dev |
+| :------------------------ | :--------: | :----: | :----: |
+| CM4 Port                  | ✅        | ✅     | ✅    |
+| M.2 Slot M Key up to 2210 | ✅        | ✅     | ✅    |
+| Gigabit Ethernet          | ✅        | ✅     | ✅    |
+| PoE++ support             | ✅        | ✅     | ✅    |
+| UART                      | ✅        | ✅     | ✅    |
+| Programable Button        | ✅        | ✅     | ✅    |
+| Programable LEDs          | ✅        | ✅     | ✅    |
+| USB-A 2.0                 | ❌        | ✅     | ✅    |
+| TPM 2.0                   | ❌        | ✅     | ✅    |
+| HDMI                      | ❌        | ❌     | ✅    |
+| USB-C for Flashing CM4    | ❌        | ❌     | ✅    |
+| MicroSD Card              | ❌        | ❌     | ✅    |
+| Wi-Fi                     | Locked | Locked | Switchable |
+| Bluetooth                 | Locked | Locked | Switchable |
+| Write Protection          | Locked | Locked | Switchable |
+
+## Block Scheme
+This is the top part of the Raspberry Pi's GPIO connector. On the Compute Blade, PIN 1 corresponds to 3.3V, while on the Raspberry Pi's standard connector, it is labeled as 3.3V PWR.
+<Tabs>
+    <TabItem value="basic" label="Basic" >
+    ![Basic Block Scheme](/img/hardware/basic-block-scheme.png)
+    </TabItem>
+    <TabItem value="tpm" label="TPM">
+    ![TPM Block Scheme](/img/hardware/tpm-block-scheme.png)
+    </TabItem>
+    <TabItem value="dev" label="Dev">
+    ![Dev Block Scheme](/img/hardware/dev-block-scheme.png)
+    </TabItem>
+</Tabs>
+
+
+## Mechanical
+![mechanical](/img/hardware/mechanical.png)
+## DIP Switchs
+:::danger
+Only change switch positions when the Blade is unpluged from power
+:::
+
+|         Switchs      |   Left   |   Right  |
+| :------------------- | :------: | :------: |
+| 1 - Write Protection | Disabled | Enabled  |
+| 2 - Wi-Fi            | Enabled  | Disabled |
+| 3 - Bluetooth        | Enabled  | Disabled |
+
+
+
+:::warning
+To enable write protection, changes are required to the bootloader. Follow the steps in the official [documentation](https://www.raspberrypi.com/documentation/computers/compute-module.html#cm4bootloader).
+:::
+---
+# USB-C USB-A Switch
+The compute module can only operate one USB port at a time. There is a switch to enable which port you would like to utilize.

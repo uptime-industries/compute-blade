@@ -1,0 +1,8 @@
+{
+  "label": "Compute Blade",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Documentation for Compute Blade"
+  }
+}
