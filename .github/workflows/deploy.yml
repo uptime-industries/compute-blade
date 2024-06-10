@@ -1,8 +1,5 @@
 name: Deploy to GitHub Pages
-defaults:
-  run:
-    shell: bash
-    working-directory: ./docs
+
 
 on:
   push:
@@ -13,6 +10,10 @@ on:
 
 jobs:
   build:
+    defaults:
+        run:
+            shell: bash
+            working-directory: ./docs
     name: Build Docusaurus
     runs-on: ubuntu-latest
     steps:
