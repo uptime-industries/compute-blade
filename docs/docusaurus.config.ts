@@ -8,15 +8,16 @@ const config: Config = {
   favicon: 'img/Favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://docs.computeblade.com',
+  url: 'https://uptime-industries.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/compute-blade/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'uptime-industries', // Usually your GitHub org/user name.
   projectName: 'compute-blade', // Usually your repo name.
+  deploymentBranch: 'main', // The name of the deployment branch.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -38,7 +39,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/uptime-industries/compute-blade/tree/main/website/',
+            'https://github.com/uptime-industries/compute-blade/tree/main/docs/',
         },
         blog: {
           showReadingTime: true,
