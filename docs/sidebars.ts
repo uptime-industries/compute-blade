@@ -16,6 +16,7 @@ const sidebars: SidebarsConfig = {
     'intro',
     'gpio',
     'poe',
+    'agent',
     'fan-unit',
     'runner',
     'tested-m2'
