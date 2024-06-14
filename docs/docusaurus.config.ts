@@ -107,22 +107,27 @@ const config: Config = {
         {
           title: 'Community',
           items: [
-            // {
-            //   label: 'Stack Overflow',
-            //   href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            // },
-            {
-              label: 'Discord',
-              href: 'https://discord.gg/uptime-industries',
-            },
             {
               label: 'LinkedIn',
               href: 'https://www.linkedin.com/company/uptimeindustries',
+            },
+            {
+              label: 'Discord',
+              href: 'https://discord.gg/uptime-industries',
             }
-            // {
-            //   label: 'Twitter',
-            //   href: 'https://twitter.com/docusaurus',
-            // },
+          ],
+        },
+        {
+          title: 'Social',
+          items: [
+            {
+              label: 'Instagram',
+              href: 'https://www.instagram.com/uptime.lab/',
+            },
+            {
+              label: 'Twitter',
+              href: 'https://twitter.com/Merocle',
+            },
           ],
         },
         {
