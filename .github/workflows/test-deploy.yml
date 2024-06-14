@@ -6,6 +6,8 @@ defaults:
 
 on:
   pull_request:
+    paths:
+      - docs/**
     branches:
       - main
     # Review gh actions docs if you want to further define triggers, paths, etc
