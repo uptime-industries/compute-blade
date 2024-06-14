@@ -1,8 +1,11 @@
+---
+sidebar_position: 2
+---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Power over Ethernet
+# Power Supply
 
 The Compute Blade features a Gigabit Ethernet port that supports IEEE 802.3af (PoE), 802.3at (PoE+), and 802.3bt (PoE++).
 
@@ -46,33 +49,33 @@ The `GPIO23` indicates the PoE+ state, these script can e.g. used to detect the 
     <TabItem value="c" label="C" >
     ```c
     #include <stdio.h>
-#include <wiringPi.h>
+    #include <wiringPi.h>
 
-// Define the GPIO pin number for the PoE indicator
-#define POE_INDICATOR_GPIO 23
+    // Define the GPIO pin number for the PoE indicator
+    #define POE_INDICATOR_GPIO 23
 
-int main(void) {
-    // Initialize the wiringPi library
-    if (wiringPiSetupGpio() == -1) {
-        printf("wiringPi setup failed\n");
-        return 1;
+    int main(void) {
+        // Initialize the wiringPi library
+        if (wiringPiSetupGpio() == -1) {
+            printf("wiringPi setup failed\n");
+            return 1;
+        }
+
+        // Set the GPIO pin mode to input
+        pinMode(POE_INDICATOR_GPIO, INPUT);
+
+        // Read the state of the GPIO pin
+        int poeIndicatorState = digitalRead(POE_INDICATOR_GPIO);
+
+        // Check if the pin is active (assuming active-high logic)
+        if (poeIndicatorState == HIGH) {
+            printf("Powersource: 802.3af or USB-C\n");
+        } else {
+            printf("Powersource: 802.3at\n");
+        }
+
+        return 0;
     }
-
-    // Set the GPIO pin mode to input
-    pinMode(POE_INDICATOR_GPIO, INPUT);
-
-    // Read the state of the GPIO pin
-    int poeIndicatorState = digitalRead(POE_INDICATOR_GPIO);
-
-    // Check if the pin is active (assuming active-high logic)
-    if (poeIndicatorState == HIGH) {
-        printf("Powersource: 802.3af or USB-C\n");
-    } else {
-        printf("Powersource: 802.3at\n");
-    }
-
-    return 0;
-}
     ```
     </TabItem>
 </Tabs>

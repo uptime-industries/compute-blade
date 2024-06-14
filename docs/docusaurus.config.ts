@@ -68,10 +68,16 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'docsSidebar',
           position: 'left',
           label: 'Docs',
         },
+        // {
+        //   type: 'docSidebar',
+        //   sidebarId: 'guidesSidebar',
+        //   position: 'left',
+        //   label: 'Guides',
+        // },
         // {to: '/blog', label: 'Blog', position: 'left'},
         {
           label: 'Website',
@@ -142,6 +148,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['bash', 'c', 'powershell']
     },
   } satisfies Preset.ThemeConfig,
 };

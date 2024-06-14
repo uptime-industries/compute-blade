@@ -1,3 +1,6 @@
+---
+sidebar_position: 8
+---
 
 # Compute Blade Agent
 An OS agent interfacing with the Compute Blade hardware. 

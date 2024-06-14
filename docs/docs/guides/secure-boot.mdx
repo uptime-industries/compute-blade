@@ -1,0 +1,24 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Using Secure Boot
+
+Secure boot is part of the [UEFI](https://uefi.org/) specification.
+Which can secure the boot process by preventing the loading of UEFI drivers or
+OS boot loaders that are not signed with an acceptable digital signature.
+This guide will descibe the prossess to setup secure boot on CM4, using
+
+:::note
+Secure boot is only supported on `Pi 4`, `Pi 400`, `CM4` or later
+:::
+
+## Prerequisites
+On a seperate computer install [usbboot](https://github.com/raspberrypi/usbboot) follow the installations
+[instructions](https://github.com/raspberrypi/usbboot/blob/master/Readme.md) provided in the GitHub repository
+
+
+## Referances
+
+1. [Rasberry Pi Secure boot White Paper](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003466-WP/Boot-Security-Howto.pdf)
+2. [usbboot GitHub Repo](https://github.com/raspberrypi/usbboot)
+3. [WSL Connect USB devices](https://learn.microsoft.com/en-us/windows/wsl/connect-usb)
