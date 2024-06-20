@@ -18,6 +18,7 @@ const config: Config = {
   organizationName: 'uptime-industries', // Usually your GitHub org/user name.
   projectName: 'compute-blade', // Usually your repo name.
   deploymentBranch: 'main', // The name of the deployment branch.
+  trailingSlash: true,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -28,6 +29,16 @@ const config: Config = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
+    path: 'i18n',
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+        htmlLang: 'en-US',
+        calendar: 'gregory',
+        path: 'en',
+      },
+    },
   },
 
   presets: [
@@ -35,18 +46,19 @@ const config: Config = {
       'classic',
       {
         docs: {
+          routeBasePath: '/',
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/uptime-industries/compute-blade/tree/main/docs/',
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
-          //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          //   'https://github.com/uptime-industries/compute-blade/tree/main/blog/',
         },
         theme: {
           customCss: './src/css/custom.css',
