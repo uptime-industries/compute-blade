@@ -38,7 +38,7 @@ The Numbs on the buttom of the bracket should face the back of the Fan Unit.
 Your fan is not installed in the Fan Unit.
 
 :::tip
-Need Help with installing your fan unit in a Blade Runner click [here](/blade-runners/)
+Need Help with installing your fan unit in a Blade Runner click [here](/blade-runner/)
 :::
 
 ## Ideas for Smart Fan Unit
