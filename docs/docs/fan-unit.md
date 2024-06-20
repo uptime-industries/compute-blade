@@ -27,7 +27,7 @@ The Fan Units are Desinged to cool all Blade Runner enclosure. Each Fan Unit can
 :::note
 When using the standard Fan Unit only the Left pins can be used for PWM
 :::
-## Monting a Faning
+## Fan Installation
 The Fan Units are designed for 40x20mm Fans like the [NF-A4x20 5V PWM](https://noctua.at/en/products/fan/nf-a4x20-5v-pwm). To attach the fan to the Fan Unit follow the folloing steps:
 
 1. Connect the plastic [left](https://github.com/uptime-industries/compute-blade/blob/main/fan-unit/fan-bracket/left.stl) and [right](https://github.com/uptime-industries/compute-blade/blob/main/fan-unit/fan-bracket/right.stl) fan brackets to the fan.
