@@ -18,7 +18,7 @@ const sidebars: SidebarsConfig = {
     'poe',
     'agent',
     'fan-unit',
-    'runner',
+    'blade-runner',
     'tested-m2'
   ],
 

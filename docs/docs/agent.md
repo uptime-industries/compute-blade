@@ -1,5 +1,6 @@
 ---
 sidebar_position: 8
+displayed_sidebar: docsSidebar
 ---
 
 # Compute Blade Agent

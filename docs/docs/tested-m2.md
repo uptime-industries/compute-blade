@@ -1,3 +1,6 @@
+---
+displayed_sidebar: docsSidebar
+---
 
 # Supported SSDs
 
