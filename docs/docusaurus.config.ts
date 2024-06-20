@@ -8,7 +8,7 @@ const config: Config = {
   favicon: 'img/Favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://uptime-industries.github.io',
+  url: 'https://docs.computeblade.com/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
