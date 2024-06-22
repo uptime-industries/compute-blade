@@ -1,17 +1,29 @@
-endi:
-  name: Endilie Yacop Sucipto
-  title: Maintainer of Docusaurus
-  url: https://github.com/endiliey
-  image_url: https://github.com/endiliey.png
+william:
+  name: J william Bowen
+  title: Comunity Manager
+  url: https://github.com/bowenjw
+  image_url: https://github.com/bowenjw.png
 
-yangshun:
-  name: Yangshun Tay
-  title: Front End Engineer @ Facebook
-  url: https://github.com/yangshun
-  image_url: https://github.com/yangshun.png
+sascha:
+  name: Sascha Buehrle
+  title: Chief Product & Technology Officer
+  url: https://github.com/saschabuehrle
+  image_url: https://github.com/saschabuehrle.png
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
+ivan:
+  name: Ivan Kuleshov
+  title: Systems Engineer
+  url: https://github.com/merocle
+  image_url: https://github.com/merocle.png
+
+grigorii:
+  name: Grigorii Merkushev
+  title: Software Engineer
+  url: https://github.com/brushknight
+  image_url: https://github.com/brushknight.png
+
+gena:
+  name: Gena Kamotski
+  title: Chief Experience Officer
+  url: https://www.linkedin.com/in/genakamotski
+  # image_url: https://media.licdn.com/dms/image/D4D03AQFRaMYg9zZiZg/profile-displayphoto-shrink_200_200/0/1672854471854?e=1724284800&v=beta&t=L2VMKEkCVDB64U9D83YNASwBWgpF5k4voUQ-Or-jlzw

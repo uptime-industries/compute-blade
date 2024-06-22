@@ -75,15 +75,21 @@ const config: Config = {
       logo: {
         alt: 'compute blade Logo',
         src: 'img/ComputeBlade-logo-black.svg',
-        srcDark: 'img/ComputeBlade-logo-green.svg'
+        srcDark: 'img/ComputeBlade-logo-green.svg',
+        href: 'https://computeblade.com/'
       },
       items: [
-        // {
-        //   type: 'docSidebar',
-        //   sidebarId: 'docsSidebar',
-        //   position: 'left',
-        //   label: 'Docs',
-        // },
+        {
+          type: 'docSidebar',
+          sidebarId: 'docsSidebar',
+          position: 'left',
+          label: 'Docs',
+        },
+        {
+          to: 'timeline',
+          label: 'Timeline',
+          position: 'left'
+        },
         // {
         //   type: 'docSidebar',
         //   sidebarId: 'guidesSidebar',
@@ -91,11 +97,11 @@ const config: Config = {
         //   label: 'Guides',
         // },
         // {to: '/blog', label: 'Blog', position: 'left'},
-        {
-          label: 'Website',
-          href: 'https://computeblade.com',
-          position: 'right'
-        },
+        // {
+        //   label: 'Website',
+        //   href: 'https://computeblade.com',
+        //   position: 'right'
+        // },
         {
           href: 'https://github.com/uptime-industries/compute-blade',
           label: 'GitHub',
@@ -157,6 +163,10 @@ const config: Config = {
               label: 'GitHub',
               href: 'https://github.com/uptime-industries',
             },
+            // {
+            //   label: 'Kickstarter',
+            //   href: 'https://www.kickstarter.com/projects/uptimelab',
+            // },
           ],
         },
       ],
@@ -165,7 +175,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['bash', 'c', 'powershell']
+      additionalLanguages: ['bash', 'c', 'powershell', 'rust']
     },
     algolia: {
       // The application ID provided by Algolia
