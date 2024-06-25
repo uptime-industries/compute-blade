@@ -1,8 +1,0 @@
-{
-  "label": "Guides",
-  "position": 10,
-  "link": {
-    "type": "generated-index",
-    "description": "Getting started with the Compute blade"
-  }
-}
