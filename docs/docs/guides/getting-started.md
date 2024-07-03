@@ -3,58 +3,60 @@ sidebar_position: 1
 ---
 # Getting Started
 
-## Prerequisites
+This page will describe how to get started with the dev compute blade. From opening the box to conecting to it via SSH.
 
----
+## Prerequisites
 
 Before beginning you will need the following items:
 
-- Internet Connection
-- [Raspberry Pi Compute Module 4](https://www.raspberrypi.com/products/compute-module-4)
-- **USB-C cable,** Witch can be connected to the your computer
-- **USB-to-NVMe,** Such as [Ugreen M.2 NVMe SSD Enclosure Adapter](https://www.ugreen.com/products/ugreen-m-2-nvme-ssd-enclosure-adapter)
-- **NVMe SSD**, Check our list of validated Drives if you are unsure which to get
-- **PoE Power Delivery**, Capable of `802.3af`(PoE), `802.3at`(PoE+), or `802.3bt`(PoE++)
-    
-:::danger
-    ⚡ Not all Computeblades have the same power supply, refer to our power documentation for your modal
-::: 
+- **Internet Connection**
+- **[Raspberry Pi Compute Module 4](https://www.raspberrypi.com/products/compute-module-4)**
+  - We recommend `CM4008000` with 8GB of RAM, no EMMC, and No WiFi.
+- **Dev Compute Blade**
+- **USB-C cable**, to connect the Dev Blade to your computer
+- **USB-to-NVMe**
+  - Such as [Ugreen M.2 NVMe SSD Enclosure Adapter](https://www.ugreen.com/products/ugreen-m-2-nvme-ssd-enclosure-adapter)
+- **NVMe SSD**
+  - Check our list of validated Drives if you are unsure which to get
+- **Network to connect the Blade**
+  - Optionally, you may use a PoE network switch Capable of `802.3af`(PoE) or `802.3at`(PoE+) to power the blade
 
 Additionally make sure to have the following Software install on another computer:
 
-- [RPI Imager](https://github.com/raspberrypi/rpi-imager)
-- [usbboot](https://github.com/raspberrypi/usbboot)
+- [Raspberry Pi Imager](https://github.com/raspberrypi/rpi-imager), Installing Image to the SSD or a SD card
+- [usbboot](https://github.com/raspberrypi/usbboot), For Flashing Compute Module EEPROM
 
-## Installing the Ubuntu on the SSD
+## Installing Ubuntu on the SSD
 
 ---
 
 1. Install the NVMe SSD in to your USB-to-NVMe Adapter and plug it into your Computer
 2. Using Raspberry Pi Imager 
     1. Select Device `Raspberry Pi 4`
-    2. Select Operating `Other general-purpose OS`>`Ubuntu`> `Ubuntu Server 24.04 LTS (64-bit)`
+    2. Select Operating System `Other general-purpose OS`>`Ubuntu`> `Ubuntu Server 24.04 LTS (64-bit)`
     3. For Storage select the SSD
     4. Then Click Next
-3. Before Imager will image your SSD it will ask “Would you like to apply OS customizations settings?” Click “Edit Settings”. 
-    1. Set your hostname. We will use this to connect to you blade over SSH
-    2. Set your user name and Password. We will us these to authenticate with SSH
-    3. And Set you Locale. This will make sure dates are displayed correctly for you
+3. Before RPI Imager will image your SSD it will ask “Would you like to apply OS customizations settings?” Click “Edit Settings”.
+    1. Set your `hostname`. We will use this to connect to you blade over SSH
+    2. Set your `username` and `password`. We will us these to authenticate with SSH
+    3. And Set you `locale`. This will make sure dates are displayed correctly for you
     4. Enable SSH. Under the “Services” tab Enable SSH with Password authentication
         1. Optionally, you could “Allow public-key authentication only” and add a Public key
-4. Once you setting are configured you may continue to image your SSD
-5. Final, Imager will tell you that is has installed the imager on the SSD and it is safe to removed. Unplug the USB-to-NVMe Adapter and remove the SSD from the adapter.
+4. Once your settings are configured you may continue to image your SSD
+5. Final, RPI Imager will tell you that is has installed the image on the SSD and it is safe to removed. Unplug the USB-to-NVMe Adapter and remove the SSD from the adapter.
 
 ## Install hardware
 
 ---
-
-1. Install the CM4 into the Dev Computeblade.
-    1. Align the the CM4 with the Computeblade and Apply gentle downward facing pressure to the CM4 - you will hear the connectors snapping in.
+<!-- add words for remove of tape -->
+<!-- add added mention for over tighting on heat sink -->
+1. Install the CM4 into the Dev Compute Blade.
+    1. Align the the CM4 with the Compute Blade and Apply gentle downward facing pressure to the CM4 - you will hear the connectors snapping in.
     2. Optionally you can also add a Heatsink
 2. Install the SSD
     1. Adjust the M.2 standoff the the correct position for your SSD
     2. Remove the Philips screw and and red washer
-    3. Insert the edge connector of the SSD at a 45 deg angle in to the M.@ M key connector
+    3. Insert the edge connector of the SSD at a 45 deg angle in to the M.2 M key connector
     4. Reinstall the retention screw with the red washer
 
 ## Prepare CM4 for NVMe Boot
@@ -82,7 +84,7 @@ BOOT_ORDER=0xf6
 3. While pressing down the Button labeled `nRPIBOOT`  underneath the USB switch. Connect the the USB-C port to your computer.
 4. wait for the command to finish then unplug the USB-C cable
 
-## Frist Connect to Computeblade
+## First Connect to Compute blade
 
 ---
 
@@ -97,8 +99,8 @@ SSH <HOSTNAME> -l <USERNAME>
 
 1. Then enter your password
 
-Congratulation your blade is now ready to use. 
-We recommend that you update all packages and install our https://github.com/Uptime-Lab/computeblade-agent 
+Congratulation your blade is now ready to use.
+We recommend that you update all packages and install our [agent](https://github.com/Uptime-Lab/computeblade-agent)
 
 ```bash
 sudo apt update
@@ -107,3 +109,5 @@ curl -L -o /tmp/computeblade-agent-installer.sh https://raw.githubusercontent.co
 chmod +x /tmp/computeblade-agent-installer.sh
 /tmp/computeblade-agent-installer.sh
 ```
+
+<!-- add trouble shooting section -->

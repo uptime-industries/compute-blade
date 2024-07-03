@@ -58,7 +58,7 @@ const config: Config = {
           showReadingTime: true,
           // Remove this to remove the "edit this page" links.
           // editUrl:
-          //   'https://github.com/uptime-industries/compute-blade/tree/main/blog/',
+          //   'https://github.com/uptime-industries/compute-blade/tree/main/docs/blog/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -84,6 +84,12 @@ const config: Config = {
           sidebarId: 'docsSidebar',
           position: 'left',
           label: 'Docs',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'guideSidebar',
+          position: 'left',
+          label: 'Guides',
         },
         {
           to: 'timeline',
@@ -113,15 +119,19 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [
-        // {
-        //   title: 'Docs',
-        //   items: [
-        //     {
-        //       label: 'Tutorial',
-        //       to: '/docs/intro',
-        //     },
-        //   ],
-        // },
+        {
+          title: 'Docs',
+          items: [
+            {
+              label: 'Introduction',
+              to: 'intro',
+            },
+            {
+              label: 'Guides',
+              to: 'guides/Getting-Started',
+            },
+          ],
+        },
         {
           title: 'Community',
           items: [
@@ -157,11 +167,15 @@ const config: Config = {
             // },
             {
               label: 'Website',
-              href: 'https://computeblade.com',
+              href: 'https://uptime.industries/',
             },
+            // {
+            //   label: 'Compute Blade Website',
+            //   href: 'https://computeblade.com/',
+            // },
             {
               label: 'GitHub',
-              href: 'https://github.com/uptime-industries',
+              href: 'https://github.com/uptime-industries/',
             },
             // {
             //   label: 'Kickstarter',
