@@ -128,7 +128,7 @@ const config: Config = {
             },
             {
               label: 'Guides',
-              to: 'guides/Getting-Started',
+              to: 'guides/getting-started',
             },
           ],
         },
