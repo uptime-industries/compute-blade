@@ -18,8 +18,7 @@ const sidebars: SidebarsConfig = {
     'poe',
     'agent',
     'fan-unit',
-    'blade-runner',
-    'tested-m2'
+    'blade-runner'
   ],
 
   // guidesSidebar: [
