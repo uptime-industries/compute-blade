@@ -1,6 +1,6 @@
 
 # Kickstarter Timeline
-*The date listed here are estimations and subject to chanage*
+*The date listed here are estimates and subject to change*
 
 | Item                   | Estimated Shipping Date | Status                        |
 | :--------------------- | :---------------------: | :---------------------------: |
