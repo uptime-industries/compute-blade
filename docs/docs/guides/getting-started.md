@@ -17,7 +17,7 @@ Before beginning you will need the following items:
 - **USB-to-NVMe**
   - Such as [Ugreen M.2 NVMe SSD Enclosure Adapter](https://www.ugreen.com/products/ugreen-m-2-nvme-ssd-enclosure-adapter)
 - **NVMe SSD**
-  - Check our list of validated Drives if you are unsure which to get
+  - Check our list of [validated Drives](/tested-ssd) if you are unsure which to get. Addtionaly you can look to Jeff Geerling's [PCIe Database](https://pipci.jeffgeerling.com/#m2-and-nvme-adapters)
 - **Network to connect the Blade**
   - Optionally, you may use a PoE network switch Capable of `802.3af`(PoE) or `802.3at`(PoE+) to power the blade
 
@@ -65,13 +65,13 @@ Additionally make sure to have the following Software install on another compute
 
 To Make sure that the CM4 can boot from the NVMe SSD we will need to update the bootloader. This is done using the `rpiboot` Utility from the USBboot GitHub repo. Once installed
 
-1. navigate to the directory where the executable `rpiboot` is located.
+1. Navigate to the directory where the executable `rpiboot` is located.
 2. Copy the the directory `./recovery`  to a new directory `./nvme` 
 3. Edit the copied config file `./nvme/boot.conf` in a text editor and update the `BOOT_ORDER`. Save and close the file 
 
 ```tsx
-# Try NVMe PCIe, then network
-BOOT_ORDER=0xf6
+# Try NVMe PCIe, SD Card, USB, network, then Restarts
+BOOT_ORDER=0xf216
 ```
 
 :::tip
