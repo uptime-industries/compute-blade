@@ -5,7 +5,7 @@
 | Item                   | Estimated Shipping Date | Status                        |
 | :--------------------- | :---------------------: | :---------------------------: |
 | Team Cluster           | 2024-04-03              | >10 Unfulfilled               |
-| Batch00                | 2024-07-16              | Waiting on v1.0 Mk4 Blades    |
+| Batch00                | By end of July 2024     | Waiting on v1.0 Mk4 Blades    |
 | Batch01                | Late Summer 2024        | Waiting on Batch00 Fulfillment |
 | Build your own Cluster | Late Summer 2024        | Waiting on Batch00 Fulfillment |
 | 10" Rack Cluster       | Late Summer 2024        | Waiting on Batch00 Fulfillment |
