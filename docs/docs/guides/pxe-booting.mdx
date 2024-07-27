@@ -1,0 +1,116 @@
+# PXE Booting/Provisioning (many) Blades
+
+The CM4 can natively boot via PXE, but requires additional files on the TFTP server for bootstrapping.
+In order to provide a standardized UEFI boot process (including PXE), there's an [EDK2 UEIF build available for the ComputeBlade](https://github.com/uptime-industries/compute-blade-cm4-uefi).
+Using this image for the SD Card (CM4 Lite modules) or the eMMC enables commodity provisioning software supporting ARM64 to bootstrap clusters.
+
+
+## Canonical MaaS
+
+Canonical [MaaS](https://maas.io) is a bare-metal provisioning tool focussed on Ubuntu. The [How-To Guide](https://maas.io/docs/how-to-install-maas) works out of the box therefore no further documentation is specified here.
+
+## PXE Booting Nodes with Tinkerbell
+> In this example, we're booting [Talos Linux](http://talos.dev). This works with any other distribution supporting a netboot environment as well.
+
+The component responsible for the PXE booting within the [Tinkerbell](https://tinkerbell.org) stack is [Smee](https://github.com/tinkerbell/smee). It can be setup either bare-metal or within a Kubernetes cluster.
+
+### Installing Tinkerbell on a single-node Kubernetes installation
+
+Tinkerbell, or more specific for this use-case Smee, can be installed using helm:
+
+values.yaml:
+```yaml
+tink:
+  server:
+    deploy: false
+  controller:
+    deploy: false
+rufio:
+  deploy: false
+hegel:
+  deploy: false
+smee:
+  hostNetwork: true
+  publicIP: 100.64.0.2  # Set to the IP address of your node
+  trustedProxies:
+  - 0.0.0.0/0
+  nodeSelector:
+    kubernetes.io/hostname: talos-di6-jbg  # Set to the k8s node name. Has to match the publicIP value above
+stack:
+  enabled: false
+
+```
+
+```bash
+helm install tink-stack oci://ghcr.io/tinkerbell/charts/stack --version "0.4.5" --create-namespace --namespace tink-system --wait -f values.yaml
+```
+
+### Defining Boot Process
+After everything is up and running, you can declare `Hardware` resources with networking configuration alongside boot information. Here an exampel for a ComputeModule with the MAC address `d8:3a:dd:bb:36:be`:
+```
+---
+apiVersion: "tinkerbell.org/v1alpha1"
+kind: Hardware
+metadata:
+  name: bld-d83addbb36be
+  namespace: tink-system
+spec:
+  interfaces:
+    - dhcp:
+        ip:
+          address: 100.64.0.100
+          gateway: 100.64.0.1
+          netmask: 255.255.255.0
+        mac: d8:3a:dd:bb:36:be
+        name_servers:
+          - 100.64.0.1
+        uefi: true
+      netboot:
+        allowPXE: true
+        allowWorkflow: false
+        ipxe:
+          url: https://pxe.factory.talos.dev/pxe/779804eb249e184f2986a0cacb95aa6ed8f133878449da8df9a68829f90902b9/v1.7.5/metal-arm64
+```
+
+Upon powering up the blade, the boot process can be followed in the log output of smee:
+```
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086063.1273975,"caller":"reservation/handler.go:86","msg":"received DHCP packet","mac":"d8:3a:dd:bb:36:be","xid":"0xa89f634e","interface":"eth0","type":"DISCOVER"}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086063.1281593,"caller":"reservation/handler.go:141","msg":"sent DHCP response","mac":"d8:3a:dd:bb:36:be","xid":"0xa89f634e","interface":"eth0","type":"OFFER","bootFileName":"snp.efi","nextServer":"100.64.0.2","ipAddress":"100.64.0.100","destination":"255.255.255.255:68"}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086071.1267426,"caller":"reservation/handler.go:101","msg":"received DHCP packet","mac":"d8:3a:dd:bb:36:be","xid":"0xa89f634e","interface":"eth0","type":"REQUEST"}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086071.1273892,"caller":"reservation/handler.go:141","msg":"sent DHCP response","mac":"d8:3a:dd:bb:36:be","xid":"0xa89f634e","interface":"eth0","type":"ACK","bootFileName":"snp.efi","nextServer":"100.64.0.2","ipAddress":"100.64.0.100","destination":"255.255.255.255:68"}
+smee-dfcb5c7b6-h52h9 smee {"level":"error","ts":1722086071.1357145,"logger":"github.com/tinkerbell/ipxedust","caller":"itftp/itftp.go:106","msg":"file serve failed","service":"github.com/tinkerbell/smee","event":"get","filename":"snp.efi","uri":"snp.efi","client":{"IP":"100.64.0.100","Port":1389,"Zone":""},"macFromURI":"","b":0,"contentSize":267776,"error":"sending block 0: code=8, error: User aborted the transfer\u0000","stacktrace":"github.com/tinkerbell/ipxedust/itftp.Handler.HandleRead\n\t/home/runner/go/pkg/mod/github.com/tinkerbell/ipxedust@v0.0.0-20231215220341-a535c5deb47a/itftp/itftp.go:106\ngithub.com/pin/tftp/v3.(*Server).handlePacket.func2\n\t/home/runner/go/pkg/mod/github.com/pin/tftp/v3@v3.1.0/server.go:455"}
+smee-dfcb5c7b6-h52h9 smee {"level":"error","ts":1722086072.9095297,"logger":"github.com/tinkerbell/ipxedust","caller":"itftp/itftp.go:106","msg":"file serve failed","service":"github.com/tinkerbell/smee","event":"get","filename":"snp.efi","uri":"snp.efi","client":{"IP":"100.64.0.101","Port":1097,"Zone":""},"macFromURI":"","b":142848,"contentSize":267776,"error":"Channel timeout: 100.64.0.101:1097","stacktrace":"github.com/tinkerbell/ipxedust/itftp.Handler.HandleRead\n\t/home/runner/go/pkg/mod/github.com/tinkerbell/ipxedust@v0.0.0-20231215220341-a535c5deb47a/itftp/itftp.go:106\ngithub.com/pin/tftp/v3.(*Server).handlePacket.func2\n\t/home/runner/go/pkg/mod/github.com/pin/tftp/v3@v3.1.0/server.go:455"}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086073.7314184,"logger":"github.com/tinkerbell/ipxedust","caller":"itftp/itftp.go:111","msg":"file served","service":"github.com/tinkerbell/smee","event":"get","filename":"snp.efi","uri":"snp.efi","client":{"IP":"100.64.0.100","Port":1390,"Zone":""},"macFromURI":"","bytesSent":267776,"contentSize":267776}
+smee-dfcb5c7b6-h52h9 smee {"level":"error","ts":1722086073.7342472,"logger":"github.com/tinkerbell/ipxedust","caller":"itftp/itftp.go:91","msg":"file unknown","service":"github.com/tinkerbell/smee","event":"get","filename":"autoexec.ipxe","uri":"autoexec.ipxe","client":{"IP":"100.64.0.100","Port":1391,"Zone":""},"macFromURI":"","error":"file [autoexec.ipxe] unknown: file does not exist","stacktrace":"github.com/tinkerbell/ipxedust/itftp.Handler.HandleRead\n\t/home/runner/go/pkg/mod/github.com/tinkerbell/ipxedust@v0.0.0-20231215220341-a535c5deb47a/itftp/itftp.go:91\ngithub.com/pin/tftp/v3.(*Server).handlePacket.func2\n\t/home/runner/go/pkg/mod/github.com/pin/tftp/v3@v3.1.0/server.go:455"}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086082.7369385,"caller":"reservation/handler.go:86","msg":"received DHCP packet","mac":"d8:3a:dd:bb:36:be","xid":"0x98b69526","interface":"eth0","type":"DISCOVER"}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086082.7379577,"caller":"reservation/handler.go:141","msg":"sent DHCP response","mac":"d8:3a:dd:bb:36:be","xid":"0x98b69526","interface":"eth0","type":"OFFER","bootFileName":"https://pxe.factory.talos.dev/pxe/779804eb249e184f2986a0cacb95aa6ed8f133878449da8df9a68829f90902b9/v1.7.5/metal-arm64","nextServer":"100.64.0.2","ipAddress":"100.64.0.100","destination":"255.255.255.255:68"}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086082.7425363,"caller":"reservation/handler.go:101","msg":"received DHCP packet","mac":"d8:3a:dd:bb:36:be","xid":"0x98b69526","interface":"eth0","type":"REQUEST"}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086082.7433407,"caller":"reservation/handler.go:141","msg":"sent DHCP response","mac":"d8:3a:dd:bb:36:be","xid":"0x98b69526","interface":"eth0","type":"ACK","bootFileName":"https://pxe.factory.talos.dev/pxe/779804eb249e184f2986a0cacb95aa6ed8f133878449da8df9a68829f90902b9/v1.7.5/metal-arm64","nextServer":"100.64.0.2","ipAddress":"100.64.0.100","destination":"255.255.255.255:68"}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086083.658168,"caller":"syslog/receiver.go:160","msg":"msg","msg":{"app-name":"ipxe","facility":"kern","host":"100.64.0.100","msg":"Configuring (net0 d8:3a:dd:bb:36:be)...... ok","severity":"INFO"}}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086083.6583776,"caller":"syslog/receiver.go:160","msg":"msg","msg":{"app-name":"ipxe","facility":"kern","host":"100.64.0.100","msg":"net0: 100.64.0.100/255.255.255.0 gw 100.64.0.1","severity":"INFO"}}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086083.6585057,"caller":"syslog/receiver.go:160","msg":"msg","msg":{"app-name":"ipxe","facility":"kern","host":"100.64.0.100","msg":"net0: fe80::da3a:ddff:febb:36be/64","severity":"INFO"}}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086083.658876,"caller":"syslog/receiver.go:160","msg":"msg","msg":{"app-name":"ipxe","facility":"kern","host":"100.64.0.100","msg":"Next server: 100.64.0.2","severity":"INFO"}}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086083.6590402,"caller":"syslog/receiver.go:160","msg":"msg","msg":{"app-name":"ipxe","facility":"kern","host":"100.64.0.100","msg":"Filename: https://pxe.factory.talos.dev/pxe/779804eb249e184f2986a0cacb95aa6ed8f133878449da8df9a68829f90902b9/v1.7.5/metal-arm64","severity":"INFO"}}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086083.686273,"caller":"syslog/receiver.go:160","msg":"msg","msg":{"app-name":"ipxe","facility":"kern","host":"100.64.0.100","msg":"https://pxe.factory.talos.dev/pxe/779804eb249e184f2986a0cacb95aa6ed8f133878449da8df9a68829f90902b9/v1.7.5/metal-arm64... ok","severity":"INFO"}}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086083.6873302,"caller":"syslog/receiver.go:160","msg":"msg","msg":{"app-name":"ipxe","facility":"kern","host":"100.64.0.100","msg":"metal-arm64 : 259 bytes [script]","severity":"INFO"}}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086087.3916304,"caller":"syslog/receiver.go:160","msg":"msg","msg":{"app-name":"ipxe","facility":"kern","host":"100.64.0.100","msg":"/kernel-arm64... ok","severity":"INFO"}}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086090.1534588,"caller":"syslog/receiver.go:160","msg":"msg","msg":{"app-name":"ipxe","facility":"kern","host":"100.64.0.100","msg":"/initramfs-arm64.xz... ok","severity":"INFO"}}
+
+
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086112.4891257,"caller":"reservation/handler.go:86","msg":"received DHCP packet","mac":"d8:3a:dd:bb:36:be","xid":"0x3bb97cad","interface":"eth0","type":"DISCOVER"}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086112.4899402,"caller":"reservation/handler.go:141","msg":"sent DHCP response","mac":"d8:3a:dd:bb:36:be","xid":"0x3bb97cad","interface":"eth0","type":"OFFER","nextServer":"100.64.0.2","ipAddress":"100.64.0.100","destination":"255.255.255.255:68"}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086112.4966073,"caller":"reservation/handler.go:101","msg":"received DHCP packet","mac":"d8:3a:dd:bb:36:be","xid":"0x3bb97cad","interface":"eth0","type":"REQUEST"}
+smee-dfcb5c7b6-h52h9 smee {"level":"info","ts":1722086112.5007463,"caller":"reservation/handler.go:141","msg":"sent DHCP response","mac":"d8:3a:dd:bb:36:be","xid":"0x3bb97cad","interface":"eth0","type":"ACK","nextServer":"100.64.0.2","ipAddress":"100.64.0.100","destination":"255.255.255.255:68"}
+```
+
+
+To confirm the provisioning has been successful:
+```bash
+130 xvzf@zephyr ..exus/kube/clusters/aperture/tinkerbell (git)-[main] % talosctl get addresses --insecure  -n 100.64.0.100
+NODE   NAMESPACE   TYPE            ID                                                       VERSION   ADDRESS                                  LINK
+       network     AddressStatus   enxd83addbb36be/100.64.0.100/24                          1         100.64.0.100/24                          enxd83addbb36be
+       network     AddressStatus   enxd83addbb36be/fd33:b4d:c0fe:a:da3a:ddff:febb:36be/64   1         fd33:b4d:c0fe:a:da3a:ddff:febb:36be/64   enxd83addbb36be
+       network     AddressStatus   enxd83addbb36be/fe80::da3a:ddff:febb:36be/64             2         fe80::da3a:ddff:febb:36be/64             enxd83addbb36be
+       network     AddressStatus   lo/127.0.0.1/8                                           1         127.0.0.1/8                              lo
+       network     AddressStatus   lo/::1/128                                               1         ::1/128                                  lo
+```
