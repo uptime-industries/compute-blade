@@ -11,7 +11,7 @@ import Admonition from '@theme/Admonition';
 You can boot the Raspberry Pi Compute Module 4 (CM4) in several ways on the Compute Blade
 
 :::note
-Preboot eXecution Environment(PXE) is a prosses to boot a computer over the a network. It will not be covered here. Aee our [deticated guide](/guides/pxe-booting/) for more information
+Preboot eXecution Environment(PXE) is a prosses to boot a computer over the a network. It will not be covered here. Aee our [deticated guide](/blade/advanced-guides/pxe-booting/) for more information
 :::
 
 ## Pepare Storage Media
@@ -44,7 +44,7 @@ To prepare a storage media you will need another computer
             CM4s with part number `CM4XXX000` do **NOT** have eMMC and are refered to a lite
             <img src='/img/cm4-box.png' width="250" alt='CM4 box with model number highlighted'/>
         </Admonition>
-        Install [usbboot](../../flashing/#installing-usb-device-boot-code)
+        Install [usbboot](/blade/advanced-guides/usbboot)
         From the usbboot directory run
         ```bash
         sudo ./rpiboot
@@ -52,7 +52,7 @@ To prepare a storage media you will need another computer
         Move the USB switch to the USB-C position
         Then, while holding down the `nRPIBOOT` button on the blade connect the USB-C cable
         
-        {/* picture of nRPIBOOT button */}
+        ![Compute Blade with USB and nRPIBOOT button highlighted](/img/blade/nRPIBOOT.png)
         
         The Device will reconect several times. on the last time it will appear as a USB media device.
     </TabItem>
