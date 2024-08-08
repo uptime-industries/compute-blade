@@ -1,0 +1,93 @@
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
+
+# How to Use USB Device Boot Code
+
+[USB device boot code](https://github.com/raspberrypi/usbboot) is an application provided by Raspberry Pi to push fireware to Compute Modules.
+Raspberry Pi does not privde precompiled binarys for the software so it must be complied.
+
+## Installation
+
+<Tabs groupId='system'>
+    <TabItem value="linux" label="Linux / Cygwin / WSL" default >
+        <Admonition type="warning">
+            The git repository uses [symlinks](https://en.wikipedia.org/wiki/Symbolic_link).
+            For Windows builds clone the repository under [Cygwin](https://www.cygwin.com/)
+            or use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/) (WSL)
+        </Admonition>
+        1. Install software from package manager `git`, `libusb-1.0-0-dev`, `pkg-config`, `build-essential`
+        2. Clone the `usbboot` repository
+        3. Build using make
+        4. Run the binary
+
+        ```bash
+        sudo apt install git libusb-1.0-0-dev pkg-config build-essential
+        git clone --recurse-submodules --shallow-submodules --depth=1 https://github.com/raspberrypi/usbboot
+        cd usbboot
+        make
+        sudo ./rpiboot
+        ```
+        <Admonition type="tip">
+            `sudo` isn't required if you have write permissions for the `/dev/bus/usb` device.
+        </Admonition>
+
+        <details>
+            <summary>Connect USB devices to WSL</summary>
+
+            If using [WSL](https://learn.microsoft.com/en-us/windows/wsl/) additional setups are required to connect USB devices.
+            
+            This is outside the scope of this guide, see Microsoft's [documentation](https://learn.microsoft.com/en-us/windows/wsl/connect-usb).
+            And for a graphic user interface see [WSL USB Manager](https://gitlab.com/alelec/wsl-usb-gui) by [Andrew Leech](https://gitlab.com/andrewleech).
+
+        </details>
+
+    </TabItem>
+    <TabItem value="macos" label="MacOS">
+
+        1. Clone the `usbboot` repository
+        2. Install `libusb` (`brew install libusb`)
+        3. Install `pkg-config` (`brew install pkg-config`)
+        4. (Optional) Export the `PKG_CONFIG_PATH` so that it includes the directory enclosing `libusb-1.0.pc`
+        5. Build using make
+        6. Run the binary
+
+        ```bash
+        git clone --recurse-submodules --shallow-submodules --depth=1 https://github.com/raspberrypi/usbboot
+        cd usbboot
+        brew install libusb
+        brew install pkg-config
+        make
+        sudo ./rpiboot
+        ```
+        <Admonition type="tip">
+            If the build is unable to find the header file `libusb.h` then most likely the `PKG_CONFIG_PATH` is not set properly.
+            This should be set via export `PKG_CONFIG_PATH="$(brew --prefix libusb)/lib/pkgconfig"`.
+        </Admonition>
+        <details>
+            <summary>If the build fails on an ARM-based Mac with a linker error</summary>
+
+            If the build fails on an ARM-based Mac with a linker error such as `ld: warning: ignoring file /usr/local/Cellar/libusb/1.0.26/lib/libusb-1.0.dylib`,
+            building for macOS-arm64 but attempting to link with file built for `macOS-x86_64` then you may need to build and install `libusb-1.0` yourself:
+
+            ```bash
+            wget https://github.com/libusb/libusb/releases/download/v1.0.26/libusb-1.0.26.tar.bz2
+            tar -xf libusb-1.0.26.tar.bz2
+            cd libusb-1.0.26
+            ./configure
+            make
+            make check
+            sudo make INSTALL_PREFIX=/usr/local install
+            ```
+            Running `make` again should now succeed.
+        </details>
+    </TabItem>
+</Tabs>
+
+### Updating the rpi-eeprom submodule
+After updating the usbboot repo (`git pull --rebase origin master`) update the submodules by running
+
+```bash
+git submodule update --init
+```

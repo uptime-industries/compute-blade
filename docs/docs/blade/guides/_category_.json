@@ -1,0 +1,11 @@
+{
+    "position": 1.2,
+    "label": "Guides",
+    "collapsible": true,
+    "collapsed": true,
+    "className": "red",
+    "link": {
+      "type": "generated-index",
+      "title": "Guides to startting with the blade"
+    }
+  }

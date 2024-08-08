@@ -85,29 +85,29 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
-        {
-          type: 'docSidebar',
-          sidebarId: 'guideSidebar',
-          position: 'left',
-          label: 'Guides',
-        },
+        // {
+        //   type: 'docSidebar',
+        //   sidebarId: 'guideSidebar',
+        //   position: 'left',
+        //   label: 'Guides',
+        // },
         {
           to: 'timeline',
           label: 'Timeline',
           position: 'left'
         },
-        // {
-        //   type: 'docSidebar',
-        //   sidebarId: 'guidesSidebar',
-        //   position: 'left',
-        //   label: 'Guides',
-        // },
+        
         // {to: '/blog', label: 'Blog', position: 'left'},
         // {
         //   label: 'Website',
         //   href: 'https://computeblade.com',
         //   position: 'right'
         // },
+        {
+          href: 'https://uplab.pro/2022/03/compute-blade-changelog/',
+          label: 'Changelog',
+          position: 'right',
+        },
         {
           href: 'https://github.com/uptime-industries/compute-blade',
           label: 'GitHub',
@@ -124,12 +124,12 @@ const config: Config = {
           items: [
             {
               label: 'Introduction',
-              to: 'intro',
+              to: 'blade/intro',
             },
             {
-              label: 'Guides',
-              to: 'guides/getting-started',
-            },
+              label: 'Getting Started',
+              to: 'blade/getting_started/assembly'
+            }
           ],
         },
         {
@@ -177,6 +177,10 @@ const config: Config = {
               label: 'GitHub',
               href: 'https://github.com/uptime-industries/',
             },
+            {
+              label: 'Changelog',
+              href: 'https://uplab.pro/2022/03/compute-blade-changelog/'
+            }
             // {
             //   label: 'Kickstarter',
             //   href: 'https://www.kickstarter.com/projects/uptimelab',
@@ -223,6 +227,11 @@ const config: Config = {
 
       //... other Algolia params
     },
+    docs:{
+      sidebar: {
+        autoCollapseCategories: true
+      }
+    }
   } satisfies Preset.ThemeConfig,
 };
 

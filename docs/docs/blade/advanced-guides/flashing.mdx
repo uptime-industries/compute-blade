@@ -1,0 +1,47 @@
+---
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
+
+# Flashing Compute Module EEPROM
+This guide will help up navigate the prosses to flash the EEPROM of the Compute Module when instaled on the Compute Blade.
+
+:::warning
+This guide only applies to Dev Compute Blades
+:::
+
+## Installing USB device boot code
+
+## Editing the config
+
+### Boot Order
+The `BOOT_ORDER` field allows the configuration of which boot device is used.
+
+
+
+| Value	| Mode           | Description                                                                                                             |
+| :---: | :------------: | :---------------------------------------------------------------------------------------------------------------------- |
+| 0x0   | SD CARD DETECT | Try SD then wait for card-detect to indicate that the card has changed. Deprecated now that 0xf (RESTART) is available. |
+| 0x1   | SD CARD        | SD card (or eMMC on Compute Module 4).                                                                                  |
+| 0x2   | NETWORK        | Network boot - See Network boot server tutorial.                                                                        |
+| 0x3   | RPIBOOT        | RPIBOOT - See usbboot.                                                                                                  |
+| 0x4   | USB-MSD        | USB mass storage boot - See USB mass storage boot.                                                                      |
+| 0x5   | BCM-USB-MSD    | USB 2.0 boot from USB Type C socket (CM4: USB type A socket on CM4IO board). Not available on Raspberry Pi 5.           |
+| 0x6   | NVME           | CM4 and Pi 5 only: boot from an NVMe SSD connected to the PCIe interface. See NVMe boot for more details.               |
+| 0x7   | HTTP           | HTTP boot over ethernet. See HTTP boot for more details.                                                                |
+| 0xe   | STOP           | Stop and display error pattern. A power cycle is required to exit this state.                                           |
+| 0xf   | RESTART        | Restart from the first boot-mode in the BOOT_ORDER field i.e. loop.                                                     |
+
+*Table from Rasspberry Pi [documentation](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#boot_order-fields)*
+
+## Running
+Start by removeing any cables form the Compute Blade and that the Compute Module is fully seated.
+
+
+## Additional Resources
+- [How to update the Raspberry Pi Compute Module 4 Bootloader / EEPROM](https://www.jeffgeerling.com/blog/2022/how-update-raspberry-pi-compute-module-4-bootloader-eeprom) | Jeff Geerling
+
+- [Flash Compute Module bootloader EEPROM](https://www.raspberrypi.com/documentation/computers/compute-module.html#compute-module-eeprom-bootloader) | Raspberry Pi Documentation
