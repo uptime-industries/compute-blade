@@ -45,7 +45,7 @@
 import { Redirect } from '@docusaurus/router';
 import config from '../../docusaurus.config'
 function Home() {
-  const path = `${config.baseUrl}intro`
+  const path = `${config.baseUrl}blade/intro`
   return <Redirect to={path} />;
 }
 
