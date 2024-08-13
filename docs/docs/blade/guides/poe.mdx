@@ -8,23 +8,33 @@ import TabItem from '@theme/TabItem';
 
 # Power Supply
 
-The Compute Blade features a Gigabit Ethernet port that supports IEEE 802.3af (PoE), 802.3at (PoE+), and 802.3bt (PoE++).
+The Compute Blade features a Suppoert for PoE (802.3af) and PoE+(802.3at).
 
 ## Power Consumption
 
 Power consumption will vary based on load, accessories connected, the power requirements of any devices installed in the M.2 slot.
-Durring Testing a Compute Blade with a CM4 overlocked to 2GHz and a consumer NVMe SSD under load consumes ~7W. Normal operation may range from 3W to 17W.
+Durring Testing a Compute Blade with a CM4 overlocked to 2GHz and a consumer NVMe SSD under load consumes ~7W. Normal operation may range from 3W to 17W depending on work load.
 
 ## PoE+ Indicator
-The PoE+ Indicator can be used to monitor power supply failures or limit RaspberryPi overclocking, when power is provided via 802.3af only. There is an LED on the Blade with a `+` label indicating the PoE+ power state. Alongside, `GPIO23` can be used to identify the power state.
+
+On the Compute Blade `GPIO23` is used to indiacate the presance of PoE+(`802.3af`). This could be used modify the behavor of the blade depending to the supllied power.
+There is an LED on the Blade with a `+` label indicating the PoE+ power state.
+
+![Compute Blade with PoE+ light identified](/img/blade/poe+.png)
+
+:::note
+    `GPIO23` must be pulled up using the internal pull up resister
+:::
 
 | LED Color          | Description                                | GPIO 23  | Power          |
 |--------------------|--------------------------------------------|----------|----------------|
-| Red                | 5 Volt present (PoE or USB-C or 5v direct) | **HIGH** | 12W            |
-| Orange (Red+Green) | PoE+ (802.3at or 802.3bt) present          | **LOW**  | 25W (RC2: 22W) |
+| Green              | 5 Volt present (PoE or USB)                | **HIGH** | up to 15W      |
+| Orange             | PoE+ (802.3at) present                     | **LOW**  | up to 30W      |
 
 ### Accessing the PoE+ Status in Software
-The `GPIO23` indicates the PoE+ state, these script can e.g. used to detect the status.
+
+These are example of how to get the `GPIO23` state to determin the if PoE+ is present
+
 <Tabs groupId='code-lang'>
     <TabItem value="python" label="Python" default>
 
@@ -32,17 +42,24 @@ The `GPIO23` indicates the PoE+ state, these script can e.g. used to detect the 
     import RPi.GPIO as GPIO
     import time
 
+    # Define the GPIO pin number for the PoE indicator
     POE_INDICATOR_GPIO = 23
 
+    # Set the GPIO mode to the BCM pin numbers
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(POE_INDICATOR_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP) # PoE indicator
+
+    # Set GPIO to an input and pull up the line
+    GPIO.setup(POE_INDICATOR_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
     try:
+        # Read the state of the GPIO pin
         button_state = GPIO.input(POE_INDICATOR_GPIO)
-        if button_state == False:
-            print("Powersource: 802.3at or 802.3bt")
+
+        # Check if the pin is active (assuming active-high logic)
+        if button_state == True:
+            print("Powersource: PoE+ 802.3at")
         else:
-            print("Powersource: 802.3af or USB-C")
+            print("Powersource: PoE 802.3af or USB-C")
     except:
         GPIO.cleanup()
     ```
@@ -84,11 +101,6 @@ The `GPIO23` indicates the PoE+ state, these script can e.g. used to detect the 
 ## PoE Modules
 Different Compute Blade revisions use different PoE modules. See the table below
 
-| Version           | PoE Module                                        | Volts | Watts (Peak) | PoE Support                    | Classification               |
-|:------------------|:--------------------------------------------------|:------|:-------------|:-------------------------------|:-----------------------------|
-| v1.0              | [Silvertel Ag5405](https://silvertel.com/ag5400/) | 5V    | 25.5W (30W)  | IEEE 802.3af, 802.3at, 802.3bt | Type 2, Class 4              |
-| RC2               | [Silvertel Ag5305](https://silvertel.com/ag5300/) | 5V    | 20W (22W)    | IEEE 802.3af, 802.3at          | Type 2, Class 4              |
-
-
-## Switch Recommendation
-A switch that can Supply IEEE 802.3at (PoE+) is recommended as IEEE 802.3af (PoE) may not provide sufficient power for all work loads.
+| Version           | PoE Module                                        | Volts | Power Output (Peak) | PoE Compliance                 | Classification               |
+|:------------------|:--------------------------------------------------|:------|:--------------------|:-------------------------------|:-----------------------------|
+| v1.0              | [Silvertel Ag5405](https://silvertel.com/ag5400/) | 5V    | 25.5W (30W)         | IEEE 802.3af, 802.3at, 802.3bt | Type 2, Class 4              |
