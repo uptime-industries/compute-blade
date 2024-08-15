@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # Power Supply
 
-The Compute Blade features a Suppoert for PoE (802.3af) and PoE+(802.3at).
+The Compute Blade features a Support for PoE (`802.3af`), PoE+(`802.3at`), and PoE++(`802.3bt`).
 
 ## Power Consumption
 
@@ -17,8 +17,8 @@ Durring Testing a Compute Blade with a CM4 overlocked to 2GHz and a consumer NVM
 
 ## PoE+ Indicator
 
-On the Compute Blade `GPIO23` is used to indiacate the presance of PoE+(`802.3af`). This could be used modify the behavor of the blade depending to the supllied power.
-There is an LED on the Blade with a `+` label indicating the PoE+ power state.
+On the Compute Blade `GPIO23` is used to indiacate the presance of PoE+ or PoE++. This could be used modify the behavor of the blade depending to the supllied power.
+There is an LED on the Blade with a `+` label indicating power state.
 
 ![Compute Blade with PoE+ light identified](/img/blade/poe+.png)
 
@@ -29,7 +29,7 @@ There is an LED on the Blade with a `+` label indicating the PoE+ power state.
 | LED Color          | Description                                | GPIO 23  | Power          |
 |--------------------|--------------------------------------------|----------|----------------|
 | Green              | 5 Volt present (PoE or USB)                | **HIGH** | up to 15W      |
-| Orange             | PoE+ (802.3at) present                     | **LOW**  | up to 30W      |
+| Orange             | PoE+ or PoE++ present                      | **LOW**  | up to 30W      |
 
 ### Accessing the PoE+ Status in Software
 
@@ -57,9 +57,9 @@ These are example of how to get the `GPIO23` state to determin the if PoE+ is pr
 
         # Check if the pin is active (assuming active-high logic)
         if button_state == True:
-            print("Powersource: PoE+ 802.3at")
+            print("Powersource: PoE+ or PoE++")
         else:
-            print("Powersource: PoE 802.3af or USB-C")
+            print("Powersource: PoE or USB-C")
     except:
         GPIO.cleanup()
     ```
@@ -87,9 +87,9 @@ These are example of how to get the `GPIO23` state to determin the if PoE+ is pr
 
         // Check if the pin is active (assuming active-high logic)
         if (poeIndicatorState == HIGH) {
-            printf("Powersource: 802.3af or USB-C\n");
+            printf("Powersource: PoE or USB-C\n");
         } else {
-            printf("Powersource: 802.3at\n");
+            printf("Powersource: PoE+ or PoE++\n");
         }
 
         return 0;
@@ -102,5 +102,5 @@ These are example of how to get the `GPIO23` state to determin the if PoE+ is pr
 Different Compute Blade revisions use different PoE modules. See the table below
 
 | Version           | PoE Module                                        | Volts | Power Output (Peak) | PoE Compliance                 | Classification               |
-|:------------------|:--------------------------------------------------|:------|:--------------------|:-------------------------------|:-----------------------------|
+| :---------------- | :------------------------------------------------ | :---- | :------------------ | :----------------------------- | :--------------------------- |
 | v1.0              | [Silvertel Ag5405](https://silvertel.com/ag5400/) | 5V    | 25.5W (30W)         | IEEE 802.3af, 802.3at, 802.3bt | Type 2, Class 4              |
