@@ -128,7 +128,7 @@ const config: Config = {
             },
             {
               label: 'Getting Started',
-              to: 'blade/getting_started/assembly'
+              to: 'blade/getting-started/assembly'
             }
           ],
         },
