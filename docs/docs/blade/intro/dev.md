@@ -5,7 +5,7 @@ sidebar_position: 3
 
 The Dev Compute Blade contains all feature of TPM
 
-![Dev Compute Blade](/img/blade/computeBlade_mk4_dev.png)
+![Dev Compute Blade](/img/blade/mk4-k-dev.png)
 
 ## DIP Switch
 

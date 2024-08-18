@@ -104,7 +104,7 @@ const config: Config = {
         //   position: 'right'
         // },
         {
-          href: 'https://uplab.pro/2022/03/compute-blade-changelog/',
+          to: 'changelog/',
           label: 'Changelog',
           position: 'right',
         },
