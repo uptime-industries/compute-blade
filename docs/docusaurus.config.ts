@@ -138,7 +138,7 @@ const config: Config = {
           items: [
             {
               label: 'Introduction',
-              to: 'blade/intro',
+              to: 'blade',
             },
             {
               label: 'Getting Started',
