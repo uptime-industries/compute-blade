@@ -1,0 +1,275 @@
+---
+sidebar_position: 1
+pagination_next: blade/getting-started/assembly
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
+
+
+# Introduction
+
+<ThemedImage
+    alt="Dev MK4 Compute Blade with part description"
+    sources= {{
+        light: useBaseUrl('/img/blade/schematics-white-bg.svg'),
+        dark: useBaseUrl('/img/blade/schematics-black-bg.svg'),
+    }}
+    width={"100%"}
+/>
+
+##  Features and Specifications
+The Compute Blade comes in three are hardware variants.
+<Tabs groupId="model" defaultValue="dev">
+    <TabItem value="dev" label="DEV">
+        <h2>Dev Compute Blade</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <td rowSpan={2}>Compability</td>
+                    <td>Raspberry Pi Compute Module 4 / 4 Lite</td>
+                </tr>
+                <tr>
+                    <td>Raspberry Pi Compute Module 4 Compatible Boards</td>
+                </tr>
+                <tr>
+                    <td rowSpan={3}>Storage</td>
+                    <td>M.2 NVMe SSD up to 22110</td>
+                </tr>
+                <tr>
+                    <td>Micro SD Card on lite CM4 Models</td>
+                </tr>
+                <tr>
+                    <td>eMMC on non-lite CM4 models</td>
+                </tr>
+                <tr>
+                    <td rowSpan={5}>GPIO</td>
+                    <td>2 x UART</td>
+                </tr>
+                <tr>
+                    <td>7 x User Controllable GPIO including I2C</td>
+                </tr>
+                <tr>
+                    <td>Fan Unit Connector</td>
+                </tr>
+                <tr>
+                    <td>Programmable Button</td>
+                </tr>
+                <tr>
+                    <td>2 x Controllable RGB LEDs</td>
+                </tr>
+                <tr>
+                    <td rowSpan={2}>Operating Voltage</td>
+                    <td>5V - USB C</td>
+                </tr>
+                <tr>
+                    <td>5.1V - Power over Ethernet IEEE 802.3at (PoE+) up to 30W @5.1V</td>
+                </tr>
+                <tr>
+                    <td>Input Power (Normal Operation)</td>
+                    <td>2 - 8W</td>
+                </tr>
+                <tr>
+                    <td rowSpan={3}>Ports</td>
+                    <td>HDMI (4K60)</td>
+                </tr>
+                <tr>
+                    <td>USB A</td>
+                </tr>
+                <tr>
+                    <td>USB C</td>
+                </tr>
+                <tr>
+                    <td rowSpan={3}>Security</td>
+                    <td>TPM 2.0</td>
+                </tr>
+                <tr>
+                    <td>Hardware switchable Wi-Fi, Bluetooth and EEPROM write-protection</td>
+                </tr>
+                <tr>
+                    <td>Support for ZYMKEY 4i, Security Keys</td>
+                </tr>
+            </tbody>
+        </table>
+    </TabItem>
+    <TabItem value="tpm" label="TPM">
+        <h2>TPM Compute Blade</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <td rowSpan={2}>Compability</td>
+                    <td>Raspberry Pi Compute Module 4 / 4 Lite</td>
+                </tr>
+                <tr>
+                    <td>Raspberry Pi Compute Module 4 Compatible Boards</td>
+                </tr>
+                <tr>
+                    <td rowSpan={3}>Storage</td>
+                    <td>M.2 NVMe SSD up to 22110</td>
+                </tr>
+                <tr>
+                    <td>Micro SD Card on lite CM4 Models</td>
+                </tr>
+                <tr>
+                    <td>eMMC on non-lite CM4 models</td>
+                </tr>
+                <tr>
+                    <td rowSpan={5}>GPIO</td>
+                    <td>2 x UART</td>
+                </tr>
+                <tr>
+                    <td>7 x User Controllable GPIO including I2C</td>
+                </tr>
+                <tr>
+                    <td>Fan Unit Connector</td>
+                </tr>
+                <tr>
+                    <td>Programmable Button</td>
+                </tr>
+                <tr>
+                    <td>2 x Controllable RGB LEDs</td>
+                </tr>
+                <tr>
+                    <td>Operating Voltage</td>
+                    <td>5.1V - Power over Ethernet IEEE 802.3at (PoE+) up to 30W @5.1V</td>
+                </tr>
+                <tr>
+                    <td>Input Power (Normal Operation)</td>
+                    <td>2 - 8W</td>
+                </tr>
+                <tr>
+                    <td>Ports</td>
+                    <td>USB A</td>
+                </tr>
+                <tr>
+                    <td rowSpan={2}>Security</td>
+                    <td>TPM 2.0</td>
+                </tr>
+                <tr>
+                    <td>Support for ZYMKEY 4i, Security Keys</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </TabItem>
+    <TabItem value="basic" label="Basic">
+        <h2>Basic Compute Blade</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <td rowSpan={2}>Compability</td>
+                    <td>Raspberry Pi Compute Module 4 / 4 Lite</td>
+                </tr>
+                <tr>
+                    <td>Raspberry Pi Compute Module 4 Compatible Boards</td>
+                </tr>
+                <tr>
+                    <td rowSpan={3}>Storage</td>
+                    <td>M.2 NVMe SSD up to 22110</td>
+                </tr>
+                <tr>
+                    <td>Micro SD Card on lite CM4 Models</td>
+                </tr>
+                <tr>
+                    <td>eMMC on non-lite CM4 models</td>
+                </tr>
+                <tr>
+                    <td rowSpan={5}>GPIO</td>
+                    <td>2 x UART</td>
+                </tr>
+                <tr>
+                    <td>7 x User Controllable GPIO including I2C</td>
+                </tr>
+                <tr>
+                    <td>Fan Unit Connector</td>
+                </tr>
+                <tr>
+                    <td>Programmable Button</td>
+                </tr>
+                <tr>
+                    <td>2 x Controllable RGB LEDs</td>
+                </tr>
+                <tr>
+                    <td>Operating Voltage</td>
+                    <td>5.1V - Power over Ethernet IEEE 802.3at (PoE+) up to 30W @5.1V</td>
+                </tr>
+                <tr>
+                    <td>Input Power (Normal Operation)</td>
+                    <td>2 - 8W</td>
+                </tr>
+                <tr>
+                    <td>Security</td>
+                    <td>Support for ZYMKEY 4i, Security Keys</td>
+                </tr>
+            </tbody>
+        </table>
+    </TabItem>
+</Tabs>
+
+
+{/* | Feature                   |  Basic     |   TPM  |  Dev   |
+| :------------------------ | :--------: | :----: | :----: |
+| CM4 Port                  | ✅        | ✅     | ✅    |
+| M.2 Slot M Key up to 2210 | ✅        | ✅     | ✅    |
+| Gigabit Ethernet          | ✅        | ✅     | ✅    |
+| PoE++ support             | ✅        | ✅     | ✅    |
+| UART                      | ✅        | ✅     | ✅    |
+| Programmable Button       | ✅        | ✅     | ✅    |
+| Programmable LEDs         | ✅        | ✅     | ✅    |
+| USB-A 2.0                 |           | ✅     | ✅    |
+| TPM 2.0                   |           | ✅     | ✅    |
+| HDMI                      |           |         | ✅    |
+| USB-C for Flashing CM4    |           |         | ✅    |
+| MicroSD Card              |           |         | ✅    |
+| Wi-Fi                     | Locked | Locked | Switchable |
+| Bluetooth                 | Locked | Locked | Switchable |
+| Write Protection          | Locked | Locked | Switchable | */}
+
+## Thermal Configuration
+
+The Compute Blade is designed for deployment in enclosures, supporting configurations from a single pair in desktop enclosures to up
+to 10 pairs in a 19" BladeRunner rack-mounted chassis.Each pair is cooled using a specifically designed Fan Unit equipped with a single 40x40x20mm fan.
+
+The design of the Fan Units provides robustness and reliability:
+in the event of one Compute Blade being disconnected or failing,
+the Fan Unit will continue to operate, maintaining effective cooling for the remaining blade.
+
+<img src="/img/blade/mk4-thermal.svg" alt="mk4 thermal flow" width={'100%'}/>
+
+### Cooling Configuration
+
+**Paired Blades:** Pairs of Compute Blades are physically separated and each pair is cooled by its dedicated Fan Unit.
+
+**Fan Unit Design:** The Fan Units are designed for easy replacement without interrupting operation.
+Each Fan Unit receives power from both Compute Blades in the pair, ensuring that the fan continues to run even if one of the blades is powered off.
+
+
+### Thermal Dissipation Capacity
+
+This cooling configuration can dissipate up to 60W of heat per slot,
+which represents the maximum power consumption of two blades.
+This level of thermal dissipation corresponds to an extreme case scenario.
+On average, measured thermal dissipation for a pair of Compute Blades rarely exceeds 20W.
+
+
+## Block Scheme
+
+This is the top part of the Raspberry Pi's GPIO connector.On the Compute Blade, PIN 1 corresponds to 3.3V, while on the Raspberry Pi's standard connector, it is labeled as 3.3V PWR.
+
+<Tabs groupId="model">
+    <TabItem value="dev" label="DEV">
+        <img src="/img/hardware/dev-block-scheme.svg" alt="Dev Blade block Scheme" width={"70%"} />
+    </TabItem>
+    <TabItem value="tpm" label="TPM">
+        <img src="/img/hardware/tpm-block-scheme.svg" alt="TPM Blade block Scheme" width={"70%"} />
+    </TabItem>
+    <TabItem value="basic" label="Basic">
+        <img src="/img/hardware/basic-block-scheme.svg" alt="Basic Blade block Scheme" width={"70%"} />
+    </TabItem>
+</Tabs>
+
+## Mechanical
+
+<img src="/img/blade/dimensions.svg" alt="Compute Blade dimensions" width={'100%'}/>a

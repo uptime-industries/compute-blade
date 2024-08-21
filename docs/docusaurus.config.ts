@@ -83,7 +83,19 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'docsSidebar',
           position: 'left',
-          label: 'Docs',
+          label: 'Blade',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'fanSidebar',
+          position: 'left',
+          label: 'Fan Unit',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'runnerSidebar',
+          position: 'left',
+          label: 'Blade Runner',
         },
         // {
         //   type: 'docSidebar',
@@ -94,7 +106,7 @@ const config: Config = {
         {
           to: 'timeline',
           label: 'Timeline',
-          position: 'left'
+          position: 'right'
         },
         
         // {to: '/blog', label: 'Blog', position: 'left'},
@@ -110,8 +122,10 @@ const config: Config = {
         },
         {
           href: 'https://github.com/uptime-industries/compute-blade',
-          label: 'GitHub',
+          // label: 'GitHub',
           position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository'
         },
         
       ],
@@ -129,7 +143,15 @@ const config: Config = {
             {
               label: 'Getting Started',
               to: 'blade/getting-started/assembly'
-            }
+            },
+            {
+              label: 'Fan Unit',
+              to: 'fan-unit'
+            },
+            {
+              label: 'Enclosures',
+              to: 'blade-runner'
+            },
           ],
         },
         {

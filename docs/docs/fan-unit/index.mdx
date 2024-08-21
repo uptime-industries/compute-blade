@@ -1,0 +1,94 @@
+---
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
+
+# Overview
+
+<ThemedImage
+    alt="Smart Fan Unit with description"
+    sources= {{
+        light: useBaseUrl('/img/fan-unit/schematics-white-bg.svg'),
+        dark: useBaseUrl('/img/fan-unit/schematics-black-bg.svg'),
+    }}
+    width={"100%"}
+/>
+
+
+
+## Fan Units
+
+<Tabs groupId="fanunit" defaultValue="smart">
+    <TabItem value="smart" label="Smart">
+        <h2>Smart Fan Unit</h2>
+        The smart fan unit enhances your Compute Blade setup by providing numerous functions, features, and the flexibility to customize the operating logic.
+
+        It incorporates an additional Raspberry Pi [RP2040](https://www.raspberrypi.com/products/rp2040/), to expand the capabilities of your system.
+    </TabItem>
+    <TabItem value="sta" label="Standard">
+        <h2>STA Fan Unit(Standerd)</h2>
+        Simplified variant of the smart fan unit, featuring the same form factor and fan, but without the capability to execute or be controlled by custom applications.
+        
+        The STA fan unit is powered and controlled directly by the compute blade, without the need for any additional wiring.
+
+    </TabItem>
+</Tabs>
+
+## Features
+<Tabs groupId="fanunit" defaultValue="smart">
+    <TabItem value="smart" label="Smart">
+        - UART Computeblade Interface
+        - Fan Unit Conector
+        - PWM Fan Header
+        - Raspberry Pi RP2040
+        - Rest Button
+        - BOOTSEL Button
+        - Programmable Button
+        - Status LEDs
+        - Temperature Sensors
+    </TabItem>
+    <TabItem value="sta" label="Standard">
+        - PWM Compute Blade Interface
+        - Fan Unit Conector
+        - PWM Fan Header
+    </TabItem>
+</Tabs>
+
+:::info
+    When using the standard Fan Unit only the Left pins can be used for PWM
+:::
+
+## Fan Installation
+
+The Fan Units are designed for 5V 40x20mm Fans for example the included [NF-A4x20 5V PWM](https://noctua.at/en/products/fan/nf-a4x20-5v-pwm). To attach the fan to the Fan Unit follow the following steps:
+
+1. Connect the plastic [left](https://github.com/uptime-industries/compute-blade/blob/main/fan-unit/fan-bracket/left.stl) and [right](https://github.com/uptime-industries/compute-blade/blob/main/fan-unit/fan-bracket/right.stl) fan brackets to the fan.
+The Numbs on the button of the bracket should face the back of the Fan Unit.
+2. Attach the Fan to the Fan Unit. Insert the front of the fan unit first then press firmly on the back.
+3. connect The Fan Cable to the [4 Pin Fan Header](https://www.molex.com/en-us/products/part-detail/0470531000)
+
+Your fan is not installed in the Fan Unit.
+
+:::tip
+    Need Help with installing your fan unit in a Blade Runner click [here](/blade/blade-runner/)
+:::
+
+## Block Scheme
+
+<Tabs groupId="fanunit" defaultValue="smart">
+    <TabItem value="smart" label="Smart">
+        <img src="/img/fan-unit/smart-block.svg" alt="Standerd Fan Unit Block Scheme" width={'50%'}/>
+    </TabItem>
+    <TabItem value="sta" label="Standard">
+        <img src="/img/fan-unit/sta-block.svg" alt="Standerd Fan Unit Block Scheme" width={'70%'}/>
+    </TabItem>
+</Tabs>
+
+## Mechanical
+
+<img src="/img/fan-unit/mechanical.svg" alt="Fan Unit dimensions" width={'80%'}/>
+

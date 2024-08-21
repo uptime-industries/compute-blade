@@ -1,0 +1,28 @@
+# DIP Switch
+
+:::info
+    DIP Switch is **ONLY** populated on Dev model Compute Blades
+:::
+
+## Switch States
+
+:::danger
+    Only change switch positions when the Blade is unplugged from power
+:::
+
+|         Switch       |   Left   |   Right  |
+| :------------------- | :------: | :------: |
+| 1 - Write Protection | Disabled | Enabled  |
+| 2 - Wi-Fi            | Enabled  | Disabled |
+| 3 - Bluetooth        | Enabled  | Disabled |
+
+## Write Protection
+
+To enable write protection, changes are required to [`config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#eeprom_write_protect).
+It can be found in the directory `/boot/firmware/` or flase the EEPROM using [usbboot](/blade/advanced-guides/usbboot)
+Added the following line to the `config.txt` file
+```txt
+eeprom_write_protect=1
+```
+
+This will Pull the `EEPROM_nWP` pin low. This will enable the DIP switch 
