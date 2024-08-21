@@ -76,7 +76,7 @@ const config: Config = {
         alt: 'compute blade Logo',
         src: 'img/ComputeBlade-logo-black.svg',
         srcDark: 'img/ComputeBlade-logo-green.svg',
-        href: 'https://computeblade.com/'
+        href: 'https://docs.computeblade.com/'
       },
       items: [
         {
@@ -121,6 +121,12 @@ const config: Config = {
           position: 'right',
         },
         {
+          href: 'https://computeblade.com',
+          position: 'right',
+          className: 'header-website-link',
+          'aria-label': 'Website link'
+        },
+        {
           href: 'https://github.com/uptime-industries/compute-blade',
           // label: 'GitHub',
           position: 'right',
@@ -149,7 +155,7 @@ const config: Config = {
               to: 'fan-unit'
             },
             {
-              label: 'Enclosures',
+              label: 'Blade Rinners™️',
               to: 'blade-runner'
             },
           ],

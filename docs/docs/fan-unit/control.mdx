@@ -18,17 +18,35 @@ Enable `uart5` in `config.txt` by adding:
 dtoverlay=uart5
 ```
 
+More Coming SooN...
+
 ## PWM fan (STA Fan Unit)
 
 :::note
     When Using the STA Fan Unit the speed of the fan can only be controled form `port A`
 :::
 
-The using `GPIO12` and `GPIO13` the compute module can pass a PWM signal to the fan.
-Using a python script, like this one from [DriftKingTW](https://github.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Control) on GitHub
+The using `GPIO12` and `GPIO13` the compute module can pass a PWM signal to the fan. Using a [python script](https://github.com/uptime-industries/compute-blade-pwm-fan-control) you can Read and control the Fan.
 
 Clone the Github repository to your blade
 ```bash
-git clone https://github.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Control.git
+git clone https://github.com/uptime-industries/compute-blade-pwm-fan-control.git
+cd ./compute-blade-pwm-fan-control/
 ```
-Next some edit to the script is needed
+To Read the The fan speed
+```bash
+python ./read_fan_speed.py
+```
+To control the fan speed
+```bash
+python ./fan_control.py
+```
+To run the script in the use `nohup`
+```bash
+nohup python fan_control.py
+```
+:::note
+[`nohup`](https://en.wikipedia.org/wiki/Nohup) is a POSIX command which means "no hang up".
+Its purpose is to execute a command such thatit ignores the HUP (hangup) signal
+and therefore does not stop when the user logs out.
+:::
