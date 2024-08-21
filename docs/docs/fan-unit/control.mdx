@@ -4,3 +4,31 @@ sidebar_position: 3
 
 # Control
 
+The square connector at the end of the Blade main purpose is to connect a Fan Unit.
+The output is 5V and should work with any fan that supports 5V.
+The speed of the fan can be controlled with PWM.
+
+But it can be used to control any 5v PWM fan. Or as an additional UART port (UART5 on CM4)
+
+## UART connection (Smart Fan Unit)
+
+Enable `uart5` in `config.txt` by adding:
+
+```txt
+dtoverlay=uart5
+```
+
+## PWM fan (STA Fan Unit)
+
+:::note
+    When Using the STA Fan Unit the speed of the fan can only be controled form `port A`
+:::
+
+The using `GPIO12` and `GPIO13` the compute module can pass a PWM signal to the fan.
+Using a python script, like this one from [DriftKingTW](https://github.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Control) on GitHub
+
+Clone the Github repository to your blade
+```bash
+git clone https://github.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Control.git
+```
+Next some edit to the script is needed
