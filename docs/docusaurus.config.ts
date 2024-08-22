@@ -155,7 +155,7 @@ const config: Config = {
               to: 'fan-unit'
             },
             {
-              label: 'Blade Rinners™️',
+              label: 'Blade Runner',
               to: 'blade-runner'
             },
           ],
