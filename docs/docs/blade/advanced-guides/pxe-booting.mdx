@@ -1,13 +1,13 @@
 # PXE Boot/Provisioning
 
 The CM4 can natively boot via PXE, but requires additional files on the TFTP server for bootstrapping.
-In order to provide a standardized UEFI boot process (including PXE), there's an [EDK2 UEIF build available for the ComputeBlade](https://github.com/uptime-industries/compute-blade-cm4-uefi).
-Using this image for the SD Card (CM4 Lite modules) or the eMMC enables commodity provisioning software supporting ARM64 to bootstrap clusters.
+In order to provide a standardized UEFI boot process (including PXE), there's an [EDK2 UEFI build available for the ComputeBlade](https://github.com/uptime-industries/compute-blade-cm4-uefi).
+Using this image for the SD Card (CM4 Lite modules), or the eMMC, enables commodity provisioning software supporting ARM64 to bootstrap clusters.
 
 
 ## Canonical MaaS
 
-Canonical [MaaS](https://maas.io) is a bare-metal provisioning tool focussed on Ubuntu. The [How-To Guide](https://maas.io/docs/how-to-install-maas) works out of the box therefore no further documentation is specified here.
+Canonical [MaaS](https://maas.io) is a bare-metal provisioning tool focused on Ubuntu. The [How-To Guide](https://maas.io/docs/how-to-install-maas) works out of the box therefore no further documentation is specified here.
 
 ## PXE Booting Nodes with Tinkerbell
 > In this example, we're booting [Talos Linux](http://talos.dev). This works with any other distribution supporting a netboot environment as well.
