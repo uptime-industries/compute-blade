@@ -10,20 +10,10 @@ The speed of the fan can be controlled with PWM.
 
 But it can be used to control any 5v PWM fan. Or as an additional UART port (UART5 on CM4)
 
-## UART connection (Smart Fan Unit)
-
-Enable `uart5` in `config.txt` by adding:
-
-```txt
-dtoverlay=uart5
-```
-
-More Coming SooN...
-
 ## PWM fan (STA Fan Unit)
 
 :::note
-    When Using the STA Fan Unit the speed of the fan can only be controled form `port A`
+    When Using the STA Fan Unit the speed of the fan can only be controled from `port A`
 :::
 
 The using `GPIO12` and `GPIO13` the compute module can pass a PWM signal to the fan. Using a [python script](https://github.com/uptime-industries/compute-blade-pwm-fan-control) you can Read and control the Fan.
@@ -50,3 +40,25 @@ nohup python fan_control.py
 Its purpose is to execute a command such thatit ignores the HUP (hangup) signal
 and therefore does not stop when the user logs out.
 :::
+
+## UART connection (Smart Fan Unit)
+
+Enable `uart5` in `config.txt` by adding:
+```txt
+enable_uart=1
+dtoverlay=uart5
+```
+Next install a console we us `cu`. Next modifiy the premions to `/dev/ttyAMA5`. Then we can connect over UART to the Fan Unit
+```bash
+sudo apt install cu
+sudo chmod 666 /dev/ttyAMA5
+sudo cu --line /dev/ttyAMA5 --speed 115200
+```
+
+## Deploying to Fan Unit over USB (Smart Fan Unit)
+Before starting remove all power from the Fan Unit. Next Hold down the `BOOTSEL` button and Plug in the USB-C. 
+
+{/* Image of fan unit BOOTSEL button */}
+
+The Fan Unit will appreare as a drive on your computer download [Circuit Python](https://circuitpython.org/board/raspberry_pi_pico/) `.uf2` file and move into the drive.
+The Drive then disapere and a newone named `CIRCUITPY` will be conected the [example code](https://github.com/uptime-industries/circuitpy-fan-unit) should be place here to run
