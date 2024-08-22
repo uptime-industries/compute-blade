@@ -169,7 +169,7 @@ const config: Config = {
             },
             {
               label: 'Discord',
-              href: 'https://discord.gg/uptime-industries',
+              href: 'https://discord.gg/invite/uptime-industries-952334175501946902',
             }
           ],
         },
