@@ -2,7 +2,7 @@
 
 ## V1.0 MK4
 
-![Blade-MK4-k with TPM highlighted](/img/blade/mk4-k-tpm.png)
+![Blade-MK4-k with TPM highlighted](/img/blade/mk4-k-tpm.webp)
 
 ### Improvements
 
@@ -10,7 +10,7 @@
 
 ## V1.0 MK4-K
 
-![Blade-MK4-k with power and UART and Exspaition pins highlighted](/img/blade/mk4-k-power.png)
+![Blade-MK4-k with power and UART and Expansion pins highlighted](/img/blade/mk4-k-power.webp)
 
 ### Improvements
 
@@ -27,7 +27,7 @@
 
 ## V1.0 MK1
 
-![MK1 Dev Blade](/img/blade/mk1-dev.png)
+![MK1 Dev Blade](/img/blade/mk1-dev.webp)
 
 ### Improvements
 
@@ -38,7 +38,7 @@
 - More test points added
 
 ## V0.9 RC2
-![RC2 blade](/img/blade/rc2.png)
+![RC2 blade](/img/blade/rc2.webp)
 
 ### Features
 - Support all Raspberry Pi CM4
@@ -55,7 +55,7 @@
 - Hardware switchable WiFi, BT, and EEPROM write-protection
 - Activity, Power, and SSD LEDs
 - HDMI port for monitor (up to 4k60)
-- USB-C port and PRIBOOT button to flash the bootloader, access to eMMC/SD card or tests
+- USB-C port and nRPIBOOT button to flash the bootloader, access to eMMC/SD card or tests
 - TPM 2.0 onboard
 - PWM fan connector for the custom backplane (Fan Units), supports UART communication
 - Switchable USB input (USB-A or USB-C)

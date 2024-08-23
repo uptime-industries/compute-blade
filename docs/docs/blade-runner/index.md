@@ -11,16 +11,16 @@ Official enclosure for the [Compute Blade](https://computeblade.com/). Offering 
 
 Twin Enclosure allows two Compute Blades and one Fan Unit to be installed. It is ideal for desktop and development.
 
-![Blade Runner Twin](/img/runners/BladeRunnerTwin.png)
+![Blade Runner Twin](/img/runners/BladeRunnerTwin.webp)
 
 ## Quad
 
 Home Enclosure is our recommend enclosure for Homelab and cluster development. Capable of holding four Compute Blades and two Fan Units, it is ideal for quickly spinning up a development environment.
 
-![Blade Runner Quad](/img/runners/BladeRunnerQuad.png)
+![Blade Runner Quad](/img/runners/BladeRunnerQuad.webp)
 
 ## 19-Inch
 
 The 19-Inch Enclosure is for enterprise scale. Can be equipped with twenty Compute Blades and ten Fan Units. Offering high density compute in a Standard 1U of rack space.
 
-![Blade Runner 19-Inch](/img/runners/BladeRunner19.png)
+![Blade Runner 19-Inch](/img/runners/BladeRunner19.webp)
