@@ -25,7 +25,7 @@ To prepare a storage medium you will need another computer.
         </Admonition>
         <Admonition type="note">
             CM4s with part number `CM4XXX000` must be used as others have eMMC and are unable to use MicroSD Card slot
-            <img src='/img/cm4-box.png' width="250" alt='CM4 box with model number highlighted'/>
+            <img src='/img/cm4-box.webp' width="250" alt='CM4 box with model number highlighted'/>
         </Admonition>
         The microSD Card needs to be at least 8GB. Your computer may not have a microSD Card slot and need an adapter.
     </TabItem>
@@ -43,7 +43,7 @@ To prepare a storage medium you will need another computer.
         <Admonition type="note">
             CM4s with part number `CM4XXX000` do **NOT** have eMMC and are referred to as lite.
 
-            <img src='/img/cm4-box.png' width="250" alt='CM4 box with model number highlighted'/>
+            <img src='/img/cm4-box.webp' width="250" alt='CM4 box with model number highlighted'/>
         </Admonition>
         Install [usbboot](/blade/advanced-guides/usbboot)
         From the usbboot directory run
@@ -53,28 +53,28 @@ To prepare a storage medium you will need another computer.
 
         Move the USB switch to the USB-C position.
         Then, while holding down the `nRPIBOOT` button on the blade connect the USB-C cable.
-        
-        ![Compute Blade with USB and nRPIBOOT button highlighted](/img/blade/mk4-k-nRPIBOOT.png)
-        
+
+        ![Compute Blade with USB and nRPIBOOT button highlighted](/img/blade/mk4-k-nRPIBOOT.webp)
+
         The Device will reconnect several times. On the last time it will appear as a USB media device.
     </TabItem>
 </Tabs>
 
 Download and install [Raspberry Pi Imager](https://www.raspberrypi.com/software/). After installing run it. This software will be used to image the storage media.
 
-![Raspberry Pi Imager Home](/img/imager/Imager-Home.png)
+![Raspberry Pi Imager Home](/img/imager/Imager-Home.webp)
 
 Select Raspberry Pi 4
 
-![Raspberry Pi Imager Device Filter](/img/imager/imager-device.png)
+![Raspberry Pi Imager Device Filter](/img/imager/imager-device.webp)
 
 Select an operating system. We recommend Ubuntu Server 24.04 LTS (64-bit) `Operating System > Other general-purpose OS > Ubuntu > Ubuntu Server 24.04 LTS (64-bit)`
 
-![Raspberry Pi Imager OS](/img/imager/imager-os.png)
+![Raspberry Pi Imager OS](/img/imager/imager-os.webp)
 
 Select storage media
 
-![Raspberry Pi Imager storage](/img/imager/imager-storage.png)
+![Raspberry Pi Imager storage](/img/imager/imager-storage.webp)
 
 Click the `NEXT` then click the `EDIT SETTINGS` button. Two settings need to be edited.
 
@@ -82,14 +82,14 @@ Click the `NEXT` then click the `EDIT SETTINGS` button. Two settings need to be 
 - `GENERAL > Set username and password` - Use your own username and password
 - `GENERAL > Set locale setting`(Optional) - Set the blade locale setting 
 
-![Raspberry Pi Imager setting general](/img/imager/imager-setting-general.png)
+![Raspberry Pi Imager setting general](/img/imager/imager-setting-general.webp)
 
 `SERVICES > Enable SSH` - Use password authentication
 <Admonition type="info">
     `Allow public-key authentication only` is the more secure option, but is more complex to set up. Read more in our [SSH guide](/blade/getting-started/connect/#public-key-authentication)
 </Admonition>
 
-![Raspberry Pi Imager setting service](/img/imager/imager-setting-service.png)
+![Raspberry Pi Imager setting service](/img/imager/imager-setting-service.webp)
 
 Then click `SAVE`
 
@@ -98,7 +98,7 @@ Raspberry Pi Imager will begin to write the OS to the storage device.
 
 Once completed remove the storage device from the computer.
 
-![Raspberry Pi Imager Complete](/img/imager/imager-complete.png)
+![Raspberry Pi Imager Complete](/img/imager/imager-complete.webp)
 
 ## Install Storage Media in Blade
 
@@ -108,7 +108,7 @@ Once completed remove the storage device from the computer.
             Only the Dev model Compute Blade has a microSD Card Slot.
         </Admonition>
         Next to the top right corner of the CM4 you will find the microSD card slot. Insert the card with the pins facing down.
-        ![computeblade mk4 sd card slot](/img/blade/mk4-k-sd.png)
+        ![Compute Blade mk4 sd card slot](/img/blade/mk4-k-sd.webp)
     </TabItem>
     <TabItem value="ssd" label="SSD">
         1. Remove the Kapton tape from the standoff mount
@@ -116,12 +116,12 @@ Once completed remove the storage device from the computer.
         3. Insert the M.2 SSD at a 30° angle and press down
         4. Place the M2 nylon washer on the M2x2.5 screw and install using a PH1 driver to retain the M.2 SSD
     
-        ![Compute Blade mk4 ssd slot](/img/blade/mk4-k-ssd.png)
+        ![Compute Blade mk4 ssd slot](/img/blade/mk4-k-ssd.webp)
     </TabItem>
     <TabItem value="emmc" label="eMMC">
         Unplug the USB-C cable from the Compute Blade and set the switch to USB-A
 
-        ![Compute Blade mk4 eMMC chip](/img/blade/mk4-k-emmc.png)
+        ![Compute Blade mk4 eMMC chip](/img/blade/mk4-k-emmc.webp)
     </TabItem>
 </Tabs>
 

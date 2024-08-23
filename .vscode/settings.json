@@ -3,21 +3,31 @@
         "mdx"
     ],
     "cSpell.words": [
+        "backplane",
+        "bootloader",
         "BOOTSEL",
         "CIRCUITPY",
         "dtoverlay",
+        "EEPROM",
         "emmc",
         "fanunit",
         "GPIO",
         "Imager",
         "Kapton",
+        "Kuleshov",
         "microsd",
         "Noctua",
         "nohup",
         "NVME",
+        "OPTIGA",
         "RPIBOOT",
+        "Silvertel",
         "UART",
         "UGREEN",
-        "usbboot"
+        "usbboot",
+        "webp",
+        "Yubi",
+        "Zymbit",
+        "ZYMKEY"
     ]
 }
