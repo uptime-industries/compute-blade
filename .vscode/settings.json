@@ -15,9 +15,11 @@
         "Noctua",
         "nohup",
         "NVME",
+        "OPTIGA",
         "RPIBOOT",
         "UART",
         "UGREEN",
-        "usbboot"
+        "usbboot",
+        "webp"
     ]
 }
