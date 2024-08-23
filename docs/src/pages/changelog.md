@@ -10,7 +10,7 @@
 
 ## V1.0 MK4-K
 
-![Blade-MK4-k with power and UART and Exspaition pins highlighted](/img/blade/mk4-k-power.webp)
+![Blade-MK4-k with power and UART and Expansion pins highlighted](/img/blade/mk4-k-power.webp)
 
 ### Improvements
 
