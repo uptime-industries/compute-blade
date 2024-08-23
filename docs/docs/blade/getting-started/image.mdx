@@ -11,13 +11,12 @@ import Admonition from '@theme/Admonition';
 You can boot the Raspberry Pi Compute Module 4 (CM4) in several ways on the Compute Blade
 
 :::note
-Pre-boot eXecution Environment(PXE) is a process to boot a computer over the a network. It will not be covered here. Aee our [dedicated guide](/blade/advanced-guides/pxe-booting/) for more information
-Pre-boot eXecution Environment(PXE) is a process to boot a computer over the a network. It will not be covered here. Aee our [dedicated guide](/blade/advanced-guides/pxe-booting/) for more information
+Pre-boot eXecution Environment(PXE) is a process to boot a computer over the network. It will not be covered here. See our [dedicated guide](/blade/advanced-guides/pxe-booting/) for more information
 :::
 
 ## Prepare Storage Media
 
-To prepare a storage media you will need another computer.
+To prepare a storage medium you will need another computer.
 
 <Tabs groupId="boot" defaultValue="ssd">
     <TabItem value="microsd" label="microSD Card" >
@@ -34,7 +33,7 @@ To prepare a storage media you will need another computer.
         <Admonition type="warning">
             The Compute Blade supports M key and B+M key M.2 devices, from size `2230` to `22110`
         </Admonition>
-        The Compute Blade has a M.2 M key witch supports both SATA and NVMe Solid State Drives(SSD).
+        The Compute Blade has a M.2 M key which supports both SATA and NVMe Solid State Drives(SSD).
         The M.2 SSD can be imaged the same as the microSD card but requires an USB to M.2 NVME/SATA Adapter, such as the [UGREEN M.2 NVMe SSD Enclosure Adapter](https://www.ugreen.com/collections/hard-drive-enclosure/products/ugreen-m-2-nvme-ssd-enclosure-adapter?variant=39915665195070).
     </TabItem>
     <TabItem value="emmc" label="eMMC">
@@ -51,7 +50,6 @@ To prepare a storage media you will need another computer.
         ```bash
         sudo ./rpiboot
         ```
-
 
         Move the USB switch to the USB-C position.
         Then, while holding down the `nRPIBOOT` button on the blade connect the USB-C cable.
@@ -75,15 +73,12 @@ Select an operating system. We recommend Ubuntu Server 24.04 LTS (64-bit) `Opera
 ![Raspberry Pi Imager OS](/img/imager/imager-os.webp)
 
 Select storage media
-Select storage media
 
 ![Raspberry Pi Imager storage](/img/imager/imager-storage.webp)
 
 Click the `NEXT` then click the `EDIT SETTINGS` button. Two settings need to be edited.
 
 - `GENERAL > Set hostname` - This name will be used to connect to your blade later
-- `GENERAL > Set username and password` - Use your own username and password
-- `GENERAL > Set locale setting`(Optional) - Set the blade locale setting 
 - `GENERAL > Set username and password` - Use your own username and password
 - `GENERAL > Set locale setting`(Optional) - Set the blade locale setting 
 
@@ -101,7 +96,7 @@ Then click `SAVE`
 Finally click `YES` and confirm that all existing data on the storage device will be erased by clicking `YES` again.
 Raspberry Pi Imager will begin to write the OS to the storage device.
 
-Once completed remove the storage device from the computer
+Once completed remove the storage device from the computer.
 
 ![Raspberry Pi Imager Complete](/img/imager/imager-complete.webp)
 
@@ -119,8 +114,7 @@ Once completed remove the storage device from the computer
         1. Remove the Kapton tape from the standoff mount
         2. Using a 5mm hex driver, attach the standoff
         3. Insert the M.2 SSD at a 30° angle and press down
-        4. Place the M2 nylon washer on and use a PH1 driver to retain the M.2 SSD
-        4. Place the M2 nylon washer on and use a PH1 driver to retain the M.2 SSD
+        4. Place the M2 nylon washer on the M2x2.5 screw and install using a PH1 driver to retain the M.2 SSD
     
         ![Compute Blade mk4 ssd slot](/img/blade/mk4-k-ssd.webp)
     </TabItem>
