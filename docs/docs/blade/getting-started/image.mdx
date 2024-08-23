@@ -12,6 +12,7 @@ You can boot the Raspberry Pi Compute Module 4 (CM4) in several ways on the Comp
 
 :::note
 Pre-boot eXecution Environment(PXE) is a process to boot a computer over the a network. It will not be covered here. Aee our [dedicated guide](/blade/advanced-guides/pxe-booting/) for more information
+Pre-boot eXecution Environment(PXE) is a process to boot a computer over the a network. It will not be covered here. Aee our [dedicated guide](/blade/advanced-guides/pxe-booting/) for more information
 :::
 
 ## Prepare Storage Media
@@ -51,6 +52,7 @@ To prepare a storage media you will need another computer.
         sudo ./rpiboot
         ```
 
+
         Move the USB switch to the USB-C position.
         Then, while holding down the `nRPIBOOT` button on the blade connect the USB-C cable.
 
@@ -73,12 +75,15 @@ Select an operating system. We recommend Ubuntu Server 24.04 LTS (64-bit) `Opera
 ![Raspberry Pi Imager OS](/img/imager/imager-os.webp)
 
 Select storage media
+Select storage media
 
 ![Raspberry Pi Imager storage](/img/imager/imager-storage.webp)
 
 Click the `NEXT` then click the `EDIT SETTINGS` button. Two settings need to be edited.
 
 - `GENERAL > Set hostname` - This name will be used to connect to your blade later
+- `GENERAL > Set username and password` - Use your own username and password
+- `GENERAL > Set locale setting`(Optional) - Set the blade locale setting 
 - `GENERAL > Set username and password` - Use your own username and password
 - `GENERAL > Set locale setting`(Optional) - Set the blade locale setting 
 
@@ -103,6 +108,7 @@ Once completed remove the storage device from the computer
 ## Install Storage Media in Blade
 
 <Tabs groupId="boot" defaultValue="ssd" queryString="boot">
+<Tabs groupId="boot" defaultValue="ssd" queryString="boot">
     <TabItem value="microsd" label="microSD Card" >
         <Admonition type="warning">
             Only the Dev model Compute Blade has a microSD Card Slot.
@@ -114,6 +120,7 @@ Once completed remove the storage device from the computer
         1. Remove the Kapton tape from the standoff mount
         2. Using a 5mm hex driver, attach the standoff
         3. Insert the M.2 SSD at a 30° angle and press down
+        4. Place the M2 nylon washer on and use a PH1 driver to retain the M.2 SSD
         4. Place the M2 nylon washer on and use a PH1 driver to retain the M.2 SSD
     
         ![Compute Blade mk4 ssd slot](/img/blade/mk4-k-ssd.webp)

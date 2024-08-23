@@ -6,4 +6,4 @@ Feature rich, enterprise-level, carrier board for the Raspberry Pi Compute Modul
 ## Links
 - [Website](https://computeblade.com/)
 - [Documentation](https://docs.computeblade.com)
-- [Discord Community](https://discord.gg/uptime-industries)
+- [Discord Community](https://discord.com/invite/uptime-industries-952334175501946902)
