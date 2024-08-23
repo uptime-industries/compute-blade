@@ -4,60 +4,116 @@ sidebar_position: 1
 
 # Assembly
 
-Out of the box the Compute Blade has some assembly required.
+When you get your Compute Blade, the box will include:
+- Compute Blade
+- Latch Lever
+- Latch Anchor
+- x2 M3x6 Screws
+- M2x2.5 Screw
+- M2x2.5 Standoff
+- M2 Nylon Washer
 
-First, remove all for the yellow Kapton tape from the blade.
+## Out of  the Box
+
+Removing the Blade from the box it will be wrapped in bubble wrap. The Latch and other hardware will be a separate bag in the box
+
+<img src="/img/blade/rc2-parts.png" alt="Blade parts" width={'70%'}/>
+
+From the factory the Blade will have Kapton tape on the all of the threaded mounting points and the DIP Switches(If dev model). Remove the the tape.
+
+<img src="/img/blade/mk4-k-kapton.png" alt="MK4 K blade with locations of Kapton tape marked"/>
 
 ## Latch
 
 The latch comes in two parts
 
-{/* show the two parts */}
+<img src="/img/blade/latch-parts.png" alt="Parts for compute blade latch" width={'70%'}/>
 
-To assemble these two parts place the "lever" with the flat side down. Then place the second piece with the two mounting holes facing the table and press firmly until the pieces snap together.
+To assemble the two parts place the "lever" with the flat side down. Then place the "Anchor" with the two mounting holes facing the table as showing the Image above.
+Next press firmly until the pieces snap together.
 
-{/* Picture of the pieces mated together */}
+:::warning
+Be sure to assemble the two parts correctly it is difficult to separate them and can damage the latch
+:::
 
-Using a PH1 screw driver take the two M3x6 screws and secure the latch to the blade
+<img src="/img/blade/latch-assembled.png" alt="Latch is now assembled" width={'70%'}/>
 
-{/* Image of the latch on the blade */}
+Witch the Latch assembled it can be secured to a the blade. Using a PH1 screw driver take the two M3x6 screws and secure the latch to the blade
+
+<img src="/img/blade/mk4-k-latch.png" alt="Latch Attached to the MK4-K Blade" width={'70%'}/>
 
 The latch is now assembled and attached to the Compute Blade
 
-## Compute Module
+## M.2 Slot
 
-The Compute Blade is build to support the Raspberry Pi Compute Module 4(CM4).
+The Compute Blade has 1 M.2 M key slot for expansion. Which supports devices from `2230` to `22110`.
 
-:::warning
-Compute Blade is made for the CM4. Other compute modules may **NOT** work as intended on the Compute Blade as they are not officially tested
+<img src="/img/blade/mk4-k-m2.png" alt="MK4-k Blade with parts and Samsung SSD 980" width={'70%'}/>
+
+To use the slot screw the included M2x2.5 standoff using a 5mm hex driver into the thread insert corresponding to the size of your M.2 device.
+
+<img src="/img/blade/mk4-k-m2-standoff.png" alt="MK4-K blade with standoff installed in the 2280 position" width={'70%'}/>
+
+:::tip
+If Installing and NVMe SSD you may want to install and Operating system first. See our [Imaging guide](/blade/getting-started/image?boot=ssd)
 :::
 
-Align the CM4 board to the board connecter on the Compute Blade
+Place the M2 nylon washer on the M2x2.5 screw and insert the M.2 device at a 30° angle.
 
-![Blade with cm4 above and flipped over showing board to board connecter](/img/blade/rc2-cm4-aligned.png)
+<img src="/img/blade/mk4-k-m2-placed.png" alt="MK4-K blade with Samsung SSD 980 placed" width={'70%'}/>
 
-Then Press firmly until the CM4 is fully seated in the connecter.
+Finally using a PH1 driver secure to the standoff the M2x2.5 screw with the M2 nylon washer on it.
 
-![Blade with CM4 installed](/img/blade/rc2-cm4-installed.png)
+<img src="/img/blade/mk4-k-m2-installed.png" alt="MK4-K blade with Samsung SSD 980 Installed" width={'70%'}/>
+
+The M.2 Device is now installed.
+
+## Compute Module
+
+The Compute Blade is built for the Raspberry Pi Compute Module 4(CM4). 
+
+:::warning
+Compute Blade is Made for the CM4 other compute module may **NOT** work as intended on the Compute Blade as they are not officially validated
+:::
+
+<img src="/img/blade/mk4-k-cm4.png" alt="Blade with cm4 above" width={'70%'}/>
+
+Align the CM4 board to board connecter with the Compute Blade
+
+<img src="/img/blade/mk4-k-cm4-aligned.png" alt="Blade with cm4 above and flipped over showing board to board connecter" width={'70%'}/>
+
+Then place the CM4 onto the connector and press firmly.
+
+<img src="/img/blade/mk4-k-cm4-installed.png" alt="Blade with CM4 installed" width={'70%'}/>
 
 ## Heat Sink (Optional)
 
-A heat sink is recommended to get the most out of your CM4. The Compute Blade heat sink is built to give your Compute Blade the best performance.
-To install your heat sink, your CM4 must first be installed. See the above instructions if you need help. With the CM4 installed remove the plastic from the pre-applied thermal pads.
+A heat sink is recommend to get the most out of your CM4. The Compute Blade Heat sink is built to give your Compute Blade the best performance.
 
-{/* image of blade(w/cm4) with heat sink */}
+Included in the box
+- Heat Sink
+- x4 M2.5x8 Screws
+- Extra Thermal Pads
+
+<img src="/img/blade/mk4-k-hs-parts.png" alt="Compute blade with Heat Sink parts" width={'70%'}/>
+
+
+:::warning
+To install the Heat Sink a Compute Module 4 must be installed First
+:::
+ 
+ Remove the plastic  from the pre-applied thermal pads.
+
+<img src="/img/blade/mk4-k-hs-thermal.png" alt="Heat Sink with thermal pads highlighted" width={'70%'}/>
 
 The place the heat sink on to the CM4. The text on the edge of the heat sink should be at the top of the blade.
-
-{/* blade(w/heat sink on) */}
-
 The Heat sink can now be secured with the four included M2.5x8 screws. Using a PH1 screw driver tighten the screw to secure the heat sink.
 
 :::warning
 Do not over tighten the screws. Over tightening will cause the Compute Blade to bend.
 :::
 
-{/* picture of the blade fully assembled */}
+<img src="/img/blade/mk4-k-hs-assembled.png" alt="Blade with Heat Sink attached" width={'70%'}/>
 
 The Heat Sink is now fully installed
 

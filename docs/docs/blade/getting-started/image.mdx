@@ -11,7 +11,7 @@ import Admonition from '@theme/Admonition';
 You can boot the Raspberry Pi Compute Module 4 (CM4) in several ways on the Compute Blade
 
 :::note
-Preboot eXecution Environment(PXE) is a process to boot a computer over the a network. It will not be covered here. See our [dedicated guide](/blade/advanced-guides/pxe-booting/) for more information
+Pre-boot eXecution Environment(PXE) is a process to boot a computer over the a network. It will not be covered here. Aee our [dedicated guide](/blade/advanced-guides/pxe-booting/) for more information
 :::
 
 ## Prepare Storage Media
@@ -42,6 +42,7 @@ To prepare a storage media you will need another computer.
         </Admonition>
         <Admonition type="note">
             CM4s with part number `CM4XXX000` do **NOT** have eMMC and are referred to as lite.
+
             <img src='/img/cm4-box.png' width="250" alt='CM4 box with model number highlighted'/>
         </Admonition>
         Install [usbboot](/blade/advanced-guides/usbboot)
@@ -49,6 +50,7 @@ To prepare a storage media you will need another computer.
         ```bash
         sudo ./rpiboot
         ```
+
         Move the USB switch to the USB-C position.
         Then, while holding down the `nRPIBOOT` button on the blade connect the USB-C cable.
         
@@ -70,15 +72,15 @@ Select an operating system. We recommend Ubuntu Server 24.04 LTS (64-bit) `Opera
 
 ![Raspberry Pi Imager OS](/img/imager/imager-os.png)
 
-Select storage media.
+Select storage media
 
 ![Raspberry Pi Imager storage](/img/imager/imager-storage.png)
 
 Click the `NEXT` then click the `EDIT SETTINGS` button. Two settings need to be edited.
 
 - `GENERAL > Set hostname` - This name will be used to connect to your blade later
-- `GENERAL > Set username and password` - use your own username and password
-- `GENERAL > Set locale setting`(Optional) - this will adjust the blade locale setting 
+- `GENERAL > Set username and password` - Use your own username and password
+- `GENERAL > Set locale setting`(Optional) - Set the blade locale setting 
 
 ![Raspberry Pi Imager setting general](/img/imager/imager-setting-general.png)
 
@@ -100,7 +102,7 @@ Once completed remove the storage device from the computer
 
 ## Install Storage Media in Blade
 
-<Tabs groupId="boot" defaultValue="ssd">
+<Tabs groupId="boot" defaultValue="ssd" queryString="boot">
     <TabItem value="microsd" label="microSD Card" >
         <Admonition type="warning">
             Only the Dev model Compute Blade has a microSD Card Slot.
@@ -112,14 +114,14 @@ Once completed remove the storage device from the computer
         1. Remove the Kapton tape from the standoff mount
         2. Using a 5mm hex driver, attach the standoff
         3. Insert the M.2 SSD at a 30° angle and press down
-        4. Place the plastic washer on to the screw and use a PH1 driver to retain the M.2 SSD
+        4. Place the M2 nylon washer on and use a PH1 driver to retain the M.2 SSD
     
-        ![computeblade mk4 ssd slot](/img/blade/mk4-k-ssd.png)
+        ![Compute Blade mk4 ssd slot](/img/blade/mk4-k-ssd.png)
     </TabItem>
     <TabItem value="emmc" label="eMMC">
         Unplug the USB-C cable from the Compute Blade and set the switch to USB-A
 
-        ![computeblade mk4 emmc chip](/img/blade/mk4-k-emmc.png)
+        ![Compute Blade mk4 eMMC chip](/img/blade/mk4-k-emmc.png)
     </TabItem>
 </Tabs>
 

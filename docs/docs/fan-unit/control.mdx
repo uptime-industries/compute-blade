@@ -13,7 +13,7 @@ But it can be used to control any 5v PWM fan. Or as an additional UART port (UAR
 ## PWM fan (STA Fan Unit)
 
 :::note
-    When Using the STA Fan Unit the speed of the fan can only be controlled from `port A`
+When using the STA Fan Unit the speed of the fan can only be controlled from `port A`
 :::
 
 The using `GPIO12` and `GPIO13` the compute module can pass a PWM signal to the fan. Using a [python script](https://github.com/uptime-industries/compute-blade-pwm-fan-control) you can Read and control the Fan.
@@ -44,11 +44,14 @@ and therefore does not stop when the user logs out.
 ## UART connection (Smart Fan Unit)
 
 Enable `uart5` in `config.txt` by adding:
+
 ```txt
 enable_uart=1
 dtoverlay=uart5
 ```
+
 Next install a console we us `cu`. Next modify the permissions to `/dev/ttyAMA5`. Then we can connect over UART to the Fan Unit.
+
 ```bash
 sudo apt install cu
 sudo chmod 666 /dev/ttyAMA5

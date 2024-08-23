@@ -1,0 +1,23 @@
+{
+    "cSpell.enableFiletypes": [
+        "mdx"
+    ],
+    "cSpell.words": [
+        "BOOTSEL",
+        "CIRCUITPY",
+        "dtoverlay",
+        "emmc",
+        "fanunit",
+        "GPIO",
+        "Imager",
+        "Kapton",
+        "microsd",
+        "Noctua",
+        "nohup",
+        "NVME",
+        "RPIBOOT",
+        "UART",
+        "UGREEN",
+        "usbboot"
+    ]
+}
