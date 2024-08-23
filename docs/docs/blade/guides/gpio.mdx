@@ -9,14 +9,14 @@ import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 
 # General-Purpose Input/Output
-The Compute blade allows for the uses of 11 of the comput modules GPIO pins.
+The Compute Blade allows for the uses of 11 of the Compute Module's GPIO pins.
 The GPIO allows for low speed modules and additional device control.
 
 ### GPIO Locations and Functions
 ::::note
-Fuctions are Configurable and do not have to match the given functions
+Functions are configurable and do not have to match the given functions.
     :::warning
-    Using Internal GPIO for an uninteded uses may lead to damage
+    Using internal GPIO for unintended uses may lead to damage.
 ::::
 
 |   GPIO                                        | Location                                                  |  Functions     |
@@ -35,16 +35,16 @@ Fuctions are Configurable and do not have to match the given functions
 
 ## Pinout Guide
 :::tip
-View an Interactive guide to the full Rassberry Pi GPIO pinout on [Pinout.xyz](https://pinout.xyz/)
+View an interactive guide to the full Raspberry Pi GPIO pinout on [Pinout.xyz](https://pinout.xyz/)
 :::
 <Tabs groupId='pinout'>
     <TabItem value="Expansion" label="Expansion Module Port" default>
-        The Expansion Module Port is pin 1 thought pin 10 of the Rassberry Pi GPIO pinout.
-        This makes the Expansion Module Port compatable many exsiting products like Real Time Clock Modules or I2C Device
+        The Expansion Module Port is pin 1 thought pin 10 of the Raspberry Pi GPIO pinout.
+        This makes the Expansion Module Port compatible many existing products like Real Time Clock Modules or I2C Device.
         ![Expansion Module Port](/img/hardware/expansion-module-port.svg)
     </TabItem>
     <TabItem value="uart" label="UART" default>
-        There are two deticated sets of pins for UART0. The V5 line on UART Back can operate as an Input or Output.
+        There are two dedicated sets of pins for UART0. The V5 line on UART Back can operate as an Input or Output.
 
         <div className="center-i">
             <img src={useBaseUrl("/img/hardware/uart-front.svg")} alt="UART Front"/>
@@ -52,7 +52,7 @@ View an Interactive guide to the full Rassberry Pi GPIO pinout on [Pinout.xyz](h
         </div>
 
         <Admonition type="warning" title="Warning">
-            <p>When no power source is conected to the compute blade the V5 pin can only be an input</p>
+            <p>When no power source is connected to the compute blade the V5 pin can only be an input</p>
         </Admonition>
     </TabItem>
     <TabItem value="fan" label="Fan Unit Connector" default>

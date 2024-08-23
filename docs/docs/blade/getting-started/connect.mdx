@@ -5,10 +5,10 @@ sidebar_position: 3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Conect Using SSH
+# Connect Using SSH
 
-[Secure Shell Protical](https://en.wikipedia.org/wiki/Secure_Shell)(SSH) is a cryptographic network protocol for operating network services securely over an unsecured network.
-This is the most comman way to connect to a Compute Blade.
+[Secure Shell Protocol](https://en.wikipedia.org/wiki/Secure_Shell)(SSH) is a cryptographic network protocol for operating networked services securely over an unsecured network.
+This is the most common way to connect to a Compute Blade.
 
 ## Installing SSH Client
 
@@ -17,12 +17,12 @@ To connect using SSH you will need a SSH client there are a number of options av
 - [Secure Shell](https://chromewebstore.google.com/detail/secure-shell/iodihamcpbpeioajjeobimgagajmlibd) by Google
 - [OpenSSH](https://www.openssh.com/) by OpenBSD Foundation
 
-All of these clients will work but for this guide we will be using OpenSSH
+All of these clients will work, but for this guide we will be using OpenSSH.
 <Tabs groupId="os" defaultValue="windows">
     <TabItem value="windows" label="Windows">
 
     To install [OpenSSH for Windows](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_overview)
-    run PowerShell as an Administrator. To make sure that OpenSSH is available and not install, run the following cmdlet:
+    run PowerShell as an Administrator. To make sure that OpenSSH is available and not installed, run the following cmdlet:
     ```powershell
     Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH.Client*'
     ```
@@ -35,7 +35,7 @@ All of these clients will work but for this guide we will be using OpenSSH
     ```powershell
     Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
     ```
-    The commands should return the following output:
+    The command should return the following output:
     ```txt
     Path          :
     Online        : True
@@ -43,10 +43,10 @@ All of these clients will work but for this guide we will be using OpenSSH
     ```
     </TabItem>
     <TabItem value="macos" label="MacOS">
-    OpenSSH is included in MacOS. No Instalation required
+    OpenSSH is included in MacOS. No Installation required
     </TabItem>
     <TabItem value="linux" label="Linux">
-        Many distrubutions come with OpenSSH inclued but if yours does not here is how to install it on so comman distrubutions
+        Many distributions come with OpenSSH included but if yours does not here is how to install it on so common distributions
         <Tabs groupId="pkgm" defaultValue="apt">
             <TabItem value="apt" label="Debian/Ubuntu">
                 OpenSSH is listed in the `apt` package manager
@@ -74,7 +74,7 @@ Using the Host name or IP address of the Blade we can use the command line to co
 ```bash
 ssh [user@]host-name-or-address
 ```
-When connecting to a computer for the first you will be asked to you are sure you want to connect. by typing `yes` a key fingerprint will be added to the list of known host.
+When connecting to a computer for the first time you will be asked if you are sure you want to connect. By typing `yes` a key fingerprint will be added to the list of known hosts.
 ```txt
 ssh uptime@192.168.1.100
 The authenticity of host '192.168.1.100 (192.168.1.100)' can't be established.
@@ -86,25 +86,27 @@ Then enter your password
 ```txt
 uptime@192.168.1.100's password:
 ```
-Once authenticated you will be presented with a active bash
+Once authenticated you will be presented with a active bash terminal.
 ```txt
 uptime@blade:~$
 ```
 
 ### Notable Command Line Options
 
-You may need to need to pash Otions to the SSH command when connection here are some of the most used:
+You may need to need to pass options to the SSH command when connecting. Here are some of the most used:
 - `-p` Port to connect to on the remote host.
 - `-l` Specifies the user to log in as on the remote machine.
 
 ## Public Key Authentication
 
 Public key authentication provides cryptographic strength that even extremely long passwords can not offer.
-With SSH, public key authentication improves security considerably. Freeing users form remebering complicated passwords
+With SSH, public key authentication improves security considerably, freeing users form remembering complicated passwords.
 
 ### Creating Key Pair
 
 To create a key pair the OpenSSh Client includes the command
 ```bash
 ssh-keygen
+cat ~/.ssh/id_rsa.pub # Append this in ~/.ssh/authorized_keys (Create $HOME/.ssh/authorized_keys if it does not already exist)
+ssh -i ~/.ssh/id_rsa <user>@<remoteserver> # To use with your ssh client
 ```
