@@ -6,7 +6,7 @@ import Admonition from '@theme/Admonition';
 # How to Use USB Device Boot Code
 
 [USB device boot code](https://github.com/raspberrypi/usbboot) is an application provided by Raspberry Pi to push firmware to Compute Modules.
-Raspberry Pi does not privde precompiled binarys for the software so it must be complied.
+Raspberry Pi does not provide precompiled binaries for the software so it must be complied.
 
 ## Installation
 
@@ -99,7 +99,7 @@ The firmware configurations can be edited in the file `/usbboot/<firmware direct
 The `BOOT_ORDER` field allows the configuration of which boot device is used.
 
 ```txt
-# Trys to boot from NVMe, then SD Card, then network, then loops to the start
+# Tries to boot from NVMe, then SD Card, then network, then loops to the start
 BOOT_ORDER=0xf216
 ```
 
@@ -117,7 +117,7 @@ BOOT_ORDER=0xf216
 | 0xe   | STOP           | Stop and display error pattern. A power cycle is required to exit this state.                                           |
 | 0xf   | RESTART        | Restart from the first boot-mode in the BOOT_ORDER field i.e. loop.                                                     |
 
-*Table from Rasspberry Pi [documentation](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#boot_order-fields)*
+*Table from Raspberry Pi [documentation](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#boot_order-fields)*
 
 ## Additional Resources
 If you are having difficulty here are some more resources to help:

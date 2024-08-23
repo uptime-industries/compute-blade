@@ -16,7 +16,7 @@ Pre-boot eXecution Environment(PXE) is a process to boot a computer over the a n
 
 ## Prepare Storage Media
 
-To prepare a storage media you will need another computer
+To prepare a storage media you will need another computer.
 
 <Tabs groupId="boot" defaultValue="ssd">
     <TabItem value="microsd" label="microSD Card" >
@@ -34,14 +34,15 @@ To prepare a storage media you will need another computer
             The Compute Blade supports M key and B+M key M.2 devices, from size `2230` to `22110`
         </Admonition>
         The Compute Blade has a M.2 M key witch supports both SATA and NVMe Solid State Drives(SSD).
-        The M.2 SSD can be Imaged the same as the microSD Card but requires an USB to M.2 NVME/SATA Adapter, such as the [UGREEN M.2 NVMe SSD Enclosure Adapter](https://www.ugreen.com/collections/hard-drive-enclosure/products/ugreen-m-2-nvme-ssd-enclosure-adapter?variant=39915665195070).
+        The M.2 SSD can be imaged the same as the microSD card but requires an USB to M.2 NVME/SATA Adapter, such as the [UGREEN M.2 NVMe SSD Enclosure Adapter](https://www.ugreen.com/collections/hard-drive-enclosure/products/ugreen-m-2-nvme-ssd-enclosure-adapter?variant=39915665195070).
     </TabItem>
     <TabItem value="emmc" label="eMMC">
         <Admonition type="warning">
-            eMMC only be imaged on Dev blade as it has USB-C port, USB switch, and `nRPIBOOT` button
+            eMMC can only be imaged on Dev blade as it has USB-C port, USB switch, and `nRPIBOOT` button
         </Admonition>
         <Admonition type="note">
-            CM4s with part number `CM4XXX000` do **NOT** have eMMC and are referred to a lite
+            CM4s with part number `CM4XXX000` do **NOT** have eMMC and are referred to as lite.
+
             <img src='/img/cm4-box.webp' width="250" alt='CM4 box with model number highlighted'/>
         </Admonition>
         Install [usbboot](/blade/advanced-guides/usbboot)
@@ -49,12 +50,13 @@ To prepare a storage media you will need another computer
         ```bash
         sudo ./rpiboot
         ```
-        Move the USB switch to the USB-C position
-        Then, while holding down the `nRPIBOOT` button on the blade connect the USB-C cable
+
+        Move the USB switch to the USB-C position.
+        Then, while holding down the `nRPIBOOT` button on the blade connect the USB-C cable.
 
         ![Compute Blade with USB and nRPIBOOT button highlighted](/img/blade/mk4-k-nRPIBOOT.webp)
 
-        The Device will reconnect several times. on the last time it will appear as a USB media device.
+        The Device will reconnect several times. On the last time it will appear as a USB media device.
     </TabItem>
 </Tabs>
 
@@ -74,7 +76,7 @@ Select storage media
 
 ![Raspberry Pi Imager storage](/img/imager/imager-storage.webp)
 
-Click the `NEXT` then click the `EDIT SETTINGS` button. Two setting need to be edited
+Click the `NEXT` then click the `EDIT SETTINGS` button. Two settings need to be edited.
 
 - `GENERAL > Set hostname` - This name will be used to connect to your blade later
 - `GENERAL > Set username and password` - Use your own username and password
@@ -84,7 +86,7 @@ Click the `NEXT` then click the `EDIT SETTINGS` button. Two setting need to be e
 
 `SERVICES > Enable SSH` - Use password authentication
 <Admonition type="info">
-    `Allow public-key authentication only` is the more secure option but is more complex to set up. read More in our [SSH guide](/blade/getting-started/connect/#public-key-authentication)
+    `Allow public-key authentication only` is the more secure option, but is more complex to set up. Read more in our [SSH guide](/blade/getting-started/connect/#public-key-authentication)
 </Admonition>
 
 ![Raspberry Pi Imager setting service](/img/imager/imager-setting-service.webp)
@@ -103,14 +105,14 @@ Once completed remove the storage device from the computer
 <Tabs groupId="boot" defaultValue="ssd" queryString="boot">
     <TabItem value="microsd" label="microSD Card" >
         <Admonition type="warning">
-            Only the Dev model Compute Blade has a microSD Card Slot
+            Only the Dev model Compute Blade has a microSD Card Slot.
         </Admonition>
-        Next to the top right corner of the CM4 you will find the microSD Card slot. Insert the card with the pins facing down
+        Next to the top right corner of the CM4 you will find the microSD card slot. Insert the card with the pins facing down.
         ![Compute Blade mk4 sd card slot](/img/blade/mk4-k-sd.webp)
     </TabItem>
     <TabItem value="ssd" label="SSD">
-        1. Remove the Kapton Tape from the standoff mount
-        2. Using a 5mm hex driver attach the standoff
+        1. Remove the Kapton tape from the standoff mount
+        2. Using a 5mm hex driver, attach the standoff
         3. Insert the M.2 SSD at a 30° angle and press down
         4. Place the M2 nylon washer on and use a PH1 driver to retain the M.2 SSD
     
@@ -123,4 +125,4 @@ Once completed remove the storage device from the computer
     </TabItem>
 </Tabs>
 
-Your Blade is now ready to be connected to over a network
+Your Blade is now ready to be connected to over a network.

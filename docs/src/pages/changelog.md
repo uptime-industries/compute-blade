@@ -55,7 +55,7 @@
 - Hardware switchable WiFi, BT, and EEPROM write-protection
 - Activity, Power, and SSD LEDs
 - HDMI port for monitor (up to 4k60)
-- USB-C port and PRIBOOT button to flash the bootloader, access to eMMC/SD card or tests
+- USB-C port and nRPIBOOT button to flash the bootloader, access to eMMC/SD card or tests
 - TPM 2.0 onboard
 - PWM fan connector for the custom backplane (Fan Units), supports UART communication
 - Switchable USB input (USB-A or USB-C)
