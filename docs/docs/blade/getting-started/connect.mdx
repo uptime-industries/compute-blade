@@ -12,7 +12,7 @@ This is the most common way to connect to a Compute Blade.
 
 ## Installing SSH Client
 
-To connect using SSH you will need a SSH client there are a number of options available
+To connect using SSH you will need a SSH client. there are a number of options available:
 - [PuTTY](https://www.putty.org/) by Simon Tatham
 - [Secure Shell](https://chromewebstore.google.com/detail/secure-shell/iodihamcpbpeioajjeobimgagajmlibd) by Google
 - [OpenSSH](https://www.openssh.com/) by OpenBSD Foundation
@@ -43,10 +43,10 @@ All of these clients will work, but for this guide we will be using OpenSSH.
     ```
     </TabItem>
     <TabItem value="macos" label="MacOS">
-    OpenSSH is included in MacOS. No Installation required
+    OpenSSH is included in MacOS out of the box; No installation required.
     </TabItem>
     <TabItem value="linux" label="Linux">
-        Many distributions come with OpenSSH included but if yours does not here is how to install it on so common distributions
+        Many distributions come with OpenSSH included but if yours does not here is how to install it on some common distributions:
         <Tabs groupId="pkgm" defaultValue="apt">
             <TabItem value="apt" label="Debian/Ubuntu">
                 OpenSSH is listed in the `apt` package manager
@@ -86,7 +86,7 @@ Then enter your password
 ```txt
 uptime@192.168.1.100's password:
 ```
-Once authenticated you will be presented with a active bash terminal.
+Once authenticated you will be presented with an active bash terminal.
 ```txt
 uptime@blade:~$
 ```
@@ -100,7 +100,7 @@ You may need to need to pass options to the SSH command when connecting. Here ar
 ## Public Key Authentication
 
 Public key authentication provides cryptographic strength that even extremely long passwords can not offer.
-With SSH, public key authentication improves security considerably, freeing users form remembering complicated passwords.
+With SSH, public key authentication improves security considerably, freeing users from remembering complicated passwords.
 
 ### Creating Key Pair
 

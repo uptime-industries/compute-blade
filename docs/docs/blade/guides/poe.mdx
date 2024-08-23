@@ -13,15 +13,15 @@ The Compute Blade features support for PoE (`802.3af`), PoE+(`802.3at`), and PoE
 ## Power Consumption
 
 Power consumption will vary based on load, accessories connected, and the power requirements of any devices installed in the M.2 slot.
-During Testing a Compute Blade with a CM4 overclocked to 2GHz and a consumer NVMe SSD under load consumes ~7W. Normal operation may range from 3W to 17W depending on work load.
+During testing, a Compute Blade with a CM4 overclocked to 2GHz and a consumer NVMe SSD under load consumes ~7W. Normal operation may range from 3W to 17W depending on workload.
 
 ## PoE+ Indicator
 
-On the Compute Blade `GPIO23` is used to indicate the presence of PoE+ or PoE++. This could be used modify the behavior of the blade depending to the supplied power.
+On the Compute Blade, `GPIO23` is used to indicate the presence of PoE+ or PoE++. This could be used modify the behavior of the blade depending to the supplied power.
 There is an LED on the Blade with a `+` label indicating power state.
 
 :::note
-    `GPIO23` must be pulled up using the internal pull up resister.
+    `GPIO23` must be pulled up using the internal pull up resistor.
 :::
 
 <img src='/img/blade/mk4-k-poe-plus.png' alt='Compute Blade with PoE+ light identified' width={'50%'}/>

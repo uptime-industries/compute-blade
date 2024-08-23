@@ -6,7 +6,7 @@
 :::
 The [`computeblade-agent`](https://github.com/Uptime-Lab/computeblade-agent) serves as an operating system agent interfacing with ComputeBlade hardware.
 It takes charge of fan speed, LEDs, and manages common events, such as identifying or locating an individual blade in a server rack.
-Additionally, it exposes hardware- and agent-related metrics on a Prometheus endpoint.
+Additionally, it exposes hardware and agent-related metrics on a Prometheus endpoint.
 
 ## Installation of Agent
 
@@ -24,7 +24,7 @@ This event-loop handler responds to system events, such as button presses and te
 It offers a Prometheus endpoint for monitoring core metrics, including Power over Ethernet (PoE) status.
 
 In normal operation mode, the agent maintains static LEDs and fan speed based on the configuration.
-If the System on Chip (SoC) temperature exceeds a predefined level, the critical mode is activated, setting the fan speed to 100% and changing the LED color to red.
+If the System on Chip (SoC) temperature exceeds a predefined level the critical mode is activated, setting the fan speed to 100% and changing the LED color to red.
 The identify action, independent of the mode, makes the edge LED blink.
 This can be toggled using `bladectl` on the blade (`bladectl identify`) or by pressing the edge button (or smart fan unit button).
 ### Smart Fan Unit Firmware
