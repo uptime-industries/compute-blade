@@ -3,6 +3,21 @@
         "mdx"
     ],
     "cSpell.words": [
-        "Kapton"
+        "BOOTSEL",
+        "CIRCUITPY",
+        "dtoverlay",
+        "emmc",
+        "fanunit",
+        "GPIO",
+        "Imager",
+        "Kapton",
+        "microsd",
+        "Noctua",
+        "nohup",
+        "NVME",
+        "RPIBOOT",
+        "UART",
+        "UGREEN",
+        "usbboot"
     ]
 }
