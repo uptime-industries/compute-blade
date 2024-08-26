@@ -21,6 +21,6 @@ Home Enclosure is our recommend enclosure for Homelab and cluster development. C
 
 ## 19-Inch
 
-The 19-Inch Enclosure is for enterprise scale. Can be equipped with twenty Compute Blades and ten Fan Units. Offering high density compute in a Standard 1U of rack space.
+The 19-Inch Enclosure is for enterprise scale. Can be equipped with twenty Compute Blades and ten Fan Units, offering high density compute in a standard 1U of rack space.
 
 ![Blade Runner 19-Inch](/img/runners/BladeRunner19.webp)

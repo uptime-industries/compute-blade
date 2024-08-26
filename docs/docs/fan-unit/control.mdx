@@ -4,11 +4,11 @@ sidebar_position: 3
 
 # Control
 
-The square connector at the end of the Blade main purpose is to connect a Fan Unit.
+The main purpose of the square connector at the end of the Blade is to connect a Fan Unit.
 The output is 5V and should work with any fan that supports 5V.
 The speed of the fan can be controlled with PWM.
 
-But it can be used to control any 5v PWM fan. Or as an additional UART port (UART5 on CM4)
+The connector can also be used to control any 5v PWM fan, or as an additional UART port (UART5 on CM4)
 
 ## PWM fan (STA Fan Unit)
 
@@ -16,14 +16,14 @@ But it can be used to control any 5v PWM fan. Or as an additional UART port (UAR
 When using the STA Fan Unit the speed of the fan can only be controlled from `port A`
 :::
 
-The using `GPIO12` and `GPIO13` the compute module can pass a PWM signal to the fan. Using a [python script](https://github.com/uptime-industries/compute-blade-pwm-fan-control) you can Read and control the Fan.
+Using `GPIO12` and `GPIO13` the compute module can pass a PWM signal to the fan. Using a [python script](https://github.com/uptime-industries/compute-blade-pwm-fan-control) you can read and control the fan.
 
-Clone the Github repository to your blade
+Clone the GitHub repository to your blade
 ```bash
 git clone https://github.com/uptime-industries/compute-blade-pwm-fan-control.git
 cd ./compute-blade-pwm-fan-control/
 ```
-To Read the The fan speed
+To read the fan speed
 ```bash
 python ./read_fan_speed.py
 ```
@@ -31,7 +31,7 @@ To control the fan speed
 ```bash
 python ./fan_control.py
 ```
-To run the script in the use `nohup`
+To run the script with `nohup`
 ```bash
 nohup python fan_control.py
 ```
@@ -50,7 +50,7 @@ enable_uart=1
 dtoverlay=uart5
 ```
 
-Next install a console we us `cu`. Next modify the permissions to `/dev/ttyAMA5`. Then we can connect over UART to the Fan Unit.
+Next install a console (we use `cu`) and modify the permissions to `/dev/ttyAMA5`. We can now connect to the Fan Unit over UART.
 
 ```bash
 sudo apt install cu
