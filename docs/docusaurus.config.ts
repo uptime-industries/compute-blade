@@ -95,7 +95,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'runnerSidebar',
           position: 'left',
-          label: 'Blade Runner',
+          label: 'BladeRunner™️',
         },
         // {
         //   type: 'docSidebar',
@@ -155,8 +155,8 @@ const config: Config = {
               to: 'fan-unit'
             },
             {
-              label: 'Blade Runner',
-              to: 'blade-runner'
+              label: 'BladeRunner™️',
+              to: 'bladerunner'
             },
           ],
         },
