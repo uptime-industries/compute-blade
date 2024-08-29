@@ -56,9 +56,43 @@ import ThemedImage from '@theme/ThemedImage';
 
     </TabItem>
     <TabItem value="sta" label="Standard">
-        - PWM Compute Blade Interface
-        - Fan Unit Connector
-        - PWM Fan Header
+        <table>
+            <tbody>
+                <tr>
+                    <td rowSpan={2}>Compatibility</td>
+                    <td>Compute Blade</td>
+                </tr>
+                <tr>
+                    <td>BladeRunner™️ Enclosures</td>
+                </tr>
+                <tr>
+                    <td rowSpan={3}>GPIO</td>
+                    <td>2 x Fan Tach</td>
+                </tr>
+                <tr>
+                    <td>1 x FAN PWM</td>
+                </tr>
+                <tr>
+                    <td>4-Pin 5V PWM Fan Header</td>
+                </tr>
+                <tr>
+                    <td>Operating Voltage</td>
+                    <td>5V - Compute Blade Port A or Port B</td>
+                </tr>
+                <tr>
+                    <td>Input Power (Max.)</td>
+                    <td>0.5W</td>
+                </tr>
+                <tr>
+                    <td>Fan Dimensions</td>
+                    <td>40x40x20mm</td>
+                </tr>
+                <tr>
+                    <td>Dimensions</td>
+                    <td>40x95x43.2mm</td>
+                </tr>
+            </tbody>
+        </table>
 
         :::info
         When using the standard Fan Unit only the [port A(left)](/fan-unit/GPIO#blade-connector) can be used for PWM
@@ -131,17 +165,6 @@ import ThemedImage from '@theme/ThemedImage';
                 </tr>
             </tbody>
         </table>
-
-    </TabItem>
-    <TabItem value="sta" label="Standard">
-        - PWM Compute Blade Interface
-        - Fan Unit Connector
-        - PWM Fan Header
-
-        :::info
-        When using the standard Fan Unit only the [port A(left)](/fan-unit/GPIO#blade-connector) can be used for PWM
-        :::
-
     </TabItem>
 </Tabs>
 
@@ -150,28 +173,7 @@ import ThemedImage from '@theme/ThemedImage';
 
 {/* Add Image of Fan */}
 
-Fan Units ship with a Noctua [NF-A4x20 5V](https://noctua.at/en/nf-a4x20-5v-pwm) a 5 Volt PWM fan. with a Max power draw of 0.1 Amp
-
-### Specification
-|  Specification                           |                                          |
-| :--------------------------------------- | :--------------------------------------- |
-| Size                                     | 40x40x20 mm                              |
-| Mounting hole spacing                    | 32x32 mm                                 |
-| Connector & pin-configuration            | 4-pin PWM                                |
-| Bearing                                  | SSO2                                     |
-| Blade geometry                           | A-Series with Flow Acceleration Channels |
-| Frame technology                         | AAO (Advanced Acoustic Optimization)     |
-| Rotational speed (+/- 10%)               | 5000 RPM                                 |
-| Min. rotational speed @ 20% PWM (+/-20%) | 1100 RPM                                 |
-| Airflow                                  | 9.4 m³/h                                 |
-| Acoustical noise                         | 14.9 dB(A)                               |
-| Static pressure                          | 2.26 mm H₂O                              |
-| Input power (typical)                    | 0.42 W                                   |
-| Input power (max.)                       | 0.5 W                                    |
-| Input current (typical)                  | 0.08 A                                   |
-| Max. input current                       | 0.1 A                                    |
-| Operating voltage                        | 5 V                                      |
-| Voltage PWM signal                       | 5 V                                      |
+Fan Units ship with a Noctua [NF-A4x20 5V](https://noctua.at/en/nf-a4x20-5v-pwm) a 5 Volt PWM fan. See Noctua website for the full [specification](https://noctua.at/en/nf-a4x20-5v-pwm/specification)
 
 ## Block Scheme
 
