@@ -67,8 +67,88 @@ import ThemedImage from '@theme/ThemedImage';
     </TabItem>
 </Tabs>
 
+## Specification
+<Tabs groupId="fanunit" defaultValue="smart">
+    <TabItem value="smart" label="Smart">
+        <table>
+            <tbody>
+                <tr>
+                    <td rowSpan={2}>Compatibility</td>
+                    <td>Compute Blade</td>
+                </tr>
+                <tr>
+                    <td>BladeRunner™️ Enclosures</td>
+                </tr>
+                <tr>
+                    <td>Storage</td>
+                    <td>16M-Bit Serial Flash Memory</td>
+                </tr>
+                <tr>
+                    <td rowSpan={6}>GPIO</td>
+                    <td>2 x UART</td>
+                </tr>
+                <tr>
+                    <td>4-Pin 5V PWM Fan Header</td>
+                </tr>
+                <tr>
+                    <td>Boot Button</td>
+                </tr>
+                <tr>
+                    <td>Programmable Button</td>
+                </tr>
+                <tr>
+                    <td>2 x Digital RGB LEDs</td>
+                </tr>
+                <tr>
+                    <td>1 x LED</td>
+                </tr>
+                <tr>
+                    <td rowSpan={2}>Operating Voltage</td>
+                    <td>5V - Compute Blade Port A or Port B</td>
+                </tr>
+                <tr>
+                    <td>5V - USB-C</td>
+                </tr>
+                <tr>
+                    <td>Input Power (Max.)</td>
+                    <td>0.5W</td>
+                </tr>
+                <tr>
+                    <td>Airflow Control Unit</td>
+                    <td>EMC2101</td>
+                </tr>
+                <tr>
+                    <td>Temperature Monitoring Unit</td>
+                    <td>EMC2101</td>
+                </tr>
+                <tr>
+                    <td>Fan Dimensions</td>
+                    <td>40x40x20mm</td>
+                </tr>
+                <tr>
+                    <td>Dimensions</td>
+                    <td>40x95x43.2mm</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </TabItem>
+    <TabItem value="sta" label="Standard">
+        - PWM Compute Blade Interface
+        - Fan Unit Connector
+        - PWM Fan Header
+
+        :::info
+        When using the standard Fan Unit only the [port A(left)](/fan-unit/GPIO#blade-connector) can be used for PWM
+        :::
+
+    </TabItem>
+</Tabs>
+
+
 ## The Fan
 
+{/* Add Image of Fan */}
 
 Fan Units ship with a Noctua [NF-A4x20 5V](https://noctua.at/en/nf-a4x20-5v-pwm) a 5 Volt PWM fan. with a Max power draw of 0.1 Amp
 
