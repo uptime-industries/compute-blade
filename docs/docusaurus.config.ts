@@ -74,8 +74,8 @@ const config: Config = {
       // title: 'Home',
       logo: {
         alt: 'compute blade Logo',
-        src: 'img/ComputeBlade-logo-black.svg',
-        srcDark: 'img/ComputeBlade-logo-green.svg',
+        src: 'img/logos/ComputeBlade-logo-black.svg',
+        srcDark: 'img/logos/ComputeBlade-logo-green.svg',
         href: 'https://docs.computeblade.com/'
       },
       items: [
@@ -116,11 +116,6 @@ const config: Config = {
         //   position: 'right'
         // },
         {
-          to: 'changelog/',
-          label: 'Changelog',
-          position: 'right',
-        },
-        {
           href: 'https://computeblade.com',
           position: 'right',
           className: 'header-website-link',
@@ -143,11 +138,11 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Introduction',
+              label: 'Compute Blade',
               to: 'blade',
             },
             {
-              label: 'Getting Started',
+              label: 'Getting Started with Compute Blade',
               to: 'blade/getting-started/assembly'
             },
             {
@@ -204,10 +199,6 @@ const config: Config = {
             {
               label: 'GitHub',
               href: 'https://github.com/uptime-industries/',
-            },
-            {
-              label: 'Changelog',
-              href: 'https://uplab.pro/2022/03/compute-blade-changelog/'
             }
             // {
             //   label: 'Kickstarter',
@@ -217,6 +208,11 @@ const config: Config = {
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Uptime Industries. Built with Docusaurus.`,
+      logo: {
+        src: 'img/logos/UptimeIndustries-logo-white.svg',
+        srcDark: 'img/logos/UptimeIndustries-logo-green.svg',
+        height: 100
+      },
     },
     prism: {
       theme: prismThemes.github,
