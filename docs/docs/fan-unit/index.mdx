@@ -29,10 +29,10 @@ import ThemedImage from '@theme/ThemedImage';
         It incorporates an additional Raspberry Pi [RP2040](https://www.raspberrypi.com/products/rp2040/), to expand the capabilities of your system.
     </TabItem>
     <TabItem value="sta" label="Standard">
-        <h2>STA Fan Unit(Standard)</h2>
+        <h2> Standard(STA) Fan Unit</h2>
         Simplified variant of the smart fan unit, featuring the same form factor and fan, but without the capability to execute or be controlled by custom applications.
         
-        The STA fan unit is powered and controlled directly by the compute blade, without the need for any additional wiring.
+        The Standard(STA) fan unit is powered and controlled directly by the compute blade, without the need for any additional wiring.
 
     </TabItem>
 </Tabs>
@@ -40,6 +40,7 @@ import ThemedImage from '@theme/ThemedImage';
 ## Features
 <Tabs groupId="fanunit" defaultValue="smart">
     <TabItem value="smart" label="Smart">
+        
         - UART Compute Blade Interface
         - Fan Unit Connector
         - PWM Fan Header
@@ -56,43 +57,11 @@ import ThemedImage from '@theme/ThemedImage';
 
     </TabItem>
     <TabItem value="sta" label="Standard">
-        <table>
-            <tbody>
-                <tr>
-                    <td rowSpan={2}>Compatibility</td>
-                    <td>Compute Blade</td>
-                </tr>
-                <tr>
-                    <td>BladeRunner™️ Enclosures</td>
-                </tr>
-                <tr>
-                    <td rowSpan={3}>GPIO</td>
-                    <td>2 x Fan Tach</td>
-                </tr>
-                <tr>
-                    <td>1 x FAN PWM</td>
-                </tr>
-                <tr>
-                    <td>4-Pin 5V PWM Fan Header</td>
-                </tr>
-                <tr>
-                    <td>Operating Voltage</td>
-                    <td>5V - Compute Blade Port A or Port B</td>
-                </tr>
-                <tr>
-                    <td>Input Power (Max.)</td>
-                    <td>0.5W</td>
-                </tr>
-                <tr>
-                    <td>Fan Dimensions</td>
-                    <td>40x40x20mm</td>
-                </tr>
-                <tr>
-                    <td>Dimensions</td>
-                    <td>40x95x43.2mm</td>
-                </tr>
-            </tbody>
-        </table>
+        
+        - PWM input on Port A
+        - Fan Tach on both Blade connectors
+        - Fan Unit Connector
+        - PWM Fan Header
 
         :::info
         When using the standard Fan Unit only the [port A(left)](/fan-unit/gpio#blade-connector) can be used for PWM
