@@ -60,7 +60,7 @@ These are example of how to get the `GPIO23` state to determine the if PoE+ is p
         if button_state == True:
             print("Powersource: PoE+ or PoE++")
         else:
-            print("Powersource: PoE or USB-C")
+            print("Powersource: PoE or USB Type-C")
     except:
         GPIO.cleanup()
     ```
@@ -88,7 +88,7 @@ These are example of how to get the `GPIO23` state to determine the if PoE+ is p
 
         // Check if the pin is active (assuming active-high logic)
         if (poeIndicatorState == HIGH) {
-            printf("Powersource: PoE or USB-C\n");
+            printf("Powersource: PoE or USB Type-C\n");
         } else {
             printf("Powersource: PoE+ or PoE++\n");
         }
@@ -102,6 +102,6 @@ These are example of how to get the `GPIO23` state to determine the if PoE+ is p
 ## PoE Modules
 Different Compute Blade revisions use different PoE modules. See the table below:
 
-| Version           | PoE Module                                        | Volts | Power Output (Peak) | PoE Compliance                 | Classification               |
-| :---------------- | :------------------------------------------------ | :---- | :------------------ | :----------------------------- | :--------------------------- |
-| v1.0              | [Silvertel Ag5405](https://silvertel.com/ag5400/) | 5V    | 25.5W (30W)         | IEEE 802.3af, 802.3at, 802.3bt | Type 2, Class 4              |
+| Version           | PoE Module                                        | Volts | Power Output (Peak) | PoE Compliance                                                                                                                                                                          | Classification               |
+| :---------------- | :------------------------------------------------ | :---- | :------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------- |
+| v1.0              | [Silvertel Ag5405](https://silvertel.com/ag5400/) | 5V    | 25.5W (30W)         | IEEE [`802.3af`](https://standards.ieee.org/ieee/802.3af/1090/), [`802.3at`](https://standards.ieee.org/ieee/802.3at/4553/), [`802.3bt`](https://standards.ieee.org/ieee/802.3bt/6749/) | Type 2, Class 4              |
