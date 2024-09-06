@@ -48,6 +48,7 @@ const config: Config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.ts',
+          sidebarCollapsible: false,
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           // Remove this to remove the "edit this page" links.
@@ -156,21 +157,12 @@ const config: Config = {
           ],
         },
         {
-          title: 'Community',
+          title: 'Social',
           items: [
             {
               label: 'LinkedIn',
               href: 'https://www.linkedin.com/company/uptimeindustries',
             },
-            {
-              label: 'Discord',
-              href: 'https://discord.gg/invite/uptime-industries-952334175501946902',
-            }
-          ],
-        },
-        {
-          title: 'Social',
-          items: [
             {
               label: 'Instagram',
               href: 'https://www.instagram.com/uptime.lab/',
@@ -179,6 +171,10 @@ const config: Config = {
               label: 'Twitter',
               href: 'https://twitter.com/Merocle',
             },
+            {
+              label: 'Discord',
+              href: 'https://discord.gg/invite/uptime-industries-952334175501946902',
+            }
           ],
         },
         {
@@ -192,18 +188,14 @@ const config: Config = {
               label: 'Website',
               href: 'https://uptime.industries/',
             },
-            // {
-            //   label: 'Compute Blade Website',
-            //   href: 'https://computeblade.com/',
-            // },
             {
               label: 'GitHub',
               href: 'https://github.com/uptime-industries/',
+            },
+            {
+              label: 'Legal',
+              href: 'https://computeblade.com/privacy-policy/'
             }
-            // {
-            //   label: 'Kickstarter',
-            //   href: 'https://www.kickstarter.com/projects/uptimelab',
-            // },
           ],
         },
         {
@@ -223,7 +215,7 @@ const config: Config = {
               html: '<p>+1 (315) 784-7820</p>'
             }
           ]
-        }
+        },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Uptime Industries. Built with Docusaurus.`,
       logo: {

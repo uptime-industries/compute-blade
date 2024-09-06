@@ -80,13 +80,26 @@
   height: 300px;
 }
 
-/* .hero {
-  background-color: #b182ff;
+.hero {
+  color: var(--ifm-color-primary-dark);
+  background-image: url('/img/hardware/Rack1.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 19%;
 }
 
 [data-theme='dark'] .hero {
-  background-color: #b182ff;
-} */
+  color: var(--ifm-color-primary);
+}
+
+.hero span {
+  display: inline-flex;
+  background-color: var(--ifm-background-surface-color);
+  padding-left:10px;
+  padding-right:10px;
+  padding-bottom:7px;
+  border-radius: 20px;
+}
 
 .header-github-link::before {
   content: '';
