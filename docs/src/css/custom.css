@@ -82,14 +82,31 @@
 
 .hero {
   color: var(--ifm-color-primary-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  color: var(--ifm-color-primary-dark);
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background-image: url('/img/hardware/Rack1.jpg');
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover; 
   background-position: 19%;
+  filter: blur(5px);
+  z-index: 1;
 }
 
 [data-theme='dark'] .hero {
   color: var(--ifm-color-primary);
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
 }
 
 .hero span {
