@@ -206,6 +206,24 @@ const config: Config = {
             // },
           ],
         },
+        {
+          title: 'Contact',
+          items: [
+            {
+              html:`<p>Uptime Industries Inc.
+                  447 Broadway #2114
+                  New York, NY 10013
+                  United States
+                </p>`,
+            },
+            {
+              html: '<p>info@uptime.industries</p>',
+            },
+            {
+              html: '<p>+1 (315) 784-7820</p>'
+            }
+          ]
+        }
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Uptime Industries. Built with Docusaurus.`,
       logo: {
@@ -213,6 +231,7 @@ const config: Config = {
         srcDark: 'img/logos/UptimeIndustries-logo-green.svg',
         height: 100
       },
+      
     },
     prism: {
       theme: prismThemes.github,
@@ -253,7 +272,7 @@ const config: Config = {
     },
     docs:{
       sidebar: {
-        autoCollapseCategories: true
+        autoCollapseCategories: false
       }
     }
   } satisfies Preset.ThemeConfig,
