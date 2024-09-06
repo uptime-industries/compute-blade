@@ -10,10 +10,10 @@ The speed of the fan can be controlled with PWM.
 
 The connector can also be used to control any 5v PWM fan, or as an additional UART port (UART5 on CM4)
 
-## PWM fan (STA Fan Unit)
+## PWM fan (Standard Fan Unit)
 
 :::note
-When using the STA Fan Unit the speed of the fan can only be controlled from `port A`
+When using the Standard(STA) Fan Unit Unit the speed of the fan can only be controlled from `port A`
 :::
 
 Using `GPIO12` and `GPIO13` the compute module can pass a PWM signal to the fan. Using a [python script](https://github.com/uptime-industries/compute-blade-pwm-fan-control) you can read and control the fan.
@@ -59,7 +59,7 @@ sudo cu --line /dev/ttyAMA5 --speed 115200
 ```
 
 ## Deploying to Fan Unit over USB (Smart Fan Unit)
-Before starting, remove all power from the Fan Unit. Next hold down the `BOOTSEL` button and plug in the USB-C. 
+Before starting, remove all power from the Fan Unit. Next hold down the `BOOTSEL` button and plug in the USB Type-C. 
 
 {/* Image of fan unit BOOTSEL button */}
 

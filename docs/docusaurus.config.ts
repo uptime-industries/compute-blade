@@ -48,6 +48,7 @@ const config: Config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.ts',
+          sidebarCollapsible: false,
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           // Remove this to remove the "edit this page" links.
@@ -74,9 +75,9 @@ const config: Config = {
       // title: 'Home',
       logo: {
         alt: 'compute blade Logo',
-        src: 'img/ComputeBlade-logo-black.svg',
-        srcDark: 'img/ComputeBlade-logo-green.svg',
-        href: 'https://docs.computeblade.com/'
+        src: 'img/logos/ComputeBlade-logo-black.svg',
+        srcDark: 'img/logos/ComputeBlade-logo-green.svg',
+        href: '/'
       },
       items: [
         {
@@ -116,15 +117,16 @@ const config: Config = {
         //   position: 'right'
         // },
         {
-          to: 'changelog/',
-          label: 'Changelog',
-          position: 'right',
-        },
-        {
           href: 'https://computeblade.com',
           position: 'right',
           className: 'header-website-link',
           'aria-label': 'Website link'
+        },
+        {
+          href: 'https://discord.gg/invite/uptime-industries-952334175501946902',
+          position:'right',
+          className: 'header-discord-link',
+          'aria-label': 'Discord Invite'
         },
         {
           href: 'https://github.com/uptime-industries/compute-blade',
@@ -143,11 +145,11 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Introduction',
+              label: 'Compute Blade',
               to: 'blade',
             },
             {
-              label: 'Getting Started',
+              label: 'Getting Started with Compute Blade',
               to: 'blade/getting-started/assembly'
             },
             {
@@ -161,21 +163,12 @@ const config: Config = {
           ],
         },
         {
-          title: 'Community',
+          title: 'Social',
           items: [
             {
               label: 'LinkedIn',
               href: 'https://www.linkedin.com/company/uptimeindustries',
             },
-            {
-              label: 'Discord',
-              href: 'https://discord.gg/invite/uptime-industries-952334175501946902',
-            }
-          ],
-        },
-        {
-          title: 'Social',
-          items: [
             {
               label: 'Instagram',
               href: 'https://www.instagram.com/uptime.lab/',
@@ -184,6 +177,10 @@ const config: Config = {
               label: 'Twitter',
               href: 'https://twitter.com/Merocle',
             },
+            {
+              label: 'Discord',
+              href: 'https://discord.gg/invite/uptime-industries-952334175501946902',
+            }
           ],
         },
         {
@@ -197,26 +194,42 @@ const config: Config = {
               label: 'Website',
               href: 'https://uptime.industries/',
             },
-            // {
-            //   label: 'Compute Blade Website',
-            //   href: 'https://computeblade.com/',
-            // },
             {
               label: 'GitHub',
               href: 'https://github.com/uptime-industries/',
             },
             {
-              label: 'Changelog',
-              href: 'https://uplab.pro/2022/03/compute-blade-changelog/'
+              label: 'Legal',
+              href: 'https://computeblade.com/privacy-policy/'
             }
-            // {
-            //   label: 'Kickstarter',
-            //   href: 'https://www.kickstarter.com/projects/uptimelab',
-            // },
           ],
+        },
+        {
+          title: 'Contact',
+          items: [
+            {
+              html:`<p>Uptime Industries Inc.
+                  447 Broadway #2114
+                  New York, NY 10013
+                  United States
+                </p>`,
+            },
+            {
+              html: '<p>info@uptime.industries</p>',
+            },
+            {
+              html: '<p>+1 (315) 784-7820</p>'
+            }
+          ]
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Uptime Industries. Built with Docusaurus.`,
+      logo: {
+        src: 'img/logos/UptimeIndustries-logo-white.svg',
+        srcDark: 'img/logos/UptimeIndustries-logo-green.svg',
+        height: 100
+      },
+      
     },
     prism: {
       theme: prismThemes.github,
@@ -257,7 +270,7 @@ const config: Config = {
     },
     docs:{
       sidebar: {
-        autoCollapseCategories: true
+        autoCollapseCategories: false
       }
     }
   } satisfies Preset.ThemeConfig,
