@@ -1,8 +1,6 @@
 {
   "position": 1.4,
   "label": "Compatibility",
-  "collapsible": true,
-  "collapsed": true,
   "className": "red",
   "link": {
     "type": "generated-index",
