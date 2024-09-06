@@ -123,6 +123,12 @@ const config: Config = {
           'aria-label': 'Website link'
         },
         {
+          href: 'https://discord.gg/invite/uptime-industries-952334175501946902',
+          position:'right',
+          className: 'header-discord-link',
+          'aria-label': 'Discord Invite'
+        },
+        {
           href: 'https://github.com/uptime-industries/compute-blade',
           // label: 'GitHub',
           position: 'right',
