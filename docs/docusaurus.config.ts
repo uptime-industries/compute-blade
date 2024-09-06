@@ -77,7 +77,7 @@ const config: Config = {
         alt: 'compute blade Logo',
         src: 'img/logos/ComputeBlade-logo-black.svg',
         srcDark: 'img/logos/ComputeBlade-logo-green.svg',
-        href: 'https://docs.computeblade.com/'
+        href: '/'
       },
       items: [
         {
