@@ -20,7 +20,17 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/blade">
-            Getting Started
+            Compute Blade
+          </Link>
+          <Link
+            className="button button--secondary button--lg"
+            to="/fan-unit">
+            Fan Unit
+          </Link>
+          <Link
+            className="button button--secondary button--lg"
+            to="/bladerunner">
+            BladeRunner™️
           </Link>
         </div>
       </div>

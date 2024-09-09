@@ -32,5 +32,6 @@
         "Yubi",
         "Zymbit",
         "ZYMKEY"
-    ]
+    ],
+    "editor.wordWrap": "on"
 }

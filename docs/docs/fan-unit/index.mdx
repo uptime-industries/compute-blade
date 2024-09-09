@@ -70,6 +70,32 @@ import ThemedImage from '@theme/ThemedImage';
     </TabItem>
 </Tabs>
 
+## Which Fan Unit to use
+
+Tailored to keep your computing environment optimally cool, these units are designed to work seamlessly with up to two Compute Blades each, providing a comprehensive cooling solution even in packed Rack spaces. 
+
+A single fan unit can support two Compute Blades, and you can install up to 10 STA or SMART fan units in a 19-inch 1U rack mount, serving a total of 20 Compute Blades.
+
+The compute blade fan unit is available in two versions, STA and SMART. 
+
+### Smart Fan Unit
+
+The SMART version includes an additional Pi, the RP2040, which controls the speed based on two precise and separate temperature sensors, one for each blade.
+
+Incorporates an additional Raspberry Pi, the RP2040, and sensors to expand the capabilities of your system. To interface with the Compute Blades, the smart fan unit utilizes two separate UART interfaces, one for each blade. Furthermore, the smart fan unit is powered directly through the Compute Blade, eliminating the need for any additional wiring.
+
+With the SMART fan unit, your possibilities are endless. You can compile 
+your custom application on it to cool, monitor the blade, or whatever 
+else your creativity inspires.
+
+### Standard(STA)Fan Unit
+
+The STA version provides basic features to cool two compute blades and control the fan speed via PWM.
+
+The STA version of the fan unit is a simplified variant of the smart fan  unit, featuring the same form factor and fan, but without the capability to execute or be controlled by custom applications.
+
+The fan speed/airflow control operates via PWM, which is provided and controlled by the Compute Blade.
+
 ## Specification
 <Tabs groupId="fanunit" defaultValue="smart">
     <TabItem value="smart" label="Smart">
