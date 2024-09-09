@@ -1,5 +1,6 @@
-# Network Switchs & PoE Injectors 
+# Network Switchs & PoE Injectors
 
+PoE enabled switch & Injectors which have been used with the Compute Blade
 
 ## Cisco 
 | Product                       | Model Number              | Tested By |
