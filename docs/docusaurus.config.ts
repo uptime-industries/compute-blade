@@ -160,6 +160,10 @@ const config: Config = {
               label: 'BladeRunner™️',
               to: 'bladerunner'
             },
+            {
+              label: 'Data Sheet',
+              to: 'data-sheets'
+            }
           ],
         },
         {
