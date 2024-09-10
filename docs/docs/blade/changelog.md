@@ -5,7 +5,7 @@ sidebar_position: 9
 
 ## V1.0 MK4
 
-![Blade-MK4-k with TPM highlighted](/img/blade/mk4-k-tpm.webp)
+![Blade-MK4-k with TPM highlighted](/img/blade/mk4-k-dev-tpm.webp)
 
 ### Improvements
 
