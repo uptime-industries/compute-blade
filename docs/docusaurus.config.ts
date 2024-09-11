@@ -96,7 +96,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'runnerSidebar',
           position: 'left',
-          label: 'BladeRunner™️',
+          label: 'BladeRunner',
         },
         // {
         //   type: 'docSidebar',
