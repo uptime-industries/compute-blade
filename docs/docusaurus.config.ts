@@ -18,7 +18,7 @@ const config: Config = {
   organizationName: 'uptime-industries', // Usually your GitHub org/user name.
   projectName: 'compute-blade', // Usually your repo name.
   deploymentBranch: 'main', // The name of the deployment branch.
-  trailingSlash: true,
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -157,7 +157,7 @@ const config: Config = {
               to: 'fan-unit'
             },
             {
-              label: 'BladeRunner™️',
+              label: 'BladeRunner',
               to: 'bladerunner'
             },
             {
