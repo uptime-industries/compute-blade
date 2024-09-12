@@ -8,6 +8,7 @@
         "bootloader",
         "BOOTSEL",
         "CIRCUITPY",
+        "datasheet",
         "dtoverlay",
         "EEPROM",
         "emmc",
