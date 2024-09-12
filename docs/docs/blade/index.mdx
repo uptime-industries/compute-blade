@@ -28,7 +28,7 @@ The Compute Blade comes in three different hardware variants.
         <img src='/img/blade/mk4-k-dev.webp' alt='MK4-k Dev Blade'/>
         <img src='/img/blade/v1-dev-box.jpg' alt='v1.0 Dev box label' width={'40%'}/>
         <table>
-            <tbody className='span-table'>
+            <tbody>
                 <tr>
                     <td rowSpan={2}>Compatibility</td>
                     <td>Raspberry Pi Compute Module 4 / 4 Lite</td>
@@ -36,8 +36,6 @@ The Compute Blade comes in three different hardware variants.
                 <tr>
                     <td>Raspberry Pi Compute Module 4 Compatible Boards</td>
                 </tr>
-            </tbody>
-            <tbody className='span-table'>
                 <tr>
                     <td rowSpan={3}>Storage</td>
                     <td>M.2 NVMe SSD up to 22110</td>
@@ -48,8 +46,6 @@ The Compute Blade comes in three different hardware variants.
                 <tr>
                     <td>eMMC on non-lite CM4 models</td>
                 </tr>
-            </tbody>
-            <tbody>
                 <tr>
                     <td rowSpan={5}>GPIO</td>
                     <td>2 x UART</td>
@@ -66,21 +62,26 @@ The Compute Blade comes in three different hardware variants.
                 <tr>
                     <td>2 x Controllable RGB LEDs</td>
                 </tr>
-            </tbody>
-            <tbody>
                 <tr>
-                    <td rowSpan={2}>Operating Voltage</td>
-                    <td>5V - USB C</td>
+                    <td>[PoE+](https://standards.ieee.org/ieee/802.3at/4553/) Voltage</td>
+                    <td>40V-57V</td>
                 </tr>
                 <tr>
-                    <td>5.1V - Power over Ethernet [`IEEE 802.3at`](https://standards.ieee.org/ieee/802.3at/4553/) (PoE+) up to 30W @5.1V</td>
+                    <td>PoE Current</td>
+                    <td>60 mA - 600 mA</td>
+                </tr>
+                <tr>
+                    <td>3.3V Output</td>
+                    <td>5A</td>
+                </tr>
+                <tr>
+                    <td>5V Output</td>
+                    <td>5.1A</td>
                 </tr>
                 <tr>
                     <td>Input Power (Normal Operation)</td>
                     <td>2 - 8W</td>
                 </tr>
-            </tbody>
-            <tbody>
                 <tr>
                     <td rowSpan={2}>Ports</td>
                     <td>HDMI (4K60)</td>
@@ -88,8 +89,6 @@ The Compute Blade comes in three different hardware variants.
                 <tr>
                     <td>USB Type-A/Type-C</td>
                 </tr>
-            </tbody>
-            <tbody>
                 <tr>
                     <td rowSpan={3}>Security</td>
                     <td>TPM 2.0</td>
@@ -117,8 +116,6 @@ The Compute Blade comes in three different hardware variants.
                 <tr>
                     <td>Raspberry Pi Compute Module 4 Compatible Boards</td>
                 </tr>
-            </tbody>
-            <tbody>
                 <tr>
                     <td rowSpan={3}>Storage</td>
                     <td>M.2 NVMe SSD up to 22110</td>
@@ -129,8 +126,6 @@ The Compute Blade comes in three different hardware variants.
                 <tr>
                     <td>eMMC on non-lite CM4 models</td>
                 </tr>
-            </tbody>
-            <tbody>
                 <tr>
                     <td rowSpan={5}>GPIO</td>
                     <td>2 x UART</td>
@@ -147,14 +142,22 @@ The Compute Blade comes in three different hardware variants.
                 <tr>
                     <td>2 x Controllable RGB LEDs</td>
                 </tr>
-            </tbody>
-            <tbody>
                 <tr>
-                    <td>Operating Voltage</td>
-                    <td>5.1V - Power over Ethernet [`IEEE 802.3at`](https://standards.ieee.org/ieee/802.3at/4553/) (PoE+) up to 30W @5.1V</td>
+                    <td>[PoE+](https://standards.ieee.org/ieee/802.3at/4553/) Voltage</td>
+                    <td>40V-57V</td>
                 </tr>
-            </tbody>
-            <tbody>
+                <tr>
+                    <td>PoE Current</td>
+                    <td>60 mA - 600 mA</td>
+                </tr>
+                <tr>
+                    <td>3.3V Output</td>
+                    <td>5A</td>
+                </tr>
+                <tr>
+                    <td>5V Output</td>
+                    <td>5.1A</td>
+                </tr>
                 <tr>
                     <td>Input Power (Normal Operation)</td>
                     <td>2 - 8W</td>
@@ -163,8 +166,6 @@ The Compute Blade comes in three different hardware variants.
                     <td>Ports</td>
                     <td>USB Type-A/Type-C</td>
                 </tr>
-            </tbody>
-            <tbody>
                 <tr>
                     <td rowSpan={2}>Security</td>
                     <td>TPM 2.0</td>
@@ -190,8 +191,6 @@ The Compute Blade comes in three different hardware variants.
                 <tr>
                     <td>Raspberry Pi Compute Module 4 Compatible Boards</td>
                 </tr>
-            </tbody>
-            <tbody>
                 <tr>
                     <td rowSpan={3}>Storage</td>
                     <td>M.2 NVMe SSD up to 22110</td>
@@ -202,8 +201,6 @@ The Compute Blade comes in three different hardware variants.
                 <tr>
                     <td>eMMC on non-lite CM4 models</td>
                 </tr>
-            </tbody>
-            <tbody>
                 <tr>
                     <td rowSpan={5}>GPIO</td>
                     <td>2 x UART</td>
@@ -220,26 +217,34 @@ The Compute Blade comes in three different hardware variants.
                 <tr>
                     <td>2 x Controllable RGB LEDs</td>
                 </tr>
-            </tbody>
-            <tbody>
                 <tr>
-                    <td>Operating Voltage</td>
-                    <td>5.1V - Power over Ethernet [`IEEE 802.3at`](https://standards.ieee.org/ieee/802.3at/4553/) (PoE+) up to 30W @5.1V</td>
+                    <td>[PoE+](https://standards.ieee.org/ieee/802.3at/4553/) Voltage</td>
+                    <td>40V-57V</td>
                 </tr>
-            </tbody>
-            <tbody>
                 <tr>
-                    <td>Input Power (Normal Operation)</td>
-                    <td>2 - 8W</td>
+                    <td>PoE Current</td>
+                    <td>60 mA - 600 mA</td>
                 </tr>
-            </tbody>
-            <tbody>
+                <tr>
+                    <td>USB Type-C @5V Current</td>
+                    <td>2mA - 2A</td>
+                </tr>
+                <tr>
+                    <td>3.3V Output</td>
+                    <td>5A</td>
+                </tr>
+                <tr>
+                    <td>5V Output</td>
+                    <td>5.1A</td>
+                </tr>
+                <tr>
+                    <td>Power (Normal Operation)</td>
+                    <td>2W - 8W</td>
+                </tr>
                 <tr>
                     <td>Ports</td>
                     <td>USB Type-A/Type-C</td>
                 </tr>
-            </tbody>
-            <tbody>
                 <tr>
                     <td>Security</td>
                     <td>Support for ZYMKEY 4i, Security Keys</td>
