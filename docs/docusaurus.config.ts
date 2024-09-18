@@ -162,7 +162,7 @@ const config: Config = {
             },
             {
               label: 'Data Sheet',
-              to: 'data-sheets'
+              to: 'datasheet'
             }
           ],
         },

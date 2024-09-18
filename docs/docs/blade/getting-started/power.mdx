@@ -1,0 +1,33 @@
+---
+sidebar_position: 2.5
+---
+# Powering the blade
+
+The only way to power the Compute Blades is with Power over Ethernet plus(PoE+). The exception to this is DEV model Blades which in additional have USB Type-C port that can be used to deliver power.
+
+## PoE
+
+To use a PoE you will need a PoE enabled injector or network switch.
+
+:::tip
+If you are unsure witch network switch to buy we have a list of [tested devices](/blade/compatibility/switch)
+:::
+
+Then connect the Ethernet cable from you PoE enabled device to the Blade. This cable will provide power and network to the blade
+
+:::tip
+Some devices may have PoE and non-PoE ports be sure to follow your device manufacturers instructions to avoid issues
+:::
+
+:::note
+For more information on PoE see out our dedicated [PoE page](/blade/guide/poe)
+:::
+
+## USB 
+:::warning
+Only the Dev model Compute Blade has a USB Type-C port.
+:::
+
+Dev Blades can be powered over USB Type-C in addition to PoE. When using USB power make use the USB power supply can provided at least 2A at 5V.
+
+The USB Type-C port does not provided network connectivity. Usa a Ethernet cable to connect the blade to your network.
