@@ -5,7 +5,7 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Power Supply
+# Power over Ethernet
 
 The Compute Blade features support for PoE (`802.3af`), PoE+(`802.3at`), and PoE++(`802.3bt`).
 
@@ -20,7 +20,7 @@ On the Compute Blade, `GPIO23` is used to indicate the presence of PoE+ or PoE++
 There is an LED on the Blade with a `+` label indicating power state.
 
 :::note
-    `GPIO23` must be pulled up using the internal pull up resistor.
+    `GPIO23` must be pulled up using the internal pull up.
 :::
 
 <img src='/img/blade/mk4-k-poe-plus.webp' alt='Compute Blade with PoE+ light identified' width={'50%'}/>

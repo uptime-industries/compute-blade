@@ -1,6 +1,5 @@
 # Data sheets
 
-
 [Compute Blade v.1.1](/datasheet/ComputeBlade_datasheet_v.1.1.pdf) (PDF)
 
 [Fan Unit v.1.0](/datasheet/FanUnit_datasheet_v.1.0.pdf) (PDF)
