@@ -39,6 +39,7 @@ Below is a list of NVMe SSDs that have been tested by Uptime Lab and community m
 | KIOXIA-EXCERIA SSD            | LRC10Z500GG8       | 500GB        | [xvzf](https://github.com/xvzf)             |
 | KIOXIA BG4                    | KBG40ZNS128G       | 128GB        | [pxpunx](https://github.com/pxpunx)         |
 | KIOXIA BG5 <sup>1</sup>       | KBG50ZNV512G       | 512GB        | [xvzf](https://github.com/xvzf)             |
+| KIOXIA EXCERIA G2             | LRC20Z002TG8       |   2TB        | [mookie-](https://github.com/mookie-)       |
 
 <sup>1</sup> _Might cause slightly increased CM4 temperature, but stability & performance is not impacted (reported by [xvzf](https://github.com/xvzf)) ._
 
