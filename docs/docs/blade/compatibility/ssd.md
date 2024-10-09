@@ -55,6 +55,8 @@ Below is a list of NVMe SSDs that have been tested by Uptime Lab and community m
 | Product                       | Model              | Capacity     | Tester                                      |
 |:------------------------------|:-------------------|:-------------|:--------------------------------------------|
 | Patriot P310                  | P310P240GM28       | 240GB        | [pxpunx](https://github.com/pxpunx)         |
+| Patriot P310                  | P310P192TM28       | 1920GB       | [adriano](https://github.com/Adriano8899)   |
+| Patriot P300                  | P300P2TBM28        | 2TB          | [adriano](https://github.com/Adriano8899)   |
 
 ## PNY
 
