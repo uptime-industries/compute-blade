@@ -1,8 +1,9 @@
-import { Redirect } from '@docusaurus/router';
-import config from '../../docusaurus.config'
+import useIsBrowser from '@docusaurus/useIsBrowser';
 function body() {
+  const isBrowser = useIsBrowser();
   const path = `https://github.com/uptime-industries/compute-blade/tree/main/bladerunner`
-  return window.location.href = path;
+  const location = isBrowser ? window.location.href=path : path;
+  return location;
 }
 
 export default body
