@@ -286,11 +286,11 @@ const config: Config = {
         redirects: [
           {
             to: '/datasheets/',
-            from: ['/data-sheets/', '/data-sheets'],
+            from: ['/data-sheets/'],
           },
           {
             to: '/blade/getting-started/assembly/',
-            from: ['/getting-started/', '/getting-started']
+            from: ['/getting-started/']
           },
         ],
       },
