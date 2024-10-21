@@ -109,7 +109,7 @@ const config: Config = {
           label: 'Timeline',
           position: 'right'
         },
-        
+
         // {to: '/blog', label: 'Blog', position: 'left'},
         // {
         //   label: 'Website',
@@ -135,7 +135,7 @@ const config: Config = {
           className: 'header-github-link',
           'aria-label': 'GitHub repository'
         },
-        
+
       ],
     },
     footer: {
@@ -233,7 +233,7 @@ const config: Config = {
         srcDark: 'img/logos/UptimeIndustries-logo-green.svg',
         height: 100
       },
-      
+
     },
     prism: {
       theme: prismThemes.github,
@@ -276,8 +276,26 @@ const config: Config = {
       sidebar: {
         autoCollapseCategories: false
       }
-    }
+    },
   } satisfies Preset.ThemeConfig,
+
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: '/datasheets/',
+            from: ['/data-sheets/'],
+          },
+          {
+            to: '/blade/getting-started/assembly/',
+            from: ['/getting-started/']
+          },
+        ],
+      },
+    ],
+  ]
 };
 
 export default config;
