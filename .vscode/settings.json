@@ -1,4 +1,5 @@
 {
+    "terminal.integrated.cwd": "${workspaceFolder}/docs",
     "cSpell.enableFiletypes": [
         "mdx"
     ],
