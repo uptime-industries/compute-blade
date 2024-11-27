@@ -178,8 +178,8 @@ const config: Config = {
               href: 'https://www.instagram.com/uptime.lab/',
             },
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/Merocle',
+              label: 'Bluesky',
+              href: 'https://bsky.app/profile/uptime.industries',
             },
             {
               label: 'Discord',

@@ -15,87 +15,40 @@ import ThemedImage from '@theme/ThemedImage';
         light: useBaseUrl('/img/fan-unit/schematics-white-bg.svg'),
         dark: useBaseUrl('/img/fan-unit/schematics-black-bg.svg'),
     }}
-    width={"100%"}
+    width={"75%"}
 />
+<sub>*Smart Fan Unit Pictured Above*</sub>
 
 Download the [Datasheet](/datasheet/FanUnit_datasheet_v.1.0.pdf)
 
 ## Fan Units
 
-<Tabs groupId="fanunit" defaultValue="smart">
-    <TabItem value="smart" label="Smart">
-        <h2>Smart Fan Unit</h2>
-        The Smart Fan Unit enhances your Compute Blade setup by providing numerous functions, features, and the flexibility to customize the operating logic.
+The fan unit offers a compact and efficient method of cooling for two Computeblade in a BladeRunner™️ enclosure. 
+Utilizing the 4-pin square connector on the rear of the blade to communicate with the blade. Shipped with a Noctua [NF-A4x20 5V](https://noctua.at/en/nf-a4x20-5v-pwm) a 5 Volt PWM fan.
 
-        It incorporates an additional Raspberry Pi [RP2040](/fan-unit/rp2040), to expand the capabilities of your system.
-    </TabItem>
-    <TabItem value="sta" label="Standard">
-        <h2> Standard(STA) Fan Unit</h2>
-        Simplified variant of the smart fan unit, featuring the same form factor and fan, but without the capability to execute or be controlled by custom applications.
-        
-        The Standard(STA) Fan Unit is powered and controlled directly by the compute blade, without the need for any additional wiring.
+Their are two types of Fan Units, Standard and Smart.
 
-    </TabItem>
-</Tabs>
+### Standard
 
-## Features
-<Tabs groupId="fanunit" defaultValue="smart">
-    <TabItem value="smart" label="Smart">
-        
-        - UART Compute Blade Interface
-        - Fan Unit Connector
-        - PWM Fan Header
-        - Raspberry Pi [RP2040](/fan-unit/rp2040)
-        - Reset Button
-        - BOOTSEL Button
-        - Programmable Button
-        - Status LEDs
-        - Temperature Sensors
+The Standard Fan Unit offers basic PWM Functionality but a no fuss setup requiring now out of box configurations to get going.
+With that simplicity comes a drawback, the Standard Fan Unit can not take PWM Signals from both blades.
+The PWM signals can only be sent by the blade on the J1 header (Power Input 1 in the above picture)
 
-        :::info
-        When using the Smart Fan Unit PWM Can not be used to control the fan speed
-        :::
+:::info
+    The fan tach signal can be read by both blades see the [GPIO guide](/fan-unit/gpio#blade-connector) for the pin out
+:::
 
-    </TabItem>
-    <TabItem value="sta" label="Standard">
-        
-        - PWM input on Port A
-        - Fan Tach on both Blade connectors
-        - Fan Unit Connector
-        - PWM Fan Header
+### Smart
 
-        :::info
-        When using the Standard(STA) Fan Unit only the [port A(left)](/fan-unit/gpio#blade-connector) can be used for PWM
-        :::
+To compliment the drawback of the Standard Fan Unit, the Smart Fan Unit uses the [Raspberry Pi RP2040](https://www.raspberrypi.com/products/rp2040/specifications/).
+Utilizing the 32-bit dual [ARM Cortex-M0+](https://developer.arm.com/Processors/Cortex-M0-Plus) microcontroller. The Smart Fan Unit is capable of full bidirectional communication to both of the cooled blades, programmable status LEDs, and sensors. 
+This increased functionality comes with the down side of increased complexity in the setup. Requiring the setup of the Smart Fan Unit and The computeblade.
 
-    </TabItem>
-</Tabs>
+## Which Fan Unit should you uses
 
-## Which Fan Unit to use
+If simple compute task are your intended work load or you are using the blade in a hobbyist environment the Standard Fan Unit may be right for you.
 
-Tailored to keep your computing environment optimally cool, these units are designed to work seamlessly with up to two Compute Blades each, providing a comprehensive cooling solution even in packed Rack spaces. 
-
-A single fan unit can support two Compute Blades, and you can install up to 10 STA or SMART fan units in a 19-inch 1U rack mount, serving a total of 20 Compute Blades.
-
-The compute blade fan unit is available in two versions, STA and SMART. 
-
-### Smart Fan Unit
-
-The SMART version includes an additional Pi, the [RP2040](/fan-unit/rp2040), which controls the speed based on two precise and separate temperature sensors, one for each blade.
-
-Incorporates an additional Raspberry Pi, the RP2040, and sensors to expand the capabilities of your system. To interface with the Compute Blades, the smart fan unit utilizes two separate UART interfaces, one for each blade. Furthermore, the smart fan unit is powered directly through the Compute Blade, eliminating the need for any additional wiring.
-
-With the SMART fan unit, your possibilities are endless. You can compile 
-your custom application on it to cool, monitor the blade, or whatever 
-else your creativity inspires.
-
-### Standard(STA)Fan Unit
-
-The STA version provides basic features to cool two compute blades and control the fan speed via PWM.
-
-The STA version of the fan unit is a simplified variant of the smart fan  unit, featuring the same form factor and fan, but without the capability to execute or be controlled by custom applications.
-
-The fan speed/airflow control operates via PWM, which is provided and controlled by the Compute Blade.
+If you are looking for detailed information about the state of the fan or have more dynamic work loads the SMat Fan Unit may be for you.
 
 ## Specification
 <Tabs groupId="fanunit" defaultValue="smart">
@@ -216,15 +169,7 @@ The fan speed/airflow control operates via PWM, which is provided and controlled
         </table>
     </TabItem>
 </Tabs>
-
-
-## The Fan
-
-{/* Add Image of Fan */}
-
-Fan Units ship with a Noctua [NF-A4x20 5V](https://noctua.at/en/nf-a4x20-5v-pwm) a 5 Volt PWM fan. See Noctua website for the full [specification](https://noctua.at/en/nf-a4x20-5v-pwm/specification)
-
-<sub> See Noctua [datasheet](https://noctua.at/pub/media/blfa_files/infosheet/noctua_nf_a4x20_5v_datasheet_en_web_1.pdf) for included fan</sub>
+For additional information on the NF-A4x20 5V, see the [datasheet](https://noctua.at/pub/media/blfa_files/infosheet/noctua_nf_a4x20_5v_datasheet_en_web_1.pdf)
 ## Block Scheme
 
 <Tabs groupId="fanunit" defaultValue="smart">
