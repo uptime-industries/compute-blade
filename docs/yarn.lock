@@ -2190,6 +2190,7 @@
     "@csstools/css-parser-algorithms" "^3.0.4"
     "@csstools/css-tokenizer" "^3.0.3"
 
+
 "@csstools/postcss-stepped-value-functions@^4.0.5":
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/@csstools/postcss-stepped-value-functions/-/postcss-stepped-value-functions-4.0.5.tgz#4d68633d502fbe2b6ef3898e368e3540488a0d8a"
@@ -2432,6 +2433,7 @@
     fs-extra "^11.1.1"
     lodash "^4.17.21"
     tslib "^2.6.0"
+
 
 "@docusaurus/plugin-content-blog@3.6.3":
   version "3.6.3"
