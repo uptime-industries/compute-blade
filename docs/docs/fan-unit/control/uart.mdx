@@ -1,65 +1,86 @@
+
+import Admonition from '@theme/Admonition';
+
 # Smart
 
+The Smart Fan unit utilizes the [RP2040](https://www.raspberrypi.com/products/rp2040/specifications/) the Raspberry Pi microcontroller featured in thr [Raspberry Pi Pico 1](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html). Using the RP2040's two UART connections a link can be established out of to the to blades using the fan connector
+
+## Pins
+
+The A port on the Fan unit uses `UART0` and the B port uses `UART1` on the RP2040. On the CM4 connects using `UART5`. both blade connectors can be used to power the Fan unit with +5v.
+
+<details>
+  <summary>Pin Out Guides</summary>
+  <h3>Smart Fan Unit</h3>
+  <img src='/img/fan-unit/smart-gpio.svg' width={'70%'} alt="Smart Fan Unit blade connecter pin out"/>
+  <h3>Compute blade</h3>
+  <img src='/img/hardware/fan-port.webp' width={'70%'} alt="Blade Fan unit connector"/>
+  
+</details>
+
+
 ## Update firmware
-1. Hold down boot
-2. plug USB into the Fan Unit
-3. move .uf2 file in to the attached storage media "RPI-RP2"
+
+To start using the the Smart Fan Unit it first should be flashed with the latest firmware of your choice. This could be custom firmware or a preexisting framework.
+
+First start by removing power from the Fan Unit. Then hold down the the `BOOT` button and connect the USB Type-C to your computer.
+
+{/* Image of fan unit with Boot held down and usb plugged in */}
+
+The Fan Unit will now appear as "RPI-RP2" a storage device to your computer.
+
+{/* Windows file manager this PC */}
+
+Your desired firmware will have the file extension `.uf2`
+Move the `*.uf2` file into `RPI-RP2` it will then disconnect and reboot to the now installed firmware
 
 ## CircuitPython
 
-### Installing CircuitPython
-1. Download the latest [CircuitPython](https://circuitpython.org/board/raspberry_pi_pico/)
-2. move `.uf2` file in to the attached storage media `RPI-RP2`
-4. The storage media will be disconnected and `LED 3` will blink green
-3. A new storage media named `CIRCUITPY` will be connected.
+[CircuitPython](https://circuitpython.org/) is a programming language designed to simplify experimenting and learning to code on low-cost microcontroller boards.
 
+### Installing CircuitPython
+1. Download the latest version of [CircuitPython 9](https://circuitpython.org/board/raspberry_pi_pico/)
+2. Move `adafruit-circuitpython-raspberry_pi_pico-en_US-*.uf2` file in to `RPI-RP2`
+4. It will be disconnected and `LED 3` will blink green
+3. The fan Unit with reconnect as `CIRCUITPY` will be connected.
 
 ### Deploying code
 
 1. Having installed CircuitPython and the fan unit being connected to you computer via USB C
 2. Download the [example code](https://github.com/uptime-industries/circuitpy-fan-unit)
-3. should be placed in the newly connected media to run.
+3. Should be placed in `CIRCUITPY` if prompted to replace any file click yes
 
 ### Enable UART on CM4
-1. Navigate to /boot/firmware/config.txt`
-2. add the following lines
+
+To enable UART on the compute blade, open `/boot/firmware/config.txt`
+
+```bash 
+sudo nano /boot/firmware/config.txt
+```
+
+<Admonition type='info'>
+    Instead of the BIOS found on a conventional PC, Raspberry Pi devices use a configuration file called config.txt. The GPU reads config.txt before the Arm CPU and Linux initialise. Raspberry Pi OS looks for this file in the boot partition, located at /boot/firmware/.
+
+    <sub>learn more about `config.txt` in [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/computers/config_txt.html)</sub>
+</Admonition>
+
+Then add the following lines
+
 ```txt
 [cm4]
 enable_uart=1
 dtoverlay=uart5
 ```
-3. connect to Fan Unit using `CU`
-```bash
-sudo apt install cu
-sudo chmod 666 /dev/ttyAMA5
-sudo cu --line /dev/ttyAMA5 --speed 115200
-```
-3. list of commands
-4. disconnect
 
+Reboot the The compute blade and when it it turns back out the UART connection will be available at `/dev/ttyAMA5`
 
+## Debugging
 
+Located just bellow the B port, is an unpopulated pin header J5.
 
----------
-Enable `uart5` in `config.txt` by adding:
+<details>
+  <summary>Debug pins</summary>
+  <img src='/img/fan-unit/j5-debug.svg' width={'70%'} alt="J5 Debug pins"/>
+</details>
 
-```txt
-enable_uart=1
-dtoverlay=uart5
-```
-
-Next install a console (we use `cu`) and modify the permissions to `/dev/ttyAMA5`. We can now connect to the Fan Unit over UART.
-
-```bash
-sudo apt install cu
-sudo chmod 666 /dev/ttyAMA5
-sudo cu --line /dev/ttyAMA5 --speed 115200
-```
-
-## Deploying to Fan Unit over USB (Smart Fan Unit)
-Before starting, remove all power from the Fan Unit. Next hold down the `BOOTSEL` button and plug in the USB Type-C. 
-
-{/* Image of fan unit BOOTSEL button */}
-
-The Fan Unit will appear as a drive on your computer. Download the [Circuit Python](https://circuitpython.org/board/raspberry_pi_pico/) `.uf2` file and move into the drive.
-The drive will then disappear and a new one named `CIRCUITPY` will be connected. The [example code](https://github.com/uptime-industries/circuitpy-fan-unit) should be placed here to run.
+These can be used with a tool like the [Raspberry Pi Debug Probe](https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html) to debug and program the RP2040.

@@ -1,45 +1,67 @@
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Standard
 
-
-
+The Standard Fan Unit offers a easy to get out of the box experience. The fan will run with no additional setup. However you may control the fan via PWM. 
 
 ## Pins
-The Compute blade uses [`GPIO12`](https://pinout.xyz/pinout/pin32_gpio12/) and [`GPIO13`](https://pinout.xyz/pinout/pin33_gpio13/) in their alternate PWM mode
+
+The Compute blade uses [`GPIO12`](https://pinout.xyz/pinout/pin32_gpio12/) and [`GPIO13`](https://pinout.xyz/pinout/pin33_gpio13/) in their alternate PWM mode.
+
+:::info
+Only the Compute Blade on the `Port A` of the Fan Unit can control the Fan speed. However both blades can read the speed of the fan
+:::
 
 <details>
   <summary>Pin Out Guides</summary>
-  <h3>Compute blade</h3>
-  <img src='/img/hardware/fan-port.webp' width={'70%'} alt="Blade Fan unit connector"/>
   <h3>Standard Fan Unit</h3>
   <img src='/img/fan-unit/sta-gpio.svg' width={'70%'} alt="Standard Fan Unit blade connecter pin out"/>
+  <h3>Compute blade</h3>
+  <img src='/img/hardware/fan-port.webp' width={'70%'} alt="Blade Fan unit connector"/>
+
 </details>
 
-## Control
-Using a [python script](https://github.com/uptime-industries/compute-blade-pwm-fan-control) you can read and control the fan.
+## Python
 
-Clone the GitHub repository to your blade and install the [GPIO Zero](https://gpiozero.readthedocs.io/en/latest/index.html)
+A simple Python script can control the PWM fan.
+
+### Setup
+
+Start by cloning the scripts from the [GitHub repository](https://github.com/uptime-industries/compute-blade-pwm-fan-control)
 ```bash
 git clone https://github.com/uptime-industries/compute-blade-pwm-fan-control.git
 cd ./compute-blade-pwm-fan-control/
-sudo apt install python3-gpiozero
 ```
 
-To read the fan speed
+Install [GPIO Zero](https://gpiozero.readthedocs.io/en/latest/index.html), a simple interface to GPIO devices for Raspberry Pi
+<Tabs groupId='installer'>
+    <TabItem value="apt" label="apt" default>
+        ```bash
+        sudo apt install python3-gpiozero
+        ```
+    </TabItem>
+    <TabItem value="pip" label="pip" default>
+        ```bash
+        sudo pip3 install gpiozero
+        ```
+    </TabItem>
+</Tabs>
+
+The Github repo comes with two scripts:
+- `read_fan_speed.py` - Prints the current fan Speed in RPM
+- `fan_control.py`    - Controls fan speed based on CPU temperature
+To stop either script can be stopped at any time with `ctrl` + `C`
+
+### read_fan_speed.py
+To use the read script run the following command
 ```bash
-python3 ./read_fan_speed.py
+python3 read_fan_speed.py
 ```
+
+### fan_control.py
 To control the fan speed
 ```bash
-python3 ./fan_control.py
+python3 fan_control.py
 ```
-
-### Run in the background
-To run the script with `nohup`
-```bash
-nohup python3 fan_control.py
-```
-:::note
-[`nohup`](https://en.wikipedia.org/wiki/Nohup) is a POSIX command which means "no hang up".
-Its purpose is to execute a command such that it ignores the HUP (hangup) signal
-and therefore does not stop when the user logs out.
-:::
