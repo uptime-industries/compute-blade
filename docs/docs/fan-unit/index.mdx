@@ -23,30 +23,30 @@ Download the [Datasheet](/datasheet/FanUnit_datasheet_v.1.0.pdf)
 
 ## Fan Units
 
-The fan unit offers a compact and efficient method of cooling for two Computeblade in a BladeRunner™️ enclosure. 
-Utilizing the 4-pin square connector on the rear of the blade to communicate with the blade. Shipped with a Noctua [NF-A4x20 5V](https://noctua.at/en/nf-a4x20-5v-pwm) a 5 Volt PWM fan.
+The Fan Unit offers a compact and efficient method of cooling for two Compute Blades mounted in a BladeRunner™️ enclosure. 
+The fan unit uses a 4-pin square connector to communicate with the Compute Blade. It is also shipped with a 5V PWM fan, [Noctua NF-A4x20 5V](https://noctua.at/en/nf-a4x20-5v-pwm).
 
-Their are two types of Fan Units, Standard and Smart.
+There are two types of Fan Units, **Standard** and **Smart**.
 
 ### Standard
 
-The Standard Fan Unit offers basic PWM Functionality but a no fuss setup requiring now out of box configurations to get going.
-With that simplicity comes a drawback, the Standard Fan Unit can not take PWM Signals from both blades.
+The Standard Fan Unit offers basic PWM functionality, and allows for a no-fuss setup with zero configuration required.
+Because of the simplicity in its design, the Standard Fan Unit is unable to receive PWM Signals from both Compute Blades.
 The PWM signals can only be sent by the blade on the J1 header (Power Input 1 in the above picture)
 
 :::info
-    The fan tach signal can be read by both blades see the [GPIO guide](#blade-connector) for the pin out
+    The fan tachometer signal can be read by both blades. See the [GPIO guide](#blade-connector) for the pin out configuration.
 :::
 
 ### Smart
 
 To compliment the drawback of the Standard Fan Unit, the Smart Fan Unit uses the [Raspberry Pi RP2040](https://www.raspberrypi.com/products/rp2040/specifications/).
 Utilizing the 32-bit dual [ARM Cortex-M0+](https://developer.arm.com/Processors/Cortex-M0-Plus) microcontroller. The Smart Fan Unit is capable of full bidirectional communication to both of the cooled blades, programmable status LEDs, and sensors. 
-This increased functionality comes with the down side of increased complexity in the setup. Requiring the setup of the Smart Fan Unit and The computeblade.
+This enhanced functionality comes with more complexity in its setup and configuration. It requires configuration of both the Smart Fan Unit and the Compute Blade.
 
-## Which Fan Unit should you uses
+## Which Fan Unit Should You Use?
 
-If simple compute task are your intended work load or you are using the blade in a hobbyist environment the Standard Fan Unit may be right for you.
+If simple compute tasks are your intended workload or you are using the blade in a hobbyist environment, the Standard Fan Unit is likely right for you.
 
 If you are looking for detailed information about the state of the fan, or have more dynamic workloads the Smart Fan Unit may be necessary.
 

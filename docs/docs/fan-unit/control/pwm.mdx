@@ -11,7 +11,7 @@ The Standard Fan Unit offers an easy out-of-box experience. The fan will run wit
 The Compute blade uses [`GPIO12`](https://pinout.xyz/pinout/pin32_gpio12/) and [`GPIO13`](https://pinout.xyz/pinout/pin33_gpio13/) in their alternate PWM mode.
 
 :::info
-Only the Compute Blade on the `Port A` of the Fan Unit can control the Fan speed. However both blades can read the speed of the fan
+Only the Compute Blade connected to `Port A` of the Fan Unit can control the fan speed. However both blades can read the speed of the fan.
 :::
 
 <details>
@@ -49,19 +49,19 @@ Install [GPIO Zero](https://gpiozero.readthedocs.io/en/latest/index.html), a sim
     </TabItem>
 </Tabs>
 
-The Github repo comes with two scripts:
+The Github repo provides two scripts:
 - `read_fan_speed.py` - Prints the current fan Speed in RPM
 - `fan_control.py`    - Controls fan speed based on CPU temperature
-To stop either script can be stopped at any time with `ctrl` + `C`
+Either script can be stopped at any time with `CTRL` + `C`
 
 ### read_fan_speed.py
-To use the read script run the following command
+To use the `read_fan_speed.py` script run the following command:
 ```bash
 python3 read_fan_speed.py
 ```
 
 ### fan_control.py
-To control the fan speed
+To control the fan speed:
 ```bash
 python3 fan_control.py
 ```

@@ -3,11 +3,11 @@ import Admonition from '@theme/Admonition';
 
 # Smart
 
-The Smart Fan unit utilizes the [RP2040](https://www.raspberrypi.com/products/rp2040/specifications/) the Raspberry Pi microcontroller featured in thr [Raspberry Pi Pico 1](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html). Using the RP2040's two UART connections a link can be established out of to the to blades using the fan connector
+The Smart Fan unit utilizes the [RP2040](https://www.raspberrypi.com/products/rp2040/specifications/) microcontroller featured in the [Raspberry Pi Pico 1](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html). Using the RP2040's two UART connections, a link can be established to each blade using the fan connectors.
 
 ## Pins
 
-The A port on the Fan unit uses `UART0` and the B port uses `UART1` on the RP2040. On the CM4 connects using `UART5`. both blade connectors can be used to power the Fan unit with +5v.
+The A port on the Fan unit uses `UART0`, and the B port uses `UART1` on the RP2040. On the CM4, it connects using `UART5`. Both blade connectors can be used to power the Fan unit with +5V.
 
 <details>
   <summary>Pin Out Guides</summary>
@@ -19,20 +19,20 @@ The A port on the Fan unit uses `UART0` and the B port uses `UART1` on the RP204
 </details>
 
 
-## Update firmware
+## Update Firmware
 
-To start using the the Smart Fan Unit it first should be flashed with the latest firmware of your choice. This could be custom firmware or a preexisting framework.
+To start using the Smart Fan Unit, it should first be flashed with the latest firmware of your choice. This could be any custom firmware, or a pre-existing framework.
 
-First start by removing power from the Fan Unit. Then hold down the the `BOOT` button and connect the USB Type-C to your computer.
+First, start by removing power from the Fan Unit. Then hold down the `BOOT` button and connect the USB Type-C to your computer.
 
 {/* Image of fan unit with Boot held down and usb plugged in */}
 
-The Fan Unit will now appear as "RPI-RP2" a storage device to your computer.
+The Fan Unit will now appear as a storage device labelled `RPI-RP2` on your computer.
 
 {/* Windows file manager this PC */}
 
-Your desired firmware will have the file extension `.uf2`
-Move the `*.uf2` file into `RPI-RP2` it will then disconnect and reboot to the now installed firmware
+The firmware you are flashing should have the file extension `.uf2`
+Move the `*.uf2` file into `RPI-RP2`, it should disconnect after a few seconds and reboot to the newly installed firmware.
 
 ## CircuitPython
 
@@ -40,15 +40,15 @@ Move the `*.uf2` file into `RPI-RP2` it will then disconnect and reboot to the n
 
 ### Installing CircuitPython
 1. Download the latest version of [CircuitPython 9](https://circuitpython.org/board/raspberry_pi_pico/)
-2. Move `adafruit-circuitpython-raspberry_pi_pico-en_US-*.uf2` file in to `RPI-RP2`
+2. With the Compute Blade connected from prior firmware flashing steps, move `adafruit-circuitpython-raspberry_pi_pico-en_US-*.uf2` file into the `RPI-RP2` storage device
 4. It will be disconnected and `LED 3` will blink green
-3. The fan Unit with reconnect as `CIRCUITPY` will be connected.
+3. The fan Unit with reconnect as `CIRCUITPY` will be connected
 
-### Deploying code
+### Deploying Code
 
-1. Having installed CircuitPython and the fan unit being connected to you computer via USB C
+1. Having installed `CircuitPython` and connecting the fan unit to your computer via USB-C
 2. Download the [example code](https://github.com/uptime-industries/circuitpy-fan-unit)
-3. Should be placed in `CIRCUITPY` if prompted to replace any file click yes
+3. The code should be placed in `CIRCUITPY`; if prompted to replace any files, click yes
 
 ### Enable UART on CM4
 
@@ -59,12 +59,12 @@ sudo nano /boot/firmware/config.txt
 ```
 
 <Admonition type='info'>
-    Instead of the BIOS found on a conventional PC, Raspberry Pi devices use a configuration file called config.txt. The GPU reads config.txt before the Arm CPU and Linux initialise. Raspberry Pi OS looks for this file in the boot partition, located at /boot/firmware/.
+    Instead of the BIOS found on a conventional PC, Raspberry Pi devices use a configuration file called config.txt. The GPU reads config.txt before the ARM CPU and Linux are initialized. Raspberry Pi OS looks for this file in the boot partition, located at `/boot/firmware/`.
 
     <sub>learn more about `config.txt` in [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/computers/config_txt.html)</sub>
 </Admonition>
 
-Then add the following lines
+Then add the following lines:
 
 ```txt
 [cm4]
@@ -72,15 +72,15 @@ enable_uart=1
 dtoverlay=uart5
 ```
 
-Reboot the The compute blade and when it it turns back out the UART connection will be available at `/dev/ttyAMA5`
+Reboot the the Compute Blade. When it has restarted, the UART connection will be available at `/dev/ttyAMA5`
 
 ## Debugging
 
-Located just bellow the B port, is an unpopulated pin header J5.
+There is an unpopulated pin header labelled `J5` located below the B port on the Fan Unit.
 
 <details>
   <summary>Debug pins</summary>
   <img src='/img/fan-unit/j5-debug.svg' width={'70%'} alt="J5 Debug pins"/>
 </details>
 
-These can be used with a tool like the [Raspberry Pi Debug Probe](https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html) to debug and program the RP2040.
+These debug pins can be used with a tool like the [Raspberry Pi Debug Probe](https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html) to debug and program the RP2040.
