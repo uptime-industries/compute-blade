@@ -35,7 +35,7 @@ With that simplicity comes a drawback, the Standard Fan Unit can not take PWM Si
 The PWM signals can only be sent by the blade on the J1 header (Power Input 1 in the above picture)
 
 :::info
-    The fan tach signal can be read by both blades see the [GPIO guide](/fan-unit/gpio#blade-connector) for the pin out
+    The fan tach signal can be read by both blades see the [GPIO guide](#blade-connector) for the pin out
 :::
 
 ### Smart
@@ -180,6 +180,35 @@ For additional information on the NF-A4x20 5V, see the [datasheet](https://noctu
         <img src="/img/fan-unit/sta-block.svg" alt="Standard Fan Unit Block Scheme" width={'70%'}/>
     </TabItem>
 </Tabs>
+
+## GPIO
+
+### Blade Connector
+
+:::danger
+The Blade connector Is a square un-keyed connector. This means that is is physically possible to misaligned the connector
+:::
+
+<Tabs groupId="fanunit" defaultValue="smart">
+    <TabItem value="smart" label="Smart">
+        <img src='/img/fan-unit/smart-gpio.svg' width={'70%'}/>
+    </TabItem>
+    <TabItem value="sta" label="Standard">
+        <img src='/img/fan-unit/sta-gpio.svg' width={'70%'}/>
+    </TabItem>
+</Tabs>
+
+### Fan Header
+
+The header uses a four-pin Molex connector(KK family). And follows the [Noctua v5 Fan pin configuration](https://faqs.noctua.at/en/support/solutions/articles/101000081757-what-pin-configuration-do-noctua-fans-use-).
+
+<img src='/img/fan-unit/fan-header.svg' width={'70%'}/>
+
+### Debug (Smart Fan Unit Only)
+
+The J5 debug header enables debug of the RP2040. Using tool like the [Raspberry Pi Debug Probe](https://www.raspberrypi.com/products/debug-probe/)
+
+<img src='/img/fan-unit/j5-debug.svg' width={'70%'}/>
 
 ## Mechanical
 
