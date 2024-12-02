@@ -5,7 +5,7 @@ import Admonition from '@theme/Admonition';
 
 The Smart Fan unit utilizes the [RP2040](https://www.raspberrypi.com/products/rp2040/specifications/) microcontroller featured in the [Raspberry Pi Pico 1](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html). Using the RP2040's two UART connections, a link can be established to each blade using the fan connectors.
 
-## Pins
+## Hardware
 
 The A port on the Fan unit uses `UART0`, and the B port uses `UART1` on the RP2040. On the CM4, it connects using `UART5`. Both blade connectors can be used to power the Fan unit with +5V.
 
@@ -15,9 +15,23 @@ The A port on the Fan unit uses `UART0`, and the B port uses `UART1` on the RP20
   <img src='/img/fan-unit/smart-gpio.svg' width={'70%'} alt="Smart Fan Unit blade connecter pin out"/>
   <h3>Compute blade</h3>
   <img src='/img/hardware/fan-port.webp' width={'70%'} alt="Blade Fan unit connector"/>
-  
 </details>
 
+| Pins(RP2040) | Functions         |
+|:------------:|:-----------------:|
+| GPIO1        | UART0 RX          |
+| GPIO2        | UART0 TX          |
+| GPIO4        | I2C-SDA           |
+| GPIO5        | I2C-SCL           |
+| GPIO8        | UART1 TX          |
+| GPIO9        | UART1 RX          |
+| GPIO12       | Button            |
+| GPIO15       | Two NeoPixel LEDs |
+| GPIO25       | LED               |
+
+### Fan control
+
+The Smart Fan Unit uses the [EMC2101](https://www.microchip.com/en-us/product/emc2101) from Microchip/SMSC a fan controller with temperature monitoring. The EMC2101 is connected over the I2C bus to the RP2040
 
 ## Update Firmware
 
