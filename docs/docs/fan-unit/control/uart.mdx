@@ -15,8 +15,19 @@ The A port on the Fan unit uses `UART0`, and the B port uses `UART1` on the RP20
   <img src='/img/fan-unit/smart-gpio.svg' width={'70%'} alt="Smart Fan Unit blade connecter pin out"/>
   <h3>Compute blade</h3>
   <img src='/img/hardware/fan-port.webp' width={'70%'} alt="Blade Fan unit connector"/>
-  
 </details>
+
+| Pins(RP2040) | Functions         |
+|:------:|:-----------------:|
+| GPIO1  | UART0 RX          |
+| GPIO2  | UART0 TX          |
+| GPIO4  | I2C-SDA           |
+| GPIO5  | I2C-SCL           |
+| GPIO8  | UART1 TX          |
+| GPIO9  | UART1 RX          |
+| GPIO12 | Button            |
+| GPIO15 | Two NeoPixel LEDs |
+| GPIO25 | LED               |
 
 
 ## Update Firmware
