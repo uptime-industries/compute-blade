@@ -1,0 +1,67 @@
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Standard
+
+The Standard Fan Unit offers an easy out-of-box experience. The fan will run with no additional setup, however, you may control the fan via PWM. 
+
+## Pins
+
+The Compute blade uses [`GPIO12`](https://pinout.xyz/pinout/pin32_gpio12/) and [`GPIO13`](https://pinout.xyz/pinout/pin33_gpio13/) in their alternate PWM mode.
+
+:::info
+Only the Compute Blade connected to `Port A` of the Fan Unit can control the fan speed. However both blades can read the speed of the fan.
+:::
+
+<details>
+  <summary>Pin Out Guides</summary>
+  <h3>Standard Fan Unit</h3>
+  <img src='/img/fan-unit/sta-gpio.svg' width={'70%'} alt="Standard Fan Unit blade connecter pin out"/>
+  <h3>Compute blade</h3>
+  <img src='/img/hardware/fan-port.webp' width={'70%'} alt="Blade Fan unit connector"/>
+
+</details>
+
+## Python
+
+A simple Python script can control the PWM fan.
+
+### Setup
+
+Start by cloning the scripts from the [GitHub repository](https://github.com/uptime-industries/compute-blade-pwm-fan-control)
+```bash
+git clone https://github.com/uptime-industries/compute-blade-pwm-fan-control.git
+cd ./compute-blade-pwm-fan-control/
+```
+
+Install [GPIO Zero](https://gpiozero.readthedocs.io/en/latest/index.html), a simple interface to GPIO devices for Raspberry Pi
+<Tabs groupId='installer'>
+    <TabItem value="apt" label="apt" default>
+        ```bash
+        sudo apt install python3-gpiozero
+        ```
+    </TabItem>
+    <TabItem value="pip" label="pip" default>
+        ```bash
+        sudo pip3 install gpiozero
+        ```
+    </TabItem>
+</Tabs>
+
+The Github repo provides two scripts:
+- `read_fan_speed.py` - Prints the current fan Speed in RPM
+- `fan_control.py`    - Controls fan speed based on CPU temperature
+Either script can be stopped at any time with `CTRL` + `C`
+
+### read_fan_speed.py
+To use the `read_fan_speed.py` script run the following command:
+```bash
+python3 read_fan_speed.py
+```
+
+### fan_control.py
+To control the fan speed:
+```bash
+python3 fan_control.py
+```
