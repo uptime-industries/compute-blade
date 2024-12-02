@@ -7,32 +7,65 @@ The Smart Fan unit utilizes the [RP2040](https://www.raspberrypi.com/products/rp
 
 ## Hardware
 
-The A port on the Fan unit uses `UART0`, and the B port uses `UART1` on the RP2040. On the CM4, it connects using `UART5`. Both blade connectors can be used to power the Fan unit with +5V.
+### Power Delivery
+The Smart Fan Unit can be powered with +5V from both Blade `Port A` or `Port B` In addition to the USB Type-C for flashing. USB Type-C with not power the fan
 
-<details>
-  <summary>Pin Out Guides</summary>
-  <h3>Smart Fan Unit</h3>
-  <img src='/img/fan-unit/smart-gpio.svg' width={'70%'} alt="Smart Fan Unit blade connecter pin out"/>
-  <h3>Compute blade</h3>
-  <img src='/img/hardware/fan-port.webp' width={'70%'} alt="Blade Fan unit connector"/>
-</details>
+### LEDs
 
-| Pins(RP2040) | Functions         |
-|:------------:|:-----------------:|
-| GPIO1        | UART0 RX          |
-| GPIO2        | UART0 TX          |
-| GPIO4        | I2C-SDA           |
-| GPIO5        | I2C-SCL           |
-| GPIO8        | UART1 TX          |
-| GPIO9        | UART1 RX          |
-| GPIO12       | Button            |
-| GPIO15       | Two NeoPixel LEDs |
-| GPIO16       | Power to Fan      |
-| GPIO25       | LED               |
+The Smart Fan Unit has 5 LEDs
+
+| LED  | Location | Type                               |
+| ---- | -------- | ---------------------------------- |
+| LED1 | Yellow   | Programmable NeoPixel at index `0` |
+| LED2 | Yellow   | Programmable NeoPixel at index `1` |
+| LED3 | Red      | Green Programmable at `GPIO25`     |
+| LED4 | Green    | Blue Power indicator for `Port A`  |
+| LED5 | Green    | Blue Power indicator for `Port B`  |
+<img src='/img/fan-unit/led.webp' width={'70%'}/>
+
+### Button
+
+A programmable button is located on on the rear of the Smart Fan Unit. It can be addressed at `GPIO12`
 
 ### Fan control
 
 The Smart Fan Unit uses the [EMC2101](https://www.microchip.com/en-us/product/emc2101) from Microchip/SMSC a fan controller with temperature monitoring. The EMC2101 is connected over the I2C bus to the RP2040
+
+The EMC2101 has two temperature sensors. An internal sensors on the IC(Red) located next to Port A and an external sensors(Green) located next to Port B
+
+<img src='\img\fan-unit\temp-sensors.webp' width={'70%'} alt="Blade Fan unit connector"/>
+
+### Additional information
+<details>
+  <summary>Pin Out Guides</summary>
+  <h3>Smart Fan Unit</h3>
+  <img src='/img/fan-unit/smart-gpio.svg' width={'70%'} alt="Smart Fan Unit blade connecter pin out"/>
+  <h3>Fan Header</h3>
+  <img src='/img/fan-unit/fan-header.svg' width={'70%'}/>
+  <h3>J5 Debug Header</h3>
+  <img src='/img/fan-unit/j5-debug.svg' width={'70%'}/>
+  
+</details>
+
+<details>
+  <summary>RP2040 Pin Reference Table</summary>
+
+  Pins used by the Smart Fan Unit
+
+  | Pins(RP2040) | Functions         |
+  |:------------:|:-----------------:|
+  | GPIO1        | UART0 RX          |
+  | GPIO2        | UART0 TX          |
+  | GPIO4        | I2C-SDA           |
+  | GPIO5        | I2C-SCL           |
+  | GPIO8        | UART1 TX          |
+  | GPIO9        | UART1 RX          |
+  | GPIO12       | Button            |
+  | GPIO15       | Two NeoPixel LEDs |
+  | GPIO16       | Power to Fan      |
+  | GPIO25       | LED3              |
+</details>
+
 
 ## Update Firmware
 
@@ -51,7 +84,28 @@ Move the `*.uf2` file into `RPI-RP2`, it should disconnect after a few seconds a
 
 ## CircuitPython
 
-[CircuitPython](https://circuitpython.org/) is a programming language designed to simplify experimenting and learning to code on low-cost microcontroller boards.
+We have prepared [example code](https://github.com/uptime-industries/circuitpy-fan-unit) to help you get started with your Smart Fan unit. Using [CircuitPython](https://circuitpython.org/) witch is a programming language designed to simplify experimenting and learning to code on low-cost microcontroller boards.
+
+The code has the following basic functionality example :
+- Button use
+- LED control both Green and NeoPixel
+- Fan control based on a simple fan curve
+- UART communication
+
+<details>
+  <summary>Fan Curve Reference Table</summary>
+
+  Fan Curve used in example code
+
+  | Temp Range         | Present Fan Speed |
+  | :----------------: | :---------------: |
+  | t >= 40C           | 100%              |
+  | 35C {"<="} t < 40C | 70%               |
+  | 33C {"<="} t < 35C | 60%               |
+  | 31C {"<="} t < 33C | 40%               |
+  | 29C {"<="} t < 31C | 30%               |
+  | 29C < t            | 10%               |
+</details>
 
 ### Installing CircuitPython
 1. Download the latest version of [CircuitPython 9](https://circuitpython.org/board/raspberry_pi_pico/)
@@ -59,13 +113,13 @@ Move the `*.uf2` file into `RPI-RP2`, it should disconnect after a few seconds a
 4. It will be disconnected and `LED 3` will blink green
 3. The fan Unit with reconnect as `CIRCUITPY` will be connected
 
-### Deploying Code
+### Deploying Code example
 
 1. Having installed `CircuitPython` and connecting the fan unit to your computer via USB-C
-2. Download the [example code](https://github.com/uptime-industries/circuitpy-fan-unit)
+2. Download the [example code](https://github.com/uptime-industries/circuitpy-fan-unit) from GitHub
 3. The code should be placed in `CIRCUITPY`; if prompted to replace any files, click yes
 
-### Enable UART on CM4
+## Enable UART on CM4
 
 To enable UART on the compute blade, open `/boot/firmware/config.txt`
 
