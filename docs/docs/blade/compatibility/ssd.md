@@ -7,11 +7,15 @@ Below is a list of NVMe SSDs that have been tested by Uptime Lab and community m
 [pibenchnarks.com](https://pibenchmarks.com) is a popular site to upload micro SD, eMMC, SSD, and other storage benchmarks for Raspberry Pi and Pi clones. You can find benchmarks for some of the NVMe SSDs above via the links below.
 
 ## Crucial
+
 | Product                       | Model              | Capacity     | Tester                                      |
 |:------------------------------|:-------------------|:-------------|:--------------------------------------------|
 | Crucial P2                    | CT500P2SSD8        | 500GB        | [xvzf](https://github.com/xvzf)             |
-| Crucial P3                    | CT500P3SSD8        | 500GB        | [pxpunx](https://github.com/pxpunx)         |
 | Crucial P3                    | CT4000P3SSD8       | 4TB          | [Uptime Lab](https://github.com/Uptime-Lab) |
+| Crucial P3                    | CT500P3SSD8        | 500GB        | [pxpunx](https://github.com/pxpunx)         |
+| Crucial P5 Plus <sup>1</sup>  | CT500P5PSSD8       | 500GB        | [lwbt](https://github.com/lwbt)             |
+
+<sup>1</sup> _This SSD boots fine on Ubuntu, but required several reboots when used in a Talos Linux K8s cluster._
 
 ## Intel
 
@@ -83,7 +87,6 @@ Below is a list of NVMe SSDs that have been tested by Uptime Lab and community m
 | SK hynix PC611                | HFS001TD9TNI       | 1TB          | [Uptime](https://github.com/Uptime-industries) |
 | Solidigm P41 Plus             | SSDPFKNU512GZ      | 512GB        | [pxpunx](https://github.com/pxpunx)         |
 
-
 ## Synology
 
 | Product                       | Model              | Capacity     | Tester                                      |
@@ -109,13 +112,15 @@ Below is a list of NVMe SSDs that have been tested by Uptime Lab and community m
 |:------------------------------|:-------------------|:-------------|:--------------------------------------------|
 | Transcend 110S                | TS256GMTE110S      | 256GB        | [pxpunx](https://github.com/pxpunx)         |
 
-## Western Digital(WD)
+## Western Digital (WD)
 
 | Product                       | Model              | Capactiy     | Tester                                      |
 |:------------------------------|:-------------------|:-------------|:--------------------------------------------|
 | WD Black SN770                | WDS250G3X0E        | 250GB        | [pxpunx](https://github.com/pxpunx)         |
 | WD Black SN770                | WDS500G3X0E        | 500GB        | [Uptime](https://github.com/uptime-industries/) |
+| WD Blue SN550                 | WDS100T2B0C        | 1TB          | [lwbt](https://github.com/lwbt)             |
 | WD Blue SN570                 | WDS250G3B0C        | 250GB        | [pxpunx](https://github.com/pxpunx)         |
+| WD Blue SN580                 | WDS100T3B0E        | 1TB          | [lwbt](https://github.com/lwbt)             |
 | WD Green SN350                | WDS240G2G0C        | 240GB        | [pxpunx](https://github.com/pxpunx)         |
 | WD Red SN700                  | WDS500G1R0C        | 500GB        | [pxpunx](https://github.com/pxpunx)         |
 | WD SN520                      | SDAPNUW-256G-1006  | 256GB        | [pxpunx](https://github.com/pxpunx)         |
