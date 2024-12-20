@@ -11,6 +11,8 @@ PoE enabled switch & Injectors which have been used with the Compute Blade
 
 | Product                       | Model Number         | Tested By |
 |:------------------------------|:------------------ | --------- |
+| 8 PoE (Gen1) | [US-8-60W (48W)](https://uk.store.ui.com/uk/en/products/us-8-60w) | [einsteinagogo](https://github.com/einsteinagogo/AwesomeResources/blob/master/Virtualisation.md#hancocksvmwarehalfhour) |
+| Standard 24 PoE (Gen1) | [US-24-250W (250W)](https://uk.store.ui.com/uk/en/products/us-24-250w) | [einsteinagogo](https://github.com/einsteinagogo/AwesomeResources/blob/master/Virtualisation.md#hancocksvmwarehalfhour) |
 | Pro 24 PoE | [USW-Pro-24-PoE](https://techspecs.ui.com/unifi/switching/usw-pro-24-poe) | [Uptime](https://github.com/uptime-industries) |
 | Pro 48 PoE | [USW-Pro-48-PoE](https://techspecs.ui.com/unifi/switching/usw-pro-48-poe) | [adriano](https://github.com/Adriano8899) |
 | UniFi PoE+ Adapter | [U-POE-at](https://store.ui.com/eu/en/products/u-poe-at) | [mindspore](https://github.com/cKhoff) |
