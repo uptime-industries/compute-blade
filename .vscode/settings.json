@@ -1,8 +1,6 @@
 {
     "terminal.integrated.cwd": "${workspaceFolder}/docs",
-    "cSpell.enableFiletypes": [
-        "mdx"
-    ],
+    "cSpell.enabledFileTypes": {"*": true},
     "cSpell.words": [
         "adafruit",
         "backplane",
