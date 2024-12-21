@@ -1,8 +1,6 @@
 {
     "terminal.integrated.cwd": "${workspaceFolder}/docs",
-    "cSpell.enableFiletypes": [
-        "mdx"
-    ],
+    "cSpell.enabledFileTypes": {"*": true},
     "cSpell.words": [
         "adafruit",
         "backplane",
@@ -23,6 +21,7 @@
         "Imager",
         "Kapton",
         "Kickstarter",
+        "KIOXIA",
         "Kuleshov",
         "microcontroller",
         "microsd",
@@ -31,6 +30,7 @@
         "Noctua",
         "nohup",
         "NVME",
+        "Optane",
         "OPTIGA",
         "Pico",
         "RPIBOOT",
@@ -39,6 +39,7 @@
         "SMSC",
         "Solidigm",
         "UART",
+        "Ubiquiti",
         "UGREEN",
         "usbboot",
         "webp",
