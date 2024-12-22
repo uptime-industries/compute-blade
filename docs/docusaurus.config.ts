@@ -110,12 +110,7 @@ const config: Config = {
           position: 'right'
         },
 
-        // {to: '/blog', label: 'Blog', position: 'left'},
-        // {
-        //   label: 'Website',
-        //   href: 'https://computeblade.com',
-        //   position: 'right'
-        // },
+        {to: '/blog', label: 'Blog', position: 'right'},
         {
           href: 'https://computeblade.com',
           position: 'right',

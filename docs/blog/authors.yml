@@ -10,16 +10,19 @@ sascha:
   url: https://github.com/saschabuehrle
   image_url: https://github.com/saschabuehrle.png
 
-ivan:
+merocle:
   name: Ivan Kuleshov
   title: Systems Engineer
   url: https://github.com/merocle
   image_url: https://github.com/merocle.png
 
-grigorii:
+brushknight:
   name: Grigorii Merkushev
-  title: Software Engineer
+  title: Head of Software
   url: https://github.com/brushknight
+  socials:
+    github: brushknight
+    linkedin: brushknight
   image_url: https://github.com/brushknight.png
 
 gena:
