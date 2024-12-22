@@ -1,6 +1,9 @@
 {
     "terminal.integrated.cwd": "${workspaceFolder}/docs",
-    "cSpell.enabledFileTypes": {"*": true},
+    "cSpell.enabledFileTypes": {
+        "*": true,
+        "lock": false
+    },
     "cSpell.words": [
         "adafruit",
         "backplane",
@@ -8,6 +11,7 @@
         "bootloader",
         "BOOTSEL",
         "brushknight",
+        "Buehrle",
         "buyzero",
         "CIRCUITPY",
         "circuitpython",
@@ -41,6 +45,7 @@
         "OPTIGA",
         "Pico",
         "RPIBOOT",
+        "Sascha",
         "Semaf",
         "Silvertel",
         "SMSC",
