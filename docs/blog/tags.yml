@@ -1,15 +1,15 @@
 blade:
-  label: ComputeBlade
+  label: Compute Blade
   permalink: /blade
-  description: Blogs about compute blade
-# facebook:
-#   label: Facebook
-#   permalink: /facebook
-#   description: Facebook tag description
-# hello:
-#   label: Hello
-#   permalink: /hello
-#   description: Hello tag description
+  description: Blogs about Compute Blade
+kubernetes:
+  label: Kubernetes
+  permalink: /kubernetes
+  description: Posts including kubernetes
+overclocking:
+  label: Overclocking
+  permalink: /oc
+  description: Posts including overclocking
 # docusaurus:
 #   label: Docusaurus
 #   permalink: /docusaurus

@@ -12,8 +12,16 @@ sascha:
 
 merocle:
   name: Ivan Kuleshov
-  title: Systems Engineer
-  url: https://github.com/merocle
+  title: Founder & Chief Technology Officer
+  url: https://uplab.pro/
+  socials:
+    x: Merocle
+    github: merocle
+    linkedin: merocle
+    instagram: uptime.lab
+    # bluesky: merocle.bsky.social
+    # telegram: ASCII
+    # reddit: merocle
   image_url: https://github.com/merocle.png
 
 brushknight:
