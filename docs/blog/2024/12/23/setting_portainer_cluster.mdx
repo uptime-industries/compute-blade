@@ -1,0 +1,258 @@
+---
+title: Setting Up Portainer on a ComputeBlade Cluster
+description: A comprehensive guide to deploying and managing containerized applications using Portainer on a multi-node ComputeBlade infrastructure.
+authors: brushknight
+# tags: [hello, docusaurus-v2]
+image: /img/blog/blades_19_front.webp
+# hide_table_of_contents: false
+---
+
+This guide provides a step-by-step walkthrough for setting up Portainer on ComputeBlade clusters, helping you create an efficient and scalable container management system that maximizes your hardware's potential.
+
+![19in rack with two Compute Blades](/img/blog/blades_19_front.webp)
+
+{/* truncate */}
+
+## About Kubernetes on Compute Blades
+
+Kubernetes (often abbreviated as K8s) combined with ComputeBlades, it creates an ideal infrastructure for distributed computing and high availability.
+
+Multi-node Kubernetes clusters are particularly valuable because they:
+
+- Provide high availability by distributing workloads across multiple physical nodes
+- Enable horizontal scaling by adding more ComputeBlades to the cluster as needed
+- Ensure fault tolerance through automatic failover between nodes
+- Allow efficient resource utilization across the entire blade cluster
+By running Kubernetes on ComputeBlades, you can create a robust, scalable infrastructure that's perfect for both development environments and production workloads. The combination provides enterprise-grade features in a compact, efficient package.
+
+## High Availability Requirements
+
+To achieve high availability in a Kubernetes cluster with ComputeBlades, a minimum of three nodes is essential to maintain quorum and ensure continuous operation. The control plane components must be properly configured and distributed across multiple nodes to prevent single points of failure.
+
+Assembled ComputeBlade with Dev Heatsink installed in 19-inch BladeRunner
+
+![Assembled ComputeBlade with Dev Heatsink installed in 19-inch BladeRunner](/img/blog/blade_in_19_cm4.webp)
+
+The highly available architecture also provides enhanced capability to handle increased workload demands through intelligent resource allocation and failover mechanisms. This ensures that your applications remain accessible and performant even during infrastructure challenges or scaling events.
+
+## How to Setup Multi-Node
+
+:::warning
+Before proceeding with the multi-node setup, make sure you have completed Steps 1–6 in System setup to properly install and configure MicroK8s and kubectl on your system. This will ensure you have the necessary base configuration before expanding to multiple nodes.
+:::
+
+Read here to learn about [initial system setup](/blog/2024/12/22/System setup process.md) before continuing.
+
+### Prepare node before joining
+
+```bash
+sudo snap install microk8s --classic
+sudo usermod -a -G microk8s $USER
+sudo chown -f -R $USER ~/.kube
+su - $USER
+microk8s status --wait-ready
+```
+
+### Create a cluster
+
+To create a cluster out of two or more already-running MicroK8s instances. The MicroK8s instance on which this command is run will be the master of the cluster and will host the Kubernetes control plane:
+
+```bash
+microk8s add-node
+```
+
+This will return some joining instructions which should be executed on the MicroK8s instance that you wish to join to the cluster (NOT THE NODE YOU RAN “add-node” FROM)
+
+### Join node (recommended for second and third nodes)
+
+From the node you wish to join to this cluster, you will see similar command with different IP address and token, run it on the secondary node:
+
+```bash
+microk8s join 192.168.1.230:25000/92b2db237428470dc4fcfc4ebbd9dc81/2c0cb3284b05
+```
+
+Use the ‘ — worker' flag to join a node as a worker not running the control plane, eg:
+
+```bash
+microk8s join 192.168.1.230:25000/92b2db237428470dc4fcfc4ebbd9dc81/2c0cb3284b05 --worker
+```
+
+If the node you are adding is not reachable through the default interface you can use one of the following:
+
+```bash
+microk8s join 192.168.1.230:25000/92b2db237428470dc4fcfc4ebbd9dc81/2c0cb3284b05
+microk8s join 10.23.209.1:25000/92b2db237428470dc4fcfc4ebbd9dc81/2c0cb3284b05
+microk8s join 172.17.0.1:25000/92b2db237428470dc4fcfc4ebbd9dc81/2c0cb3284b05
+```
+
+### Check availability
+
+Joining a node to the cluster should only take a few seconds (took 15 seconds for my test). Afterwards you should be able to see the node has joined:
+
+```bash
+microk8s kubectl get no
+```
+
+…will return output similar to:
+
+```txt
+NAME               STATUS   ROLES    AGE   VERSION
+10.22.254.79       Ready    <none>   27s   v1.15.3
+ip-172-31-20-243   Ready    <none>   53s   v1.15.3
+```
+
+### Installing Portainer
+
+Portainer is a powerful web-based container management platform that simplifies the administration of Docker, Kubernetes, and other container environments. It provides an intuitive graphical user interface that makes it easy to manage containers, images, networks, and volumes without needing to use complex command-line interfaces.
+
+Portainer is particularly valuable in Kubernetes environments as it provides a clear visual representation of cluster resources, deployments, and services, making complex container orchestration more accessible to both novice and experienced administrators.
+
+Portainer consists of two elements, the Portainer Server and the Portainer Agent. Both elements run as lightweight containers on Kubernetes.
+
+## Prepare local storage
+
+### Create StorageClass with WaitForFirstConsumer Binding Mode
+
+According to the docs, persistent local volumes require to have a binding mode of WaitForFirstConsumer. Let's start with storage class first.
+
+```bash
+cat > storageClass.yaml << EOF
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: local-storage
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+EOF
+kubectl create -f storageClass.yaml
+```
+
+The output should be:
+
+```bash
+storageclass.storage.k8s.io/local-storage created
+```
+
+### Create Local Persistent Volume
+
+Since the storage class is available now, we can create local persistent volume with a reference to the storage class we have just created:
+
+```bash
+cat > persistentVolume.yaml << EOF
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-volume
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+
+- ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /storage/local-volume
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+  - matchExpressions:
+    - key: kubernetes.io/hostname
+          operator: In
+          values:
+      - blade-1
+EOF
+```
+
+:::note
+You might need to exchange the hostname value blade-1 in the nodeAffinity section by the name of the node that matches your environment. You can get nodes names by typing kubectl get nodes
+:::
+
+Now we need to create a folder on the same node you picked in the affinity to store our volume.
+
+```bash
+sudo mkdir -p /storage/local-volume
+```
+
+After creation of the folder, we are ready to create persistent volume
+
+```bash
+kubectl create -f persistentVolume.yaml
+```
+
+The output should look like follows:
+
+```bash
+persistentvolume/local-volume created
+```
+
+### Default storage class
+
+To ensure Portainer uses the correct storage class, we need to set our newly created storage class as the default.
+
+```bash
+kubectl patch storageclass local-storage -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+```
+
+Now we are ready for deploying Helm chart.
+
+## Deploy using Helm
+
+:::tip
+Ensure you're using at least Helm v3.2, which includes support for the
+`—create-namespace argument`.
+:::
+
+### Add the Portainer Helm repository
+
+Run the following commands:
+
+```bash
+helm repo add portainer <https://portainer.github.io/k8s/>
+helm repo update
+```
+
+### Begin the installation
+
+Once the update completes, you're ready to begin the installation. Which method you choose will depend on how you wish to expose the Portainer service:
+
+Using the following command, Portainer will be available on port 30779 for HTTPS:
+
+```bash
+helm upgrade --install --create-namespace -n portainer portainer portainer/portainer \
+  --set tls.force=true \
+    --set image.tag=2.21.5
+```
+
+It took a few minutes
+
+### Get host and port
+
+Commands to get the host and port for UI
+
+```bash
+export NODE_PORT=$(kubectl get --namespace portainer -o jsonpath="{.spec.ports[1].nodePort}" services portainer)
+export NODE_IP=$(kubectl get nodes --namespace portainer -o jsonpath="{.items[0].status.addresses[0].address}")
+echo https://$NODE_IP:$NODE_PORT
+```
+
+This command will print the link where the UI will be accessible in a few minutes
+
+### Log In
+
+Now that the installation is complete, you can log into your Portainer Server instance. In order to connect use the URL generated by the command above.
+
+You will be presented with the initial setup page for Portainer Server.
+
+### Well done
+
+Congratulations! You have successfully set up a multi-node Kubernetes cluster with Portainer management interface. Your environment is now ready for container orchestration with a powerful web-based UI. The system is configured securely with HTTPS and prepared for high availability operations. You can now begin deploying and managing your containerized applications through the Portainer dashboard.
+
+## Resources
+
+- [Create a MicroK8s cluster](https://microk8s.io/docs/clustering) | Canonical MicroK8s
+- [Install Portainer CE on your Kubernetes environment](https://docs.portainer.io/start/install-ce/server/kubernetes/baremetal) | Portainer Documentation
+- [Install Portainer CE with Docker on Linux](https://docs.portainer.io/start/install-ce/server/docker/linux) | Portainer Documentation
+- [Kubernetes (5) Local Persistent Volumes — A Step-by-Step Tutorial](https://vocon-it.com/2018/12/20/kubernetes-local-persistent-volumes/) | oveits
+
+<a href="https://computeblade.com/buy-computeblade/">![2024 Cyber bundle ad](/img/blog/2024_cyber_x_mas.webp)</a>

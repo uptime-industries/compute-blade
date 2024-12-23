@@ -6,6 +6,7 @@
         "GitHub.vscode-pull-request-github",
         "eamodio.gitlens",
         "ms-vscode.vscode-typescript-next",
-        "unifiedjs.vscode-mdx"
+        "unifiedjs.vscode-mdx",
+        "davidanson.vscode-markdownlint"
     ]
 }
