@@ -1,0 +1,26 @@
+---
+sidebar_position: 1
+---
+
+# Firmware
+
+To start using the Smart Fan Unit, it should first be flashed with the latest firmware of your choice. This could be any custom firmware, or a pre-existing framework.
+
+:::danger
+Custom firmware is currently **NOT** available. To get up and running follow the [CircuitPython](/docs/fan-unit/smart/circuitpython) guide
+:::
+
+## Update Firmware
+
+Before beginning, disconnect all Compute Blades from the Smart Fan Unit and USB type-C Cable. Then hold down the `BOOT` button and connect the Smart Fan Unit to your computer using a USB Type-C cable.
+
+*Image of fan unit with Boot held down and usb plugged in*
+
+The Smart Fan Unit will now appear as a storage device named `RPI-RP2` to your computer.
+
+*Windows file manager this PC*
+
+The firmware you are flashing should have the file extension `.uf2`
+Move the `*.uf2` file into `RPI-RP2`, it should disconnect after a few seconds and reboot to the newly installed firmware.
+
+

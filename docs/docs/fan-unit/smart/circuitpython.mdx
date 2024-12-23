@@ -1,0 +1,66 @@
+
+import Admonition from '@theme/Admonition';
+
+# CircuitPython
+
+We have prepared [example code](https://github.com/uptime-industries/circuitpy-fan-unit) to help you get started with your Smart Fan unit, Using [CircuitPython](https://circuitpython.org/) which is a programming language designed to simplify experimenting and learning to code on low-cost microcontroller boards.
+
+The code has the following basic functionality example :
+- Button use
+- LED control both Green and NeoPixel
+- Fan control based on a simple fan curve
+- UART communication
+
+<details>
+  <summary>Fan Curve Reference Table</summary>
+
+  Fan Curve used in example code
+
+  | Temp Range         | Present Fan Speed |
+  | :----------------: | :---------------: |
+  | t >= 40C           | 100%              |
+  | 35C {"<="} t < 40C | 70%               |
+  | 33C {"<="} t < 35C | 60%               |
+  | 31C {"<="} t < 33C | 40%               |
+  | 29C {"<="} t < 31C | 30%               |
+  | 29C < t            | 10%               |
+</details>
+
+## Installing CircuitPython
+
+1. Download the latest version of [CircuitPython 9](https://circuitpython.org/board/raspberry_pi_pico/)
+2. With the Compute Blade connected from prior firmware flashing steps, move `adafruit-circuitpython-raspberry_pi_pico-en_US-*.uf2` file into the `RPI-RP2` storage device
+4. It will be disconnected and `LED 3` will blink green
+3. The fan Unit with reconnect as `CIRCUITPY` will be connected
+
+## Deploying Code example
+
+1. Having installed `CircuitPython` and connecting the fan unit to your computer via USB-C
+2. Download the [example code](https://github.com/uptime-industries/circuitpy-fan-unit) from GitHub
+3. Copy `code.py` file to `CIRCUITPY`
+4. Copy `lib/` folder to `CIRCUITPY`
+ 1. if prompted to replace any files, click yes
+
+## Enable UART on CM4
+
+To enable UART on the compute blade, open `/boot/firmware/config.txt`
+
+```bash 
+sudo nano /boot/firmware/config.txt
+```
+
+<Admonition type='info'>
+    Instead of the BIOS found on a conventional PC, Raspberry Pi devices use a configuration file called config.txt. The GPU reads config.txt before the ARM CPU and Linux are initialized. Raspberry Pi OS looks for this file in the boot partition, located at `/boot/firmware/`.
+
+    <sub>learn more about `config.txt` in [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/computers/config_txt.html)</sub>
+</Admonition>
+
+Then add the following lines:
+
+```txt
+[cm4]
+enable_uart=1
+dtoverlay=uart5
+```
+
+Reboot the the Compute Blade. When it has restarted, the UART connection will be available at `/dev/ttyAMA5`
