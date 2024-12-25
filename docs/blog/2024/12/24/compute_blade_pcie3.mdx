@@ -2,21 +2,21 @@
 title: Using PCIe 3.0 on Compute Blade
 description: A guide utilizing PCIe3.0 on the Raspberry Pi Compute module 5.
 authors: merocle
-tags: [blade, overclocking]
-image: /img/blog/blades_19_front.webp
+tags: [blade, cm5, overclocking]
+image: /img/blog/blade_christmas.webp
 hide_table_of_contents: true
 ---
 
 With the release of CM5, it is now possible to double the speed of the PCIe bus on the Compute Blade when working with the Compute Module from Raspberry Pi.
 It's quite easy to do, and so far all the tests I've done show high stability of the solution.
 
+![Two blades holiday](/img/blog/blade_christmas.webp)
 
 {/* truncate */}
 
 ## Configuration
 
-All you need to do is to add to config.txt
-at the very end of the file:
+All you need to do is to add to `config.txt` at the very end of the file:
 
 ```txt
 dtparam=pciex1
@@ -41,4 +41,4 @@ Benchmark by PiBenchmarks can be found on [GitHub](https://github.com/TheRemote/
 | 3.0 x 1 | 3 GHz   | 910 MHz  | [60,005](https://pibenchmarks.com/benchmark/100328/) |
 | 3.0 x 1 | 3 GHz   | 1050 MHz | [60,215](https://pibenchmarks.com/benchmark/100330/) |
 
-
+> P.S. What a shame we only have 1x PCIe 3.0 line. In general, there are five of them in the processor. However, if they were brought out on CM5 connectors, all existing carrier boards would be changed. Maybe in CM6 and Compute Blade v.II
