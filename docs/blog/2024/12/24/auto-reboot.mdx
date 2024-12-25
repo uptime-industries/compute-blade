@@ -1,0 +1,146 @@
+---
+title: Auto-Reboot in case of problems
+description: A guide utilizing the Raspberry Pi CPU has a built-in Watchdog.
+authors: merocle
+tags: [blade, cm5]
+image: /img/blog/blade_cluster.webp
+hide_table_of_contents: false
+---
+
+Not everyone knows that the Raspberry Pi CPU has a built-in Watchdog.
+
+It's basically a time bomb that will reboot the CPU if its timer is not reset.
+And the operating system, in case of normal operation, sends a reset command every preset time interval. It's just a great solution and surprisingly easy and flexible to customize.
+
+![blade cluster](/img/blog/blade_cluster.webp)
+
+{/* truncate */}
+
+## Setup
+
+Check that the watchdog is available, this can be done with the command
+
+```bash
+ls -la /dev/watchdog*
+```
+
+expected output:
+```txt
+crw------- 1 root root  10, 130 Dec 23 21:38 /dev/watchdog
+crw------- 1 root root 248,   0 Dec 23 21:38 /dev/watchdog0
+```
+:::note
+If for some reason it's not there, perhaps add this line to the end of `/boot/firmware/config.txt`:
+```txt
+dtparamw=watchdog=on
+```
+But in general, this was only relevant until the Raspberry Pi 2
+:::
+
+### Updating the System and Installing Watchdog Daemon
+
+```bash
+sudo apt update
+sudo apt upgrade
+sudo apt install watchdog
+```
+
+### Quick start
+
+Edit watchdog timer with command:
+
+```bash
+sudo nano /etc/watchdog.conf
+```
+
+:::tip
+`ALT` + `T` in the nano editor will clean the file
+:::
+
+:::warning
+Raspberry Pi only supports a maximum of `15` seconds for `watchdog-timeout`
+:::
+
+You can delete all the content and add these lines:
+
+```txt
+min-memory       = 1280
+max-load-1       = 24
+max-load-5       = 18
+max-load-15      = 12
+watchdog-device  = /dev/watchdog
+watchdog-timeout = 15
+interval         = 1
+realtime         = yes
+priority         = 1
+```
+:::info
+Details are in the [official documentation](https://linux.die.net/man/5/watchdog.conf)
+:::
+
+There are a lot of parameters there, I suggest paying attention to interface and ping. You can reboot the device if there is no activity on the network interface or if some ip address is unavailable. Like ping = 8.8.8.8
+
+:::note
+Don't use tabs in lines - the watchdog will ignore such lines.
+:::
+
+### Start the service
+
+Execute in the terminal:
+```bash
+sudo systemctl enable watchdog
+sudo systemctl start watchdog
+```
+
+optionally check that it works:
+
+```
+sudo systemctl status watchdog
+```
+
+For demonstration purposes, I check the availability of the neighboring Compute Blade and have disabled it. After a minute, the configured one rebooted as well
+
+### Native Alternate (Not Recommend)
+
+There is another option that is more native to the Raspberry Pi OS. The only advantage is additional packages are not needed. However, due to its very limited capabilities, I don't recommend it.
+
+You can edit the file:
+
+```bash
+sudo nano /etc/systemd/system.conf
+```
+
+And add two lines to the end of the file
+
+```txt
+RuntimeWatchdogSec=15
+RebootWatchdogSec=2min
+```
+
+<details>
+    <summary>Debian Manpage</summary>
+
+    > ### RuntimeWatchdogSec=, RebootWatchdogSec=, KExecWatchdogSec=
+    >
+    > Configure the hardware watchdog at runtime and at reboot. Takes a timeout value in seconds (or in other time units if suffixed with “ms”, “min”, “h”, “d”, “w”), or the special strings “off” or “default”. If set to “off” (alternatively: “0”) the watchdog logic is disabled: no watchdog device is opened, configured, or pinged. If set to the special string “default” the watchdog is opened and pinged in regular intervals, but the timeout is not changed from the default. If set to any other time value the watchdog timeout is configured to the specified value (or a value close to it, depending on hardware capabilities).
+    >
+    > If RuntimeWatchdogSec= is set to a non-zero value, the watchdog hardware (/dev/watchdog0 or the path specified with WatchdogDevice= or the kernel option systemd.watchdog-device=) will be programmed to automatically reboot the system if it is not contacted within the specified timeout interval. The system manager will ensure to contact it at least once in half the specified timeout interval. This feature requires a hardware watchdog device to be present, as it is commonly the case in embedded and server systems. Not all hardware watchdogs allow configuration of all possible reboot timeout values, in which case the closest available timeout is picked.
+    >
+    > RebootWatchdogSec= may be used to configure the hardware watchdog when the system is asked to reboot. It works as a safety net to ensure that the reboot takes place even if a clean reboot attempt times out. Note that the RebootWatchdogSec= timeout applies only to the second phase of the reboot, i.e. after all regular services are already terminated, and after the system and service manager process (PID 1) got replaced by the systemd-shutdown binary, see system bootup(7) for details. During the first phase of the shutdown operation the system and service manager remains running and hence RuntimeWatchdogSec= is still honoured. In order to define a timeout on this first phase of system shutdown, configure JobTimeoutSec= and JobTimeoutAction= in the [Unit] section of the shutdown.target unit. By default RuntimeWatchdogSec= defaults to 0 (off), and RebootWatchdogSec= to 10min.
+    > 
+    > KExecWatchdogSec= may be used to additionally enable the watchdog when kexec is being executed rather than when rebooting. Note that if the kernel does not reset the watchdog on kexec (depending on the specific hardware and/or driver), in this case the watchdog might not get disabled after kexec succeeds and thus the system might get rebooted, unless RuntimeWatchdogSec= is also enabled at the same time. For this reason it is recommended to enable KExecWatchdogSec= only if RuntimeWatchdogSec= is also enabled.
+    > 
+    > These settings have no effect if a hardware watchdog is not available
+
+    [From Debian Manpages](https://manpages.debian.org/testing/systemd/systemd-system.conf.5.en.html)
+
+
+
+</details>
+
+
+Then restart the service:
+
+```bash
+sudo systemctl daemon-reload
+```

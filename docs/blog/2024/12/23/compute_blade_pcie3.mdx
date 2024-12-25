@@ -1,0 +1,44 @@
+---
+title: Using PCIe 3.0 on Compute Blade
+description: A guide utilizing PCIe3.0 on the Raspberry Pi Compute module 5.
+authors: merocle
+tags: [blade, cm5, overclocking]
+image: /img/blog/blade_christmas.webp
+hide_table_of_contents: true
+---
+
+With the release of CM5, it is now possible to double the speed of the PCIe bus on the Compute Blade when working with the Compute Module from Raspberry Pi.
+It's quite easy to do, and so far all the tests I've done show high stability of the solution.
+
+![Two blades holiday](/img/blog/blade_christmas.webp)
+
+{/* truncate */}
+
+## Configuration
+
+All you need to do is to add to `config.txt` at the very end of the file:
+
+```txt
+dtparam=pciex1
+dtparam=pciex1_gen=3
+```
+Then reboot the CM5
+
+The CM5 is not certified for PCIe 3.0 not all features may be supported.
+That is, you should be prepared that in some cases or with some devices it will not work at all or will work with problems.
+But I haven't had any problems so far because of the PCIe 3.0 activation.
+
+## Benchmarks Results
+:::tip
+Benchmark by PiBenchmarks can be found on [GitHub](https://github.com/TheRemote/PiBenchmarks)
+:::
+*Using Compute Blade v1-mk4, Samsung 970 EVO Plus, CM5 4GB module*
+
+| PCIe    | CPU     | GPU      | Score                                                |
+| :-----: | :-----: | :------: | :--------------------------------------------------- |
+| 2.0 x 1 | 2.4 GHz | 910 MHz  | [40,799](https://pibenchmarks.com/benchmark/100326/) |
+| 3.0 x 1 | 2.4 GHz | 910 MHz  | [56,707](https://pibenchmarks.com/benchmark/100327/) |
+| 3.0 x 1 | 3 GHz   | 910 MHz  | [60,005](https://pibenchmarks.com/benchmark/100328/) |
+| 3.0 x 1 | 3 GHz   | 1050 MHz | [60,215](https://pibenchmarks.com/benchmark/100330/) |
+
+> P.S. What a shame we only have 1x PCIe 3.0 line. In general, there are five of them in the processor. However, if they were brought out on CM5 connectors, all existing carrier boards would be changed. Maybe in CM6 and Compute Blade v.II

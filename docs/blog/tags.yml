@@ -1,20 +1,24 @@
 blade:
-  label: ComputeBlade
+  label: Compute Blade
   permalink: /blade
-  description: Blogs about compute blade
-# facebook:
-#   label: Facebook
-#   permalink: /facebook
-#   description: Facebook tag description
-# hello:
-#   label: Hello
-#   permalink: /hello
-#   description: Hello tag description
-# docusaurus:
-#   label: Docusaurus
-#   permalink: /docusaurus
-#   description: Docusaurus tag description
-# hola:
-#   label: Hola
-#   permalink: /hola
-#   description: Hola tag description
+  description: Blogs about Compute Blade
+kubernetes:
+  label: Kubernetes
+  permalink: /kubernetes
+  description: Posts including kubernetes
+overclocking:
+  label: Overclocking
+  permalink: /oc
+  description: Posts including overclocking
+cm4:
+  label: Compute Model 4
+  permalink: /cm4
+  description: Raspberry Pi Compute Model 4
+cm5:
+  label: Compute Model 5
+  permalink: /cm5
+  description: Raspberry Pi Compute Model 5
+docker:
+  label: Docker
+  permalink: /docker
+  description: Docker software
