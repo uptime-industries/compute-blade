@@ -1,0 +1,234 @@
+---
+title: Understanding Hardware Security with TPM
+description: A deep dive into the Trusted Platform Module technology and its implementation in ComputeBlade.
+authors: brushknight
+tags: [blade]
+image: /img/blog/tpm_purple.webp
+hide_table_of_contents: false
+---
+
+A deep dive into the Trusted Platform Module technology and its implementation in ComputeBlade.
+
+![](/img/blog/tpm_purple.webp)
+{/* add alt text */}
+
+{/* truncate */}
+
+A TPM (Trusted Platform Module) is a specialized security chip that provides hardware-based security functions. It is designed to protect hardware through integrated cryptographic keys and can perform various security operations:
+
+- Hardware-based encryption and key storage;
+- Secure boot process verification;
+- Platform authentication;
+- Protection against firmware tampering
+
+The TPM module provides a root of trust for the system, ensuring that the hardware and software configurations remain secure and uncompromised. It's particularly valuable in scenarios where physical security and data protection are critical requirements.
+
+ComputeBlade Dev and TPM versions are equipped with the Infineon OPTIGA™ TPM 2.0 security solution, which provides robust hardware-based security features.
+
+---
+
+## Enabling TPM Module
+
+:::warning
+Our tutorial assumes that you are running [ubuntu 24.04 LTS](https://ubuntu.com/blog/tag/ubuntu-24-04-lts) or later, other distributions might work, but commands could require modifications.
+:::
+
+Follow these steps to enable and verify the TPM module on your ComputeBlade. Make sure you have SSH access to proceed with the configuration.
+
+![](/img/blog/tpm_green.webp)
+{/* add alt text */}
+
+### Enable TPM module
+
+Connect to ComputeBlade via SSH, use the following command to enable the TPM module, and then reboot:
+
+```bash
+sudo tee -a /boot/firmware/config.txt << 'EOF'
+# Enable TPM module
+dtoverlay=tpm-slb9670
+EOF
+```
+```bash
+sudo reboot
+```
+
+### Install tpm2-tools
+
+Reconnect to ComputeBlade and install tpm2-tools to access the TPM hardware module:
+
+sudo apt install tpm2-tools
+Verifying that TPM works
+Example 1: Generating a random string
+To check if the TPM module is enabled, let's generate a random string:
+```bash
+sudo tpm2_getrandom --hex 8
+```
+
+Console will return something like that:
+
+```txt
+14309e4d1a3447bc
+```
+
+## Example 2: Signature verification
+
+In the following example, we'll create a simple message, sign it using TPM, and then verify its authenticity. This demonstrates how TPM can be used for secure data validation in real-world applications.
+
+1. Create a directory.
+
+```bash
+mkdir test_tpm && cd test_tpm
+```
+
+2. Create primary context (Primary Object) and load it.
+
+```bash
+tpm2_createprimary -C e -c primary.ctx
+```
+
+3. Generate public and private keys.
+
+```bash
+tpm2_create -G rsa -u rsa.pub -r rsa.priv -C primary.ctx
+```
+
+4. Load both the private and public portions of an object into the TPM or load the object in the TSS2-Private-Key PEM format.
+
+```bash
+tpm2_load -C primary.ctx -u rsa.pub -r rsa.priv -c rsa.ctx
+```
+
+5. Create a test data file.
+
+```bash
+echo "my message" > message.dat
+```
+
+6. Generate signature of specified message or message-digest using the specified symmetric or asymmetric signing key.
+
+```bash
+tpm2_sign -c rsa.ctx -g sha256 -o message.sig message.dat
+```
+
+7. Validate a signature on a message with the message digest passed to the TPM. If the signature check succeeds, then the TPM will produce a `TPMT_TK_VERIFIED`.
+
+```bash
+tpm2_verifysignature -c rsa.ctx -g sha256 -s message.sig -m message.dat
+```
+
+8. To verify that the signature validation works correctly, let's modify the message to.
+
+```bash
+echo "hello ComputeBlade" > message.dat
+```
+
+Running the verification command again will result in an error:
+
+```bash
+tpm2_verifysignature -c rsa.ctx -g sha256 -s message.sig -m message.dat
+```
+
+```txt
+WARNING:esys:src/tss2-esys/api/Esys_VerifySignature.c:302:Esys_VerifySignature_Finish() Received TPM Error
+ERROR:esys:src/tss2-esys/api/Esys_VerifySignature.c:103:Esys_VerifySignature() Esys Finish ErrorCode (0x000002db)
+ERROR: Esys_VerifySignature(0x2DB) - tpm:parameter(2):the signature is not valid
+ERROR: Verify signature failed!
+ERROR: Unable to run tpm2_verifysignature
+```
+
+## TPM Command Reference
+
+![Infineon TPM 2.0 embedded chip](https://www.jeffgeerling.com/sites/default/files/images/infineon-tpm.jpg)
+Photo by [Jeff Geerling](https://www.jeffgeerling.com/blog/2021/uptime-labs-cm4-blade-adds-nvme-tpm-20-raspberry-pi).
+
+Here is the list of possible commands to use:
+
+```txt
+tpm2_activatecredential       tpm2_gettestresult            tpm2_policynamehash
+tpm2_certify                  tpm2_gettime                  tpm2_policynv
+tpm2_certifyX509certutil      tpm2_hash                     tpm2_policynvwritten
+tpm2_certifycreation          tpm2_hierarchycontrol         tpm2_policyor
+tpm2_changeauth               tpm2_hmac                     tpm2_policypassword
+tpm2_changeeps                tpm2_import                   tpm2_policypcr
+tpm2_changepps                tpm2_incrementalselftest      tpm2_policyrestart
+tpm2_checkquote               tpm2_load                     tpm2_policysecret
+tpm2_clear                    tpm2_loadexternal             tpm2_policysigned
+tpm2_clearcontrol             tpm2_makecredential           tpm2_policytemplate
+tpm2_clockrateadjust          tpm2_nvcertify                tpm2_policyticket
+tpm2_commit                   tpm2_nvdefine                 tpm2_print
+tpm2_create                   tpm2_nvextend                 tpm2_quote
+tpm2_createak                 tpm2_nvincrement              tpm2_rc_decode
+tpm2_createek                 tpm2_nvread                   tpm2_readclock
+tpm2_createpolicy             tpm2_nvreadlock               tpm2_readpublic
+tpm2_createprimary            tpm2_nvreadpublic             tpm2_rsadecrypt
+tpm2_dictionarylockout        tpm2_nvsetbits                tpm2_rsaencrypt
+tpm2_duplicate                tpm2_nvundefine               tpm2_selftest
+tpm2_ecdhkeygen               tpm2_nvwrite                  tpm2_send
+tpm2_ecdhzgen                 tpm2_nvwritelock              tpm2_sessionconfig
+tpm2_ecephemeral              tpm2_pcrallocate              tpm2_setclock
+tpm2_encodeobject             tpm2_pcrevent                 tpm2_setcommandauditstatus
+tpm2_encryptdecrypt           tpm2_pcrextend                tpm2_setprimarypolicy
+tpm2_eventlog                 tpm2_pcrread                  tpm2_shutdown
+tpm2_evictcontrol             tpm2_pcrreset                 tpm2_sign
+tpm2_flushcontext             tpm2_policyauthorize          tpm2_startauthsession
+tpm2_getcap                   tpm2_policyauthorizenv        tpm2_startup
+tpm2_getcommandauditdigest    tpm2_policyauthvalue          tpm2_stirrandom
+tpm2_geteccparameters         tpm2_policycommandcode        tpm2_testparms
+tpm2_getekcertificate         tpm2_policycountertimer       tpm2_tr_encode
+tpm2_getpolicydigest          tpm2_policycphash             tpm2_unseal
+tpm2_getrandom                tpm2_policyduplicationselect  tpm2_verifysignature
+tpm2_getsessionauditdigest    tpm2_policylocality           tpm2_zgen2phase
+```
+Learn more about all possible use cases of this library [here](https://tpm2-tools.readthedocs.io/en/latest/).
+
+---
+
+## Extra
+The manufacturer's library provides comprehensive information about the installed TPM module.
+
+1. Steps to setup test library.
+
+```bash
+mkdir infineon && cd infineon
+git clone <https://github.com/Infineon/eltt2.git>
+cd eltt2/
+sudo apt install make gcc
+make
+sudo ./eltt2 -g
+```
+Should output something like:
+
+```txt
+TPM capability information of fixed properties:
+=========================================================
+TPM_PT_FAMILY_INDICATOR:        2.0
+TPM_PT_LEVEL:                   0
+TPM_PT_REVISION:                138
+TPM_PT_DAY_OF_YEAR:             8
+TPM_PT_YEAR:                    2018
+TPM_PT_MANUFACTURER:            IFX
+TPM_PT_VENDOR_STRING:           SLB9670
+TPM_PT_VENDOR_TPM_TYPE:         0
+TPM_PT_FIRMWARE_VERSION:        7.85.4555.0
+TPM_PT_MEMORY:
+=========================================================
+Shared RAM:                     0 CLEAR
+Shared NV:                      1 SET
+Object Copied To Ram:           1 SET
+TPM_PT_PERMANENT:
+=========================================================
+Owner Auth Set:                 0 CLEAR
+Sendorsement Auth Set:          0 CLEAR
+Lockout Auth Set:               0 CLEAR
+Disable Clear:                  0 CLEAR
+In Lockout:                     0 CLEAR
+TPM Generated EPS:              0 CLEAR
+```
+
+## Resources:
+Trusted Platform Module - Ubuntu wiki
+Jeff Geerling - Uptime Lab's CM4 Blade adds NVMe, TPM 2.0 to Raspberry Pi
+TPM 2.0 in U-Boot on Raspberry Pi 4
+TPM (Trusted Platform Module) 2.0 tools
+
+<a href="https://computeblade.com/buy-computeblade/">![2024 Cyber bundle ad](/img/blog/2024_cyber_x_mas.webp)</a>
