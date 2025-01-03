@@ -37,4 +37,15 @@ gena:
   name: Gena Kamotski
   title: Chief Experience Officer
   url: https://www.linkedin.com/in/genakamotski
-  # image_url: https://media.licdn.com/dms/image/D4D03AQFRaMYg9zZiZg/profile-displayphoto-shrink_200_200/0/1672854471854?e=1724284800&v=beta&t=L2VMKEkCVDB64U9D83YNASwBWgpF5k4voUQ-Or-jlzw
+  socials:
+    linkedin: genakamotski
+  # image_url: 
+
+ndizazzo:
+  name: Nick DiZazzo
+  title: Software Engineer
+  url: https://github.com/ndizazzo
+  socials:
+    github: ndizazzo
+    linkedin: nickdizazzo
+  image_url: https://github.com/ndizazzo.png

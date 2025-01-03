@@ -11,14 +11,18 @@ overclocking:
   permalink: /oc
   description: Posts including overclocking
 cm4:
-  label: Compute Model 4
+  label: Compute Module 4
   permalink: /cm4
   description: Raspberry Pi Compute Model 4
 cm5:
-  label: Compute Model 5
+  label: Compute Module 5
   permalink: /cm5
   description: Raspberry Pi Compute Model 5
 docker:
   label: Docker
   permalink: /docker
   description: Docker software
+fan:
+  label: Fan Unit
+  permalink: /fan
+  description: Fan Unit

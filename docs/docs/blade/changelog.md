@@ -26,7 +26,7 @@ sidebar_position: 9
 ### Fixes
 
 - The blue digital LED  would light up sometimes on startup due to power interference. Added additional filtering to the diode signal line, and the problem was solved
-- A certain number of devices from early v1 batches may experience a voltage surge at startup under certain conditions. In extreme cases, this could potentially destroy the device’s components. In cooperation with the manufacturer of the PoE module, additional stabilization of the PoE module output completely eliminated the problem
+- A certain number of devices from early v1 batches may experience a voltage surge at startup under certain conditions. In extreme cases, this could potentially destroy the device's components. In cooperation with the manufacturer of the PoE module, additional stabilization of the PoE module output completely eliminated the problem
 
 ## V1.0 MK1
 
@@ -44,6 +44,7 @@ sidebar_position: 9
 ![RC2 blade](/img/blade/rc2.webp)
 
 ### Features
+
 - Support all Raspberry Pi CM4
 - NVMe SSD up to `22110` (`2230`, `2242`, `2260`, `2280` supported)
 - Gigabit Ethernet

@@ -1,0 +1,81 @@
+---
+title: 'Unleashing the Power: M.2 Slot Capabilities'
+description: Unlocking Next-Level Performance with PCIe 3.0 and Versatile M.2 Module Support.
+authors: merocle
+tags: [blade, cm5]
+image: /img/blog/blade_christmas.webp
+hide_table_of_contents: false
+---
+
+Exploring the versatile capabilities of ComputeBlade's M.2 expansion port and its support for various devices. We'll take a closer look at NVMe drives support, AI accelerators, FPGAs, Network cards and Graphic cards. For advanced users we will show the difference between PCIe 2.0 and PCIe 3.0 and how to enable it on Raspberry Pi Compute Module 5.
+
+![Two blades holiday](/img/blog/blade_christmas.webp)
+
+{/* truncate */}
+
+## Available M.2 Modules and Capabilities
+
+![Samsung 970 EVO Plus](/img/blog/970evoplus.webp)
+
+Most likely you know about M.2 standard from NVMe drives, but in essence it is just a PCI Express x4 connector and can be used for many different applications.
+
+### NVMe drives: High-Speed Storage
+
+![Compute blade with CM4 and SSD highlighted](/img/blog/blade.webp)
+
+M.2 Drives leveraging NVMe (Non-Volatile Memory Express) protocol over PCIe provide exceptional speed and low latency. They are the preferred choice for high-performance applications like caching, transcoding, fast network storage.
+
+Usually we were using SD cards with a Raspberry Pi and it was a good tradeoff in terms of cost to reliability for a hobby projects, but not close enough to the real homelab needs. SD cards often get corrupted with K8S control plane often writes and give slow speeds overall, usually less then 100Mb/s. NVMe disks offer significant advantages in speed and most importantly, a magnitude more full capacity rewrite cycles before degrading performance.
+
+### AI Accelerators: Hailo 8
+
+![Compute blade with CM4 and SSD highlighted](/img/blog/hailo8.webp)
+
+AI accelerators are specialized hardware components designed to speed up artificial intelligence and machine learning workloads. The Hailo-8 AI accelerator, which is compatible with the M.2 form factor, offers up to 26 TOPS (Trillion Operations Per Second) of performance while maintaining excellent power efficiency.
+
+### FPGA: NITEFURY II
+
+![FPGA: NITEFURY II](/img/blog/NITEFURY_II.webp)
+
+FPGAs (Field Programmable Gate Arrays) are semiconductor devices that can be programmed to perform specific hardware functions. Unlike fixed-function chips like CPUs or GPUs, FPGAs are reconfigurable, allowing users to design custom digital circuits by programming their logic blocks and interconnections. This makes them highly versatile for tasks ranging from simple logic operations to complex systems like signal processing or machine learning.
+
+In education, FPGAs are excellent tools for teaching hardware design and digital systems. Their reprogrammability allows students to test and modify circuits in real-time, bridging theory and practice. They also support cutting-edge fields like AI, IoT, and embedded systems, making them a powerful learning platform that provides industry-relevant skills.
+
+### Network cards
+
+![IOCrest 5GbE M.2 network adapter](/img/blog/IOCrest.webp)
+*https://www.servethehome.com/iocrest-5gbe-m-2-adapter-review-a-different-realtek-rtl8126-nic/*
+
+The IOCrest 5GbE M.2 adapter is a networking module designed to bring high-speed connectivity to devices with available M.2 slots. It offers a practical solution for upgrading network performance without using traditional PCIe slots.
+
+The adapter uses the Realtek RTL8126 NIC to enable 5 Gbps networking. It includes brackets for various setups and requires driver installation. Performance tests show stable speeds, but limited availability of 5GbE switches may restrict its use. Priced under $19, it's a cost-effective upgrade for systems with unused M.2 slots, though it requires manual setup.
+
+Read more about this network interface from Jeff Geerling's [Raspberry Pi PCIe Database](https://pipci.jeffgeerling.com/cards_network/iocrest-5gbps-m2-nic.html)
+
+### Graphics Cards
+
+![AsRock M2 VGA graphic card](/img/blog/ASRock_M2_VGA.webp)
+*https://www.tomshardware.com/news/asrock-m2-graphics-card*
+
+ASRock has unveiled the M2_VGA, an innovative M.2-2280 form-factor graphics card aimed at providing legacy display connectivity for specialized use cases. This compact card is powered by Silicon Motion's SM750 display controller, featuring 16MB of embedded memory and a PCIe x1 interface. It supports resolutions up to 1920x1440 via a 15-pin D-Sub header, making it suitable for basic 2D graphics and video tasks.
+
+With minimal power consumption (1.49 watts) and compatibility across various Windows and Linux platforms, the M2_VGA is ideal for systems needing simple display functionality. Pricing and availability are limited to niche resellers.
+
+Read more about this graphics cards again on Jeff Geerling's [Raspberry Pi PCIe Database](https://pipci.jeffgeerling.com/cards_gpu/asrock-rack-m2-vga.html)
+
+## NVMe disk PCIe 3.0 Activation with CM5
+
+With the Raspberry Pi Compute Module 5, enthusiasts can now activate PCIe 3.0, which doubles data transfer speeds compared to PCIe 2.0. This enhancement makes the ComputeBlade an even more powerful solution for various computing applications, from edge computing to specialized hardware acceleration.
+
+It's quite easy to do, and so far all the tests We've done show high stability of the solution. ComputeBlade is fully prepared to work at these speeds as its m.2 m-key port has very short lines to the compute module to avoid any electromagnetic interference and loss of speed or stability.
+
+## Benchmark Results with NVMe drive
+Below you can see that we gain almost double performance increase for basic NVMe drive for free. Just by unlocking PCIe 3.0 speeds.
+
+![Graph showing better performance of PCIe3.0](/img/blog/ssd_benckmark_graph.webp)
+
+Tests were conducted on ComputeBlade v1-mk4 with Samsung 970 EVO Plus NVMe. The default HDParm Disk Read speed was 421.38 MB/sec. With PCIe 3.0 enabled, the same test showed a 94% performance boost, reaching 816.69 MB/sec.
+
+---
+
+<a href="https://computeblade.com/buy-computeblade/">![2024 Cyber bundle ad](/img/blog/2024_cyber_x_mas.webp)</a>

@@ -1,0 +1,100 @@
+---
+title: 'Part 1 — Set Up GitHub Action Runners on a ComputeBlade Cluster with Shared Cache Storage'
+description: Discover how to leverage Compute Blades for building high-performance, cost-effective continuous integration and deployment pipelines.
+authors: ndizazzo
+tags: [blade]
+image: /img/blog/19in_fans.webp
+hide_table_of_contents: false
+---
+
+Discover how to leverage Compute Blades for building high-performance, cost-effective continuous integration and deployment pipelines. This comprehensive guide explores cluster specifications, optimization strategies, and best practices for achieving faster, more reliable builds while maintaining security and control over your infrastructure.
+
+![19in ComputeBlade rack from the back showing the Fan Units](/img/blog/19in_fans.webp)
+
+{/* truncate */}
+
+## Introduction & Overview
+
+In software development, having a performant continuous integration pipeline coupled with a continuous deployment system is crucial for software teams to function.
+
+There are many options available for CI/CD from cloud providers: GitLab, GitHub, BuildKite, Bitbucket, and CircleCI, to name a few… but with those options, you have to consider if your organization can perform builds on public cloud infrastructure. For most organizations, the security this provides is adequate. In others, there may be restrictions on how software is built, or requirements for attestations at all stages of the build process.
+
+Fortunately, most of the mentioned cloud providers allow you to bring your own hardware to run as agents / runners (each platform's terminology varies). This can help you save on costs, as iterating and running lengthy builds can quickly chew through allocated agent minutes.
+
+![CI/CD flow graph](/img/blog/cicd_flow.webp)
+
+This is where a ComputeBlade cluster can help your organization; allowing you to perform builds on trusted and secured infrastructure and optionally integrated with TPM modules, HSMs, HSK (like Yubikey) etc.
+
+Typically for large and long running build processes, you want as many physical devices to service your development teams. Alongside a well-structured pipeline (using small & composable build steps), ComputeBlades can quickly turn your expensive cloud bill into something more manageable.
+
+---
+
+## Specifying the Physical Cluster
+
+Before you begin to consider how many physical Blades you'll install in your cluster, you need to take a step back and think about some numbers that will ensure your CI cluster serves you and your organization's needs.
+
+Some key high-level metrics to think about when speccing your CI/CD cluster are:
+
+- Types of builds (code, release packaging & signing, pull-request code validation, etc.)
+- Build size (artifacts, binaries, intermediate objects, caches and more…)
+- Network throughput
+- Disk storage speed
+- Target “wall-clock” time
+- How many builds can be running concurrently for your team
+- How your CI can scale as developers join the team
+- Runner / agent software requirements
+
+These key metrics will help you decide:
+
+- How many physical ComputeBlades you need
+- How much per-node storage you need
+- How many agents should be installed on each node to saturate CPU / disk effectively
+- If you need special hardware like a TPM module, HSM, HSKs, etc.
+
+Making a set of guidelines with these metrics, with a bit of margin for expansion will help keep your CI functioning without constant attention.
+
+---
+
+## Optimizing Build Performance with ComputeBlades
+
+Once you've specified your cluster, the next step is optimizing its performance to achieve consistent, fast, and reliable builds. ComputeBlades offer unique advantages in delivering these outcomes due to their scalable hardware capabilities and compact design.
+
+![Compute Blade Exploded View](/img/blog/blade_exploded.webp)
+
+### Faster Build Times
+
+ComputeBlades provide a good level of CI performance via CM4 / CM5 tailored to the needs of modern CI/CD pipelines. But the real super-power they provide is the ability to scale horizontally. By allocating multiple nodes to your builds, your organization can significantly reduce the time spent waiting for builds to complete. This is especially crucial for iterative development workflows, where frequent code changes must be validated quickly to maintain productivity.
+
+### Enhanced Resource Utilization
+
+With a ComputeBlade cluster, you can fine-tune your build process to effectively fan-out across nodes, ensuring each blade is effectively utilized. By setting up multiple agents on a single node, you can maximize CPU and disk utilization while avoiding the bottlenecks often experienced with shared cloud-based resources. This not only speeds up builds but also improves cost efficiency by making full use of your investment in physical infrastructure.
+
+### Consistency Across Environments
+
+ComputeBlades enable you to maintain a uniform build environment across all nodes. By hosting all your CI/CD jobs on the same cluster, you minimize the risk of discrepancies caused by varying hardware or software configurations, ensuring predictable and reliable builds every time.
+
+### Composable Steps
+
+A common pitfall in CI pipelines is designing them as a single, monolithic process that runs sequentially on a single machine, often tailored to handle the most resource-intensive part of the build. By breaking the pipeline into smaller, independent steps and leveraging caching or artifact storage to pass intermediate results, you can enable multiple nodes to process different parts of the build simultaneously.
+
+This is exactly where ComputeBlades excel. Designed for high-performance, parallel workloads, ComputeBlades can effortlessly distribute tasks across nodes in your cluster, allowing each to handle a specific part of the build process. Whether it's compiling, testing, packaging, or deployment, ComputeBlades provide the flexibility and power to manage each step efficiently. Their modular nature ensures that your CI/CD pipelines are not only faster but also highly adaptable to evolving workloads, enabling your organization to meet development demands with ease.
+
+---
+
+## Wrapping Up
+
+Building a robust, high-performance CI/CD pipeline is no small task, but it's a challenge worth tackling for any organization aiming to stay competitive and keep your dev team's time focused on creating your product. By investing in ComputeBlades, you're not just buying hardware — you're empowering your team with the tools to innovate faster, work more efficiently, and reduce costs over time. Especially for organizations using cloud-based build infrastructure.
+
+![19in rack with two Compute Blades](/img/blog/blades_19_front.webp)
+
+The beauty of ComputeBlades lies in their flexibility. They can handle complex workflows, scale effortlessly as your team grows, and provide the kind of security and consistency that public cloud solutions can't always guarantee. Whether your team is working on quick pull request validations or intensive, resource-hungry builds, a ComputeBlade cluster gives you the control and performance you need to meet those demands head-on.
+
+The best part? Once your CI/CD pipeline is optimized and humming along on a well-architected ComputeBlade cluster, you'll wonder how you ever managed without it. Your team will spend less time waiting on builds and more time building great software.
+
+Spec out your cluster, break your pipelines into composable steps, and unlock the full potential of your CI/CD process with ComputeBlades. Your developers — and your budget — will thank you.
+
+Stay tuned for an upcoming article where we'll walk you through setting up a self-hosted CI system and provisioning runners on a ComputeBlade cluster. We'll demonstrate how to optimize your build process step by step, helping you save both time and money while getting the most out of your infrastructure!
+
+---
+
+<a href="https://computeblade.com/buy-computeblade/">![2024 Cyber bundle ad](/img/blog/2024_cyber_x_mas.webp)</a>
