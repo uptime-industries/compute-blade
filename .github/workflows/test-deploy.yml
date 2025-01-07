@@ -20,16 +20,13 @@ jobs:
             shell: bash
             working-directory: ./docs
     name: Test deployment
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
-
-      - name: Install Yarn
-        run: npm install -g yarn
     
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          
+
       - uses: actions/setup-node@v4
         with: 
           node-version: 20
