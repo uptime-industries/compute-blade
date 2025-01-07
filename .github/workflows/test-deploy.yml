@@ -20,7 +20,7 @@ jobs:
             shell: bash
             working-directory: ./docs
     name: Test deployment
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     
       - uses: actions/checkout@v4

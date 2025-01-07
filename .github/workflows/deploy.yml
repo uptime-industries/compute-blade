@@ -17,7 +17,7 @@ jobs:
             shell: bash
             working-directory: ./docs
     name: Build Docusaurus
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
         with:
@@ -53,7 +53,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
