@@ -6,6 +6,12 @@ Below is a list of NVMe SSDs that have been tested by Uptime Lab and community m
 
 [pibenchnarks.com](https://pibenchmarks.com) is a popular site to upload micro SD, eMMC, SSD, and other storage benchmarks for Raspberry Pi and Pi clones. You can find benchmarks for some of the NVMe SSDs listed below.
 
+## Verbatim
+
+| Product                       | Model              | Capacity     | Tester                                            |
+| :---------------------------- | :----------------- | :----------- | :------------------------------------------------ |
+| Verbatim Vi3000               | 49374              | 512GB        | [LauLaman](https://github.com/LauLaman)           |
+
 ## Crucial
 
 | Product                       | Model              | Capacity     | Tester                                            |
