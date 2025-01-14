@@ -112,6 +112,12 @@ Below is a list of NVMe SSDs that have been tested by Uptime Lab and community m
 | :---------------------------- | :----------------- | :----------- | :------------------------------------------------ |
 | Transcend 110S                | TS256GMTE110S      | 256GB        | [pxpunx](https://github.com/pxpunx)               |
 
+## Verbatim
+
+| Product                       | Model              | Capacity     | Tester                                            |
+| :---------------------------- | :----------------- | :----------- | :------------------------------------------------ |
+| Verbatim Vi3000               | 49374              | 512GB        | [LauLaman](https://github.com/LauLaman)           |
+
 ## Western Digital (WD)
 
 | Product                       | Model              | Capacity     | Tester                                            |
