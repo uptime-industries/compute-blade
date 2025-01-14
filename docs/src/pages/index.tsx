@@ -52,6 +52,7 @@ export default function Home(): JSX.Element {
   );
 }
 
+
 // import { Redirect } from '@docusaurus/router';
 // import config from '../../docusaurus.config'
 // function Home() {
