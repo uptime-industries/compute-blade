@@ -69,11 +69,6 @@ const config: Config = {
   ],
 
   themeConfig: {
-    hubspot: {
-      accountId: 47862563,
-      async: true, // OPTIONAL: sets the async attribute on the script tag, defaults to false
-      // defer: boolean, // OPTIONAL: sets the defer attribute on the script tag, defaults to false     
-    },
     image: 'img/embed-card.webp',
     navbar: {
       // title: 'Home',
@@ -279,7 +274,6 @@ const config: Config = {
   } satisfies Preset.ThemeConfig,
 
   plugins: [
-    'docusaurus-plugin-hubspot',
     [      
       '@docusaurus/plugin-client-redirects',
       {
@@ -295,6 +289,12 @@ const config: Config = {
         ],
       },
     ],
+    [
+      './hubspot',
+      {
+        accountId: 47862563,
+      }
+    ]
   ]
 };
 

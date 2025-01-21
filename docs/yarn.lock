@@ -1946,7 +1946,7 @@
     "@docusaurus/types" "3.7.0"
     tslib "^2.6.0"
 
-"@docusaurus/utils-validation@3.7.0":
+"@docusaurus/utils-validation@3.7.0", "@docusaurus/utils-validation@^3.7.0":
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/@docusaurus/utils-validation/-/utils-validation-3.7.0.tgz#dc0786fb633ae5cef8e93337bf21c2a826c7ecbd"
   integrity sha512-w8eiKk8mRdN+bNfeZqC4nyFoxNyI1/VExMKAzD9tqpJfLLbsa46Wfn5wcKH761g9WkKh36RtFV49iL9lh1DYBA==
@@ -3941,11 +3941,6 @@ dns-packet@^5.2.2:
   integrity sha512-l4gcSouhcgIKRvyy99RNVOgxXiicE+2jZoNmaNmZ6JXiGajBOJAesk1OBlJuM5k2c+eudGdLxDqXuPCKIj6kpw==
   dependencies:
     "@leichtgewicht/ip-codec" "^2.0.1"
-
-docusaurus-plugin-hubspot@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/docusaurus-plugin-hubspot/-/docusaurus-plugin-hubspot-1.0.1.tgz#a68d09e048dd686ddeda97a53eb3d48cd9beaac8"
-  integrity sha512-sX/6dMQ1nkh5sneNLIdOqrZdzFDlxBGcFwGjiQBS3z3JH87UinlSSVWpzCHU/PFKCAX3cqQSTjZwA/JP5dLPzQ==
 
 dom-converter@^0.2.0:
   version "0.2.0"
