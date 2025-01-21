@@ -279,8 +279,8 @@ const config: Config = {
   } satisfies Preset.ThemeConfig,
 
   plugins: [
-    [
-      'docusaurus-plugin-hubspot',
+    'docusaurus-plugin-hubspot',
+    [      
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
