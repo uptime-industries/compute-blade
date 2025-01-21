@@ -293,6 +293,8 @@ const config: Config = {
       './hubspot',
       {
         accountId: 47862563,
+        async: true,
+        defer: true,
       }
     ]
   ]
