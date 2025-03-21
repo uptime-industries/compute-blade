@@ -12,6 +12,7 @@ Below is a list of NVMe SSDs that have been tested by Uptime Lab and community m
 | :---------------------------- | :----------------- | :----------- | :------------------------------------------------ |
 | Crucial P2                    | CT500P2SSD8        | 500GB        | [xvzf](https://github.com/xvzf)                   |
 | Crucial P3                    | CT4000P3SSD8       | 4TB          | [Uptime](https://github.com/Uptime-industries)    |
+| Crucial P3                    | CT2000P3SSD8       | 2TB          | [khrystoph](https://github.com/khrystoph)
 | Crucial P3                    | CT500P3SSD8        | 500GB        | [pxpunx](https://github.com/pxpunx)               |
 | Crucial P5 Plus <sup>1</sup>  | CT500P5PSSD8       | 500GB        | [lwbt](https://github.com/lwbt)                   |
 
