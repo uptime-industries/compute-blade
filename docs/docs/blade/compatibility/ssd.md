@@ -4,7 +4,7 @@ Below is a list of NVMe SSDs that have been tested by Uptime Lab and community m
 
 ### Benchmarks
 
-[pibenchnarks.com](https://pibenchmarks.com) is a popular site to upload micro SD, eMMC, SSD, and other storage benchmarks for Raspberry Pi and Pi clones. You can find benchmarks for some of the NVMe SSDs listed below.
+[pibenchmarks.com](https://pibenchmarks.com) is a popular site to upload micro SD, eMMC, SSD, and other storage benchmarks for Raspberry Pi and Pi clones. You can find benchmarks for some of the NVMe SSDs listed below.
 
 ## Crucial
 
@@ -12,7 +12,8 @@ Below is a list of NVMe SSDs that have been tested by Uptime Lab and community m
 | :---------------------------- | :----------------- | :----------- | :------------------------------------------------ |
 | Crucial P2                    | CT500P2SSD8        | 500GB        | [xvzf](https://github.com/xvzf)                   |
 | Crucial P3                    | CT4000P3SSD8       | 4TB          | [Uptime](https://github.com/Uptime-industries)    |
-| Crucial P3                    | CT2000P3SSD8       | 2TB          | [khrystoph](https://github.com/khrystoph)
+| Crucial P3                    | CT2000P3SSD8       | 2TB          | [khrystoph](https://github.com/khrystoph)         |
+| Crucial P3                    | CT1000P3SSD8       | 1TB          | [dstewart1673](https://github.com/dstewart1673)   |
 | Crucial P3                    | CT500P3SSD8        | 500GB        | [pxpunx](https://github.com/pxpunx)               |
 | Crucial P5 Plus <sup>1</sup>  | CT500P5PSSD8       | 500GB        | [lwbt](https://github.com/lwbt)                   |
 
@@ -78,6 +79,7 @@ Below is a list of NVMe SSDs that have been tested by Uptime Lab and community m
 | Samsung 960 PRO               | MZ-V6P512BW        | 500GB        | [Uptime](https://github.com/Uptime-industries)    |
 | Samsung 970 PRO               | MZ-V7P512BW        | 500GB        | [Uptime](https://github.com/Uptime-industries)    |
 | Samsung 980 PRO               | MZ-V8P1T0B         | 1TB          | [Uptime](https://github.com/Uptime-industries)    |
+| Samsung 990 PRO               | MZ-V9P1T0B/AM      | 1TB          | [dstewart1673](https://github.com/dstewart1673)   |
 | Samsung PM991a                | MZ9LQ256HBJD       | 256GB        | [pxpunx](https://github.com/pxpunx)               |
 
 ## SK hynix
