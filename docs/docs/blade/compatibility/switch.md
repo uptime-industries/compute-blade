@@ -38,3 +38,10 @@ PoE enabled switch & Injectors which have been used with the Compute Blade
 | Product       | Model Number       | Tested By |
 | :------------ |:------------------ | --------- |
 | ICX 6610      | [ICX 6610-48P](https://webresources.ruckuswireless.com/pdf/datasheets/ds-icx-6610.pdf) | [khrystoph](https://github.com/khrystoph) |
+
+## Mikrotik
+
+| Product       | Model Number       | Tested By |
+| :------------ |:------------------ | --------- |
+| CRS328-24P-4S+RM | [CRS328-24P-4S+RM](https://mikrotik.com/product/crs328_24p_4s_rm) | [Metrotyranno](https://github.com/metrotyranno) |
+| CRS354-48P-4S+2Q+RM | [CRS354-48P-4S+2Q+RM](https://mikrotik.com/product/crs354_48p_4s_2q_rm) | [Metrotyranno](https://github.com/metrotyranno) |
