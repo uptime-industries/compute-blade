@@ -15,7 +15,7 @@ PoE enabled switch & Injectors which have been used with the Compute Blade
 | Ultra 60W              | [USW-Ultra-60W](https://store.ui.com/us/en/products/usw-ultra-60w) | [dstewart1673](https://github.com/dstewart1673) |
 | USW Lite 8 PoE         | [USW-LITE-8-POE](https://store.ui.com/us/en/products/usw-lite-8-poe) | [khrystoph](https://github.com/khrystoph) |
 | Standard 24 PoE (Gen1) | [US-24-250W](https://techspecs.ui.com/unifi/switching/us-24-250w) | [einsteinagogo](https://github.com/einsteinagogo) |
-| Pro 24 PoE             | [USW-Pro-24-PoE](https://techspecs.ui.com/unifi/switching/usw-pro-24-poe) | [Uptime](https://github.com/uptime-industries) |
+| Pro 24 PoE             | [USW-Pro-24-PoE](https://techspecs.ui.com/unifi/switching/usw-pro-24-poe) | [Uptime](https://github.com/uptime-lab) |
 | Pro 48 PoE             | [USW-Pro-48-PoE](https://techspecs.ui.com/unifi/switching/usw-pro-48-poe) | [adriano](https://github.com/Adriano8899) |
 | PoE+ Adapter (30W)     | [U-POE-at](https://techspecs.ui.com/unifi/accessories/u-poe-at) | [mindspore](https://github.com/cKhoff) |
 | Pro Max 24 PoE         | [USW-Pro-Max-24-PoE](https://techspecs.ui.com/unifi/switching/usw-pro-max-24-poe) | [mindspore](https://github.com/cKhoff) |

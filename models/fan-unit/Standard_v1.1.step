@@ -16,7 +16,7 @@ FILE_NAME(
 /* preprocessor_version */ 'ST-DEVELOPER v20',
 /* originating_system */ 'Autodesk Translation Framework v12.20.1.177',
 
-/* authorisation */ 'Creative Commons Attribution-ShareAlike (CC BY-SA), Uptime Industries Inc., 447 Broadway #2114, New York, NY 10013, The United States');
+/* authorisation */ 'Creative Commons Attribution-ShareAlike (CC BY-SA), Uptime Lab Inc., 447 Broadway #2114, New York, NY 10013, The United States');
 
 FILE_SCHEMA (('AUTOMOTIVE_DESIGN { 1 0 10303 214 3 1 1 }'));
 ENDSEC;

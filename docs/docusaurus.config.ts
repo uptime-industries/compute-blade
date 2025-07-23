@@ -15,7 +15,7 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'uptime-industries', // Usually your GitHub org/user name.
+  organizationName: 'uptime-lab', // Usually your GitHub org/user name.
   projectName: 'compute-blade', // Usually your repo name.
   deploymentBranch: 'main', // The name of the deployment branch.
   trailingSlash: false,
@@ -53,13 +53,13 @@ const config: Config = {
           showLastUpdateTime: true,
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/uptime-industries/compute-blade/tree/main/docs/',
+            'https://github.com/uptime-lab/compute-blade/tree/main/docs/',
         },
         blog: {
           showReadingTime: true,
           // Remove this to remove the "edit this page" links.
           // editUrl:
-          //   'https://github.com/uptime-industries/compute-blade/tree/main/docs/blog/',
+          //   'https://github.com/uptime-lab/compute-blade/tree/main/docs/blog/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -123,7 +123,7 @@ const config: Config = {
           'aria-label': 'Discord Invite'
         },
         {
-          href: 'https://github.com/uptime-industries/compute-blade',
+          href: 'https://github.com/uptime-lab/compute-blade',
           // label: 'GitHub',
           position: 'right',
           className: 'header-github-link',
@@ -163,18 +163,18 @@ const config: Config = {
         {
           title: 'Social',
           items: [
-            {
-              label: 'LinkedIn',
-              href: 'https://www.linkedin.com/company/uptimeindustries',
-            },
+            // {
+            //   label: 'LinkedIn',
+            //   href: 'https://www.linkedin.com/company/uptimeindustries',
+            // },
             {
               label: 'Instagram',
               href: 'https://www.instagram.com/uptime.lab/',
             },
-            {
-              label: 'Bluesky',
-              href: 'https://bsky.app/profile/uptime.industries',
-            },
+            // {
+            //   label: 'Bluesky',
+            //   href: 'https://bsky.app/profile/uptime.industries',
+            // },
             {
               label: 'Discord',
               href: 'https://discord.gg/invite/uptime-industries-952334175501946902',
@@ -190,11 +190,11 @@ const config: Config = {
             // },
             {
               label: 'Website',
-              href: 'https://uptime.industries/',
+              href: 'https://computeblade.com/'
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/uptime-industries/',
+              href: 'https://github.com/uptime-lab/',
             },
             {
               label: 'Legal',
@@ -202,26 +202,26 @@ const config: Config = {
             }
           ],
         },
-        {
-          title: 'Contact',
-          items: [
-            {
-              html:`<p>Uptime Industries Inc.
-                  447 Broadway #2114
-                  New York, NY 10013
-                  United States
-                </p>`,
-            },
-            {
-              html: '<p>info@uptime.industries</p>',
-            },
-            {
-              html: '<p>+1 (315) 784-7820</p>'
-            }
-          ]
-        },
+        // {
+        //   title: 'Contact',
+        //   items: [
+        //     {
+        //       html:`<p>Uptime Industries Inc.
+        //           447 Broadway #2114
+        //           New York, NY 10013
+        //           United States
+        //         </p>`,
+        //     },
+        //     {
+        //       html: '<p>info@uptime.industries</p>',
+        //     },
+        //     {
+        //       html: '<p>+1 (315) 784-7820</p>'
+        //     }
+        //   ]
+        // },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Uptime Industries. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Uptime Lab. Built with Docusaurus.`,
       logo: {
         src: 'img/logos/UptimeIndustries-logo-white.svg',
         srcDark: 'img/logos/UptimeIndustries-logo-green.svg',
