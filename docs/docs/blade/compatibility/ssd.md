@@ -11,7 +11,7 @@ Below is a list of NVMe SSDs that have been tested by Uptime Lab and community m
 | Product                       | Model              | Capacity     | Tester                                            |
 | :---------------------------- | :----------------- | :----------- | :------------------------------------------------ |
 | Crucial P2                    | CT500P2SSD8        | 500GB        | [xvzf](https://github.com/xvzf)                   |
-| Crucial P3                    | CT4000P3SSD8       | 4TB          | [Uptime](https://github.com/Uptime-industries)    |
+| Crucial P3                    | CT4000P3SSD8       | 4TB          | [Uptime](https://github.com/uptime-lab)    |
 | Crucial P3                    | CT2000P3SSD8       | 2TB          | [khrystoph](https://github.com/khrystoph)         |
 | Crucial P3                    | CT1000P3SSD8       | 1TB          | [dstewart1673](https://github.com/dstewart1673)   |
 | Crucial P3                    | CT500P3SSD8        | 500GB        | [pxpunx](https://github.com/pxpunx)               |
@@ -75,10 +75,10 @@ Below is a list of NVMe SSDs that have been tested by Uptime Lab and community m
 | Product                       | Model              | Capacity     | Tester                                            |
 | :---------------------------- | :----------------- | :----------- | :------------------------------------------       |
 | Samsung 970 EVO               | MZ-V7E500          | 500GB        | [pxpunx](https://github.com/pxpunx)               |
-| Samsung 970 EVO Plus          | MZ-V7S1T0B         | 2TB          | [Uptime](https://github.com/Uptime-industries)    |
-| Samsung 960 PRO               | MZ-V6P512BW        | 500GB        | [Uptime](https://github.com/Uptime-industries)    |
-| Samsung 970 PRO               | MZ-V7P512BW        | 500GB        | [Uptime](https://github.com/Uptime-industries)    |
-| Samsung 980 PRO               | MZ-V8P1T0B         | 1TB          | [Uptime](https://github.com/Uptime-industries)    |
+| Samsung 970 EVO Plus          | MZ-V7S1T0B         | 2TB          | [Uptime](https://github.com/uptime-lab)    |
+| Samsung 960 PRO               | MZ-V6P512BW        | 500GB        | [Uptime](https://github.com/uptime-lab)    |
+| Samsung 970 PRO               | MZ-V7P512BW        | 500GB        | [Uptime](https://github.com/uptime-lab)    |
+| Samsung 980 PRO               | MZ-V8P1T0B         | 1TB          | [Uptime](https://github.com/uptime-lab)    |
 | Samsung 990 PRO               | MZ-V9P1T0B/AM      | 1TB          | [dstewart1673](https://github.com/dstewart1673)   |
 | Samsung PM991a                | MZ9LQ256HBJD       | 256GB        | [pxpunx](https://github.com/pxpunx)               |
 
@@ -87,14 +87,14 @@ Below is a list of NVMe SSDs that have been tested by Uptime Lab and community m
 | Product                       | Model              | Capacity     | Tester                                            |
 | :---------------------------- | :----------------- | :----------- | :------------------------------------------------ |
 | SK hynix BC711                | HFM256GD3JX016N    | 256GB        | [pxpunx](https://github.com/pxpunx)               |
-| SK hynix PC611                | HFS001TD9TNI       | 1TB          | [Uptime](https://github.com/Uptime-industries)    |
+| SK hynix PC611                | HFS001TD9TNI       | 1TB          | [Uptime](https://github.com/uptime-lab)    |
 | Solidigm P41 Plus             | SSDPFKNU512GZ      | 512GB        | [pxpunx](https://github.com/pxpunx)               |
 
 ## Synology
 
 | Product                       | Model              | Capacity     | Tester                                            |
 | :---------------------------- | :----------------- | :----------- | :------------------------------------------------ |
-| Synology SNV3510              | SNV3510-400G       | 400GB        | [Uptime](https://github.com/Uptime-industries)    |
+| Synology SNV3510              | SNV3510-400G       | 400GB        | [Uptime](https://github.com/uptime-lab)    |
 
 ## TeamGroup
 
@@ -126,7 +126,7 @@ Below is a list of NVMe SSDs that have been tested by Uptime Lab and community m
 | Product                       | Model              | Capacity     | Tester                                            |
 | :---------------------------- | :----------------- | :----------- | :------------------------------------------------ |
 | WD Black SN770                | WDS250G3X0E        | 250GB        | [pxpunx](https://github.com/pxpunx)               |
-| WD Black SN770                | WDS500G3X0E        | 500GB        | [Uptime](https://github.com/uptime-industries/)   |
+| WD Black SN770                | WDS500G3X0E        | 500GB        | [Uptime](https://github.com/uptime-lab/)   |
 | WD Blue SN550                 | WDS100T2B0C        | 1TB          | [lwbt](https://github.com/lwbt)                   |
 | WD Blue SN570                 | WDS250G3B0C        | 250GB        | [pxpunx](https://github.com/pxpunx)               |
 | WD Blue SN580                 | WDS100T3B0E        | 1TB          | [lwbt](https://github.com/lwbt)                   |
