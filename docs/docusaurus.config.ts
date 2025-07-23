@@ -222,11 +222,11 @@ const config: Config = {
         // },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Uptime Lab. Built with Docusaurus.`,
-      logo: {
-        src: 'img/logos/UptimeIndustries-logo-white.svg',
-        srcDark: 'img/logos/UptimeIndustries-logo-green.svg',
-        height: 100
-      },
+      // logo: {
+      //   src: 'img/logos/UptimeIndustries-logo-white.svg',
+      //   srcDark: 'img/logos/UptimeIndustries-logo-green.svg',
+      //   height: 100
+      // },
 
     },
     prism: {
