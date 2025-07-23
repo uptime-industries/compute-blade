@@ -1468,7 +1468,7 @@
     webpack "^5.95.0"
     webpackbar "^6.0.1"
 
-"@docusaurus/core@3.8.1", "@docusaurus/core@^3.7.0":
+"@docusaurus/core@3.8.1", "@docusaurus/core@^3.8.1":
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/core/-/core-3.8.1.tgz#c22e47c16a22cb7d245306c64bc54083838ff3db"
   integrity sha512-ENB01IyQSqI2FLtOzqSI3qxG2B/jP4gQPahl2C3XReiLebcVh5B5cB9KYFvdoOqOWPyr5gXK4sjgTKv7peXCrA==
@@ -1564,7 +1564,7 @@
     vfile "^6.0.1"
     webpack "^5.88.1"
 
-"@docusaurus/module-type-aliases@3.8.1", "@docusaurus/module-type-aliases@^3.7.0":
+"@docusaurus/module-type-aliases@3.8.1", "@docusaurus/module-type-aliases@^3.8.1":
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/module-type-aliases/-/module-type-aliases-3.8.1.tgz#454de577bd7f50b5eae16db0f76b49ca5e4e281a"
   integrity sha512-6xhvAJiXzsaq3JdosS7wbRt/PwEPWHr9eM4YNYqVlbgG1hSK3uQDXTVvQktasp3VO6BmfYWPozueLWuj4gB+vg==
@@ -1577,7 +1577,7 @@
     react-helmet-async "npm:@slorber/react-helmet-async@1.3.0"
     react-loadable "npm:@docusaurus/react-loadable@6.0.0"
 
-"@docusaurus/plugin-client-redirects@^3.7.0":
+"@docusaurus/plugin-client-redirects@^3.8.1":
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/plugin-client-redirects/-/plugin-client-redirects-3.8.1.tgz#1d02b3565ae4e53a3b8005835501f07fb0bc0267"
   integrity sha512-F+86R7PBn6VNgy/Ux8w3ZRypJGJEzksbejQKlbTC8u6uhBUhfdXWkDp6qdOisIoW0buY5nLqucvZt1zNJzhJhA==
@@ -1737,7 +1737,7 @@
     tslib "^2.6.0"
     webpack "^5.88.1"
 
-"@docusaurus/preset-classic@^3.7.0":
+"@docusaurus/preset-classic@^3.8.1":
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/preset-classic/-/preset-classic-3.8.1.tgz#bb79fd12f3211363720c569a526c7e24d3aa966b"
   integrity sha512-yJSjYNHXD8POMGc2mKQuj3ApPrN+eG0rO1UPgSx7jySpYU+n4WjBikbrA2ue5ad9A7aouEtMWUoiSRXTH/g7KQ==
@@ -1838,12 +1838,12 @@
     fs-extra "^11.1.1"
     tslib "^2.6.0"
 
-"@docusaurus/tsconfig@^3.7.0":
+"@docusaurus/tsconfig@^3.8.1":
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/tsconfig/-/tsconfig-3.8.1.tgz#a1f7daadfc93455289200647f4ee10cdca540f7b"
   integrity sha512-XBWCcqhRHhkhfolnSolNL+N7gj3HVE3CoZVqnVjfsMzCoOsuQw2iCLxVVHtO+rePUUfouVZHURDgmqIySsF66A==
 
-"@docusaurus/types@3.8.1", "@docusaurus/types@^3.7.0":
+"@docusaurus/types@3.8.1", "@docusaurus/types@^3.8.1":
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/types/-/types-3.8.1.tgz#83ab66c345464e003b576a49f78897482061fc26"
   integrity sha512-ZPdW5AB+pBjiVrcLuw3dOS6BFlrG0XkS2lDGsj8TizcnREQg3J8cjsgfDviszOk4CweNfwo1AEELJkYaMUuOPg==
@@ -1866,7 +1866,7 @@
     "@docusaurus/types" "3.8.1"
     tslib "^2.6.0"
 
-"@docusaurus/utils-validation@3.8.1", "@docusaurus/utils-validation@^3.7.0":
+"@docusaurus/utils-validation@3.8.1", "@docusaurus/utils-validation@^3.8.1":
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/utils-validation/-/utils-validation-3.8.1.tgz#0499c0d151a4098a0963237057993282cfbd538e"
   integrity sha512-gs5bXIccxzEbyVecvxg6upTwaUbfa0KMmTj7HhHzc016AGyxH2o73k1/aOD0IFrdCsfJNt37MqNI47s2MgRZMA==
@@ -5351,7 +5351,7 @@ longest-streak@^3.0.0:
   resolved "https://registry.yarnpkg.com/longest-streak/-/longest-streak-3.1.0.tgz#62fa67cd958742a1574af9f39866364102d90cd4"
   integrity sha512-9Ri+o0JYgehTaVBBDoMqIl8GXtbWg711O3srftcHhZ0dqnETqLaoIK0x17fUw9rFSlK/0NlsKe0Ahhyl5pXE2g==
 
-loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.2.0, loose-envify@^1.3.1, loose-envify@^1.4.0:
+loose-envify@^1.0.0, loose-envify@^1.2.0, loose-envify@^1.3.1, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
@@ -7111,7 +7111,7 @@ pretty-time@^1.1.0:
   resolved "https://registry.yarnpkg.com/pretty-time/-/pretty-time-1.1.0.tgz#ffb7429afabb8535c346a34e41873adf3d74dd0e"
   integrity sha512-28iF6xPQrP8Oa6uxE6a1biz+lWeTOAPKggvjB8HAs6nVMKZwf5bG++632Dx614hIWgUPkgivRfG+a8uAXGTIbA==
 
-prism-react-renderer@^2.3.0, prism-react-renderer@^2.4.0:
+prism-react-renderer@^2.3.0, prism-react-renderer@^2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/prism-react-renderer/-/prism-react-renderer-2.4.1.tgz#ac63b7f78e56c8f2b5e76e823a976d5ede77e35f"
   integrity sha512-ey8Ls/+Di31eqzUxC46h8MksNuGx/n0AAC8uKpwFau4RPDYLuE3EXTp8N8G2vX2N7UC/+IXeNUnlWBGGcAG+Ig==
@@ -7235,13 +7235,12 @@ rc@1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@^18.3.1:
-  version "18.3.1"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.3.1.tgz#c2265d79511b57d479b3dd3fdfa51536494c5cb4"
-  integrity sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==
+react-dom@^19.1.0:
+  version "19.1.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-19.1.0.tgz#133558deca37fa1d682708df8904b25186793623"
+  integrity sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==
   dependencies:
-    loose-envify "^1.1.0"
-    scheduler "^0.23.2"
+    scheduler "^0.26.0"
 
 react-fast-compare@^3.2.0:
   version "3.2.2"
@@ -7318,12 +7317,10 @@ react-router@5.3.4, react-router@^5.3.4:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
-react@^18.3.1:
-  version "18.3.1"
-  resolved "https://registry.yarnpkg.com/react/-/react-18.3.1.tgz#49ab892009c53933625bd16b2533fc754cab2891"
-  integrity sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==
-  dependencies:
-    loose-envify "^1.1.0"
+react@^19.1.0:
+  version "19.1.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-19.1.0.tgz#926864b6c48da7627f004795d6cce50e90793b75"
+  integrity sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==
 
 readable-stream@^2.0.1:
   version "2.3.8"
@@ -7664,12 +7661,10 @@ sax@^1.2.4:
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.4.1.tgz#44cc8988377f126304d3b3fc1010c733b929ef0f"
   integrity sha512-+aWOz7yVScEGoKNd4PA10LZ8sk0A/z5+nXQG5giUO5rprX9jgYsTdov9qCchZiPIZezbZH+jRut8nPodFAX4Jg==
 
-scheduler@^0.23.2:
-  version "0.23.2"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.23.2.tgz#414ba64a3b282892e944cf2108ecc078d115cdc3"
-  integrity sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==
-  dependencies:
-    loose-envify "^1.1.0"
+scheduler@^0.26.0:
+  version "0.26.0"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.26.0.tgz#4ce8a8c2a2095f13ea11bf9a445be50c555d6337"
+  integrity sha512-NlHwttCI/l5gCPR3D1nNXtWABUmBwvZpEQiD4IXSbIDq8BzLIK/7Ir5gTFSGZDUu37K5cMNp0hFtzO38sC7gWA==
 
 schema-dts@^1.1.2:
   version "1.1.5"
@@ -8280,7 +8275,7 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
-typescript@^5.7.2:
+typescript@^5.8.3:
   version "5.8.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.3.tgz#92f8a3e5e3cf497356f4178c34cd65a7f5e8440e"
   integrity sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==
