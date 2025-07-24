@@ -19,6 +19,7 @@ PoE enabled switch & Injectors which have been used with the Compute Blade
 | Pro 48 PoE             | [USW-Pro-48-PoE](https://techspecs.ui.com/unifi/switching/usw-pro-48-poe) | [adriano](https://github.com/Adriano8899) |
 | PoE+ Adapter (30W)     | [U-POE-at](https://techspecs.ui.com/unifi/accessories/u-poe-at) | [mindspore](https://github.com/cKhoff) |
 | Pro Max 24 PoE         | [USW-Pro-Max-24-PoE](https://techspecs.ui.com/unifi/switching/usw-pro-max-24-poe) | [mindspore](https://github.com/cKhoff) |
+| USW Enterprise 8 PoE   | [USW-Enterprise-8-PoE (120W)](https://store.ui.com/us/en/category/switching-utility/products/usw-enterprise-8-poe) | [Tom](https://github.com/nyx0) |
 
 
 ## TP-Link
