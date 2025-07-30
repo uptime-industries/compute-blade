@@ -32,6 +32,11 @@ function HomepageHeader() {
             to="/bladerunner">
             BladeRunner™️
           </Link>
+          <Link
+            className="button button--secondary button--lg"
+            to="/modules">
+            Modules
+          </Link>
         </div>
       </div>
     </header>

@@ -97,6 +97,12 @@ const config: Config = {
           position: 'left',
           label: 'BladeRunner',
         },
+        {
+          type: 'docSidebar',
+          sidebarId: 'modulesSidebar',
+          position: 'left',
+          label: 'Modules',
+        },
         // {
         //   type: 'docSidebar',
         //   sidebarId: 'guideSidebar',
