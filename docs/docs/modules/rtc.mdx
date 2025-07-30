@@ -1,0 +1,126 @@
+---
+sidebar_position: 3
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Real Time Clock
+
+There are several Real Time Clock (RTC) modules available for the Raspberry Pi, which can be used to keep track of the current time even when the Pi is powered off. These modules typically use I2C communication and can be easily integrated into your projects.
+
+Be sure when connecting a RTC module to use the pinout guide on your compute blade along with the pinout from the RTC modules data sheet to ensure correct wiring.
+
+## Available RTC Modules
+
+### Popular Options
+
+<Tabs groupId="rtc-modules">
+  <TabItem value="adafruit" label="Adafruit PiRTC" default>
+    The [Adafruit PiRTC](https://www.adafruit.com/product/3386) is a reliable and well-documented RTC module.
+    
+    **Features:**
+    - Built-in battery backup
+    - Easy I2C interface
+    - Compatible with all Raspberry Pi models
+    - Excellent documentation and support
+  </TabItem>
+  <TabItem value="ds3231" label="DS3231 Module">
+    The [DS3231 Real Time Clock Module](https://www.pishop.us/product/ds3231-real-time-clock-module-for-raspberry-pi/) from PiShop.us offers high accuracy.
+    
+    **Features:**
+    - Temperature-compensated crystal oscillator
+    - ±2ppm accuracy from 0°C to +40°C
+    - Built-in 32.768kHz oscillator
+    - Battery-backed SRAM
+  </TabItem>
+  <TabItem value="ds1307" label="DS1307 Module">
+    The [DS1307 RTC for Raspberry Pi](https://wiki.seeedstudio.com/Pi_RTC-DS1307/) from Seeed Studio is a cost-effective option.
+    
+    **Features:**
+    - Low-cost solution
+    - 56-byte battery-backed RAM
+    - Programmable square-wave output
+    - Automatic leap year compensation
+  </TabItem>
+</Tabs>
+
+## Installation
+
+### Hardware Setup
+
+1. **Power down** your Compute Blade before connecting any modules
+2. **Connect the RTC module** to your Compute Blade using I2C pins:
+   - VCC → 3.3V or 5V (check your module's requirements)
+   - GND → Ground
+   - SDA → GPIO2 (Pin 3)
+   - SCL → GPIO3 (Pin 5)
+3. **Insert the backup battery** (usually CR2032) into the RTC module
+
+### Software Configuration
+
+<Tabs groupId="installation-method">
+  <TabItem value="auto" label="Automatic Setup" default>
+    ```bash
+    # Enable I2C interface
+    sudo raspi-config
+    # Navigate to: Interfacing Options > I2C > Enable
+    
+    # Reboot to apply changes
+    sudo reboot
+    
+    # Install I2C tools
+    sudo apt update
+    sudo apt install i2c-tools
+    
+    # Detect the RTC module
+    sudo i2cdetect -y 1
+    ```
+  </TabItem>
+  <TabItem value="manual" label="Manual Configuration">
+    ```bash
+    # Edit the boot config
+    sudo nano /boot/config.txt
+    
+    # Add the following line (adjust for your RTC chip):
+    dtoverlay=i2c-rtc,ds3231
+    # or for DS1307: dtoverlay=i2c-rtc,ds1307
+    
+    # Save and reboot
+    sudo reboot
+    
+    # Remove fake hardware clock
+    sudo apt-get -y remove fake-hwclock
+    sudo update-rc.d -f fake-hwclock remove
+    ```
+  </TabItem>
+</Tabs>
+
+### Testing Your RTC
+
+```bash
+# Check if RTC is detected
+sudo hwclock -D -r
+
+# Set system time to RTC
+sudo hwclock -w
+
+# Read time from RTC
+sudo hwclock -r
+```
+
+## Benefits
+
+- **Persistent timekeeping**: Maintains accurate time when the system is powered off
+- **Low power consumption**: Uses minimal power from backup battery
+- **Easy integration**: Standard I2C interface works with existing projects
+- **Essential for logging**: Critical for applications requiring accurate timestamps
+- **Network independence**: No need for NTP when network is unavailable
+
+## Troubleshooting
+
+### Common Issues
+
+- **Module not detected**: Check wiring connections and I2C enable status
+- **Time drift**: Ensure backup battery is properly installed and charged
+- **Boot issues**: Verify correct device tree overlay for your RTC chip

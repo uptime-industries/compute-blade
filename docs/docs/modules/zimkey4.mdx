@@ -1,0 +1,168 @@
+---
+sidebar_position: 4
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Security Modules
+
+For applications requiring additional security features, various security modules can be integrated with the Compute Blade. These modules provide hardware-based security and encryption capabilities.
+
+## ZYMKEY4 for Raspberry Pi
+
+The [ZYMKEY4 for RPI](https://www.zymbit.com/ZYMKEY/) is a hardware security module that can be used to add enhanced security to your Compute Blade setup.
+
+### Features
+
+<Tabs groupId="zymkey-features">
+  <TabItem value="security" label="Security Features" default>
+    **Hardware Security**
+    - Hardware-based encryption and authentication
+    - Secure key generation and storage
+    - Tamper detection and response
+    - True random number generation
+    - Secure boot capabilities
+  </TabItem>
+  <TabItem value="crypto" label="Cryptographic Functions">
+    **Encryption & Authentication**
+    - AES-256 encryption
+    - ECDSA digital signatures
+    - SHA-256 hashing
+    - Key derivation functions
+    - Certificate management
+  </TabItem>
+  <TabItem value="additional" label="Additional Features">
+    **Extra Capabilities**
+    - Digital wallet functionality
+    - Real-time clock with battery backup
+    - GPIO expansion
+    - LED status indicators
+    - Developer API access
+  </TabItem>
+</Tabs>
+
+### Installation
+
+<Tabs groupId="installation-steps">
+  <TabItem value="hardware" label="Hardware Setup" default>
+    **Physical Installation**
+    1. Power down your Compute Blade completely
+    2. Locate the GPIO header on your Compute Blade
+    3. Align the ZYMKEY4 with pins 1-10 of the GPIO header
+    4. Press down firmly to ensure good connection
+    5. The ZYMKEY4 LED should illuminate when powered on
+  </TabItem>
+  <TabItem value="software" label="Software Installation">
+    **Software Configuration**
+    ```bash
+    # Download and run the installer
+    curl -G https://s3.amazonaws.com/zk-sw-repo/install_zk_sw.sh | sudo bash
+    
+    # Reboot to complete installation
+    sudo reboot
+    
+    # Test the installation
+    zkifc --slot-info
+    ```
+  </TabItem>
+  <TabItem value="config" label="Configuration">
+    **Initial Configuration**
+    ```bash
+    # Initialize the ZYMKEY4
+    sudo zkifc --lock
+    
+    # Generate a test key pair
+    zkifc --gen-key-pair --key-name test_key
+    
+    # Verify functionality
+    zkifc --get-public-key --key-name test_key
+    ```
+  </TabItem>
+</Tabs>
+
+### Programming Examples
+
+<Tabs groupId="programming-examples">
+  <TabItem value="python" label="Python" default>
+    ```python
+    import zymkey
+    
+    # Generate a key pair
+    zymkey.client.gen_key_pair('my_keypair')
+    
+    # Sign some data
+    message = "Hello, secure world!"
+    signature = zymkey.client.sign(message, 'my_keypair')
+    
+    # Verify the signature
+    is_valid = zymkey.client.verify(message, signature, 'my_keypair')
+    print(f"Signature valid: {is_valid}")
+    ```
+  </TabItem>
+  <TabItem value="nodejs" label="Node.js">
+    ```javascript
+    const zymkey = require('zymkey-js');
+    
+    // Initialize the client
+    const client = new zymkey.Client();
+    
+    // Encrypt some data
+    const plaintext = "Sensitive information";
+    const encrypted = client.encrypt(plaintext);
+    
+    // Decrypt the data
+    const decrypted = client.decrypt(encrypted);
+    console.log("Decrypted:", decrypted);
+    ```
+  </TabItem>
+  <TabItem value="cli" label="Command Line">
+    ```bash
+    # Create encrypted file
+    echo "Secret data" | zkifc --encrypt --output secret.enc
+    
+    # Decrypt the file
+    zkifc --decrypt --input secret.enc
+    
+    # Sign a file
+    zkifc --sign --input document.txt --key-name signing_key
+    ```
+  </TabItem>
+</Tabs>
+
+### Use Cases
+
+#### IoT Security
+- **Device authentication** in IoT networks
+- **Secure firmware updates** over-the-air
+- **Data encryption** for sensor readings
+- **Network security** for edge devices
+
+#### Industrial Applications
+- **Equipment authentication** in manufacturing
+- **Secure data logging** for compliance
+- **Access control** for industrial systems
+- **Supply chain verification**
+
+#### Financial & Healthcare
+- **Payment processing** at point-of-sale
+- **Patient data protection** in medical devices
+- **Compliance** with HIPAA, PCI-DSS standards
+- **Audit trail** generation and verification
+
+### Troubleshooting
+
+**Common Issues:**
+- **LED not lighting**: Check GPIO connection and power supply
+- **Software installation fails**: Ensure internet connection and run as sudo
+- **Key generation errors**: Verify ZYMKEY4 is properly locked and initialized
+- **Performance issues**: Check for conflicting GPIO usage
+
+**Support Resources:**
+- [Zymbit Documentation](https://docs.zymbit.com/)
+- [Community Forum](https://community.zymbit.com/)
+- [GitHub Examples](https://github.com/Zymbit-Wallet)
+
+:::warning Security Notice
+Always follow proper security practices when handling cryptographic keys and sensitive data. The ZYMKEY4 provides hardware-level security, but proper implementation and key management are essential.
+:::
